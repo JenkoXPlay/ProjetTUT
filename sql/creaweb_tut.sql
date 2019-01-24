@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:3306
--- Généré le :  Ven 18 Janvier 2019 à 14:47
+-- Généré le :  Jeu 24 Janvier 2019 à 08:16
 -- Version du serveur :  5.5.49-log
 -- Version de PHP :  7.0.9
 
@@ -155,6 +155,21 @@ CREATE TABLE IF NOT EXISTS `maintenance` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `messagerie`
+--
+
+CREATE TABLE IF NOT EXISTS `messagerie` (
+  `id` int(11) NOT NULL,
+  `sender` int(11) NOT NULL,
+  `destinataire` int(11) NOT NULL,
+  `messsage` int(11) NOT NULL,
+  `vue` tinyint(1) NOT NULL,
+  `date_msg` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `reponsesannonces`
 --
 
@@ -261,6 +276,12 @@ ALTER TABLE `maintenance`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `messagerie`
+--
+ALTER TABLE `messagerie`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `reponsesannonces`
 --
 ALTER TABLE `reponsesannonces`
@@ -323,6 +344,11 @@ ALTER TABLE `loisirs`
 -- AUTO_INCREMENT pour la table `maintenance`
 --
 ALTER TABLE `maintenance`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `messagerie`
+--
+ALTER TABLE `messagerie`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `reponsesannonces`
