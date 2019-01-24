@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `messagerie` (
   `id` int(11) NOT NULL,
   `sender` int(11) NOT NULL,
   `destinataire` int(11) NOT NULL,
-  `messsage` int(11) NOT NULL,
+  `messsage` text NOT NULL,
   `vue` tinyint(1) NOT NULL,
   `date_msg` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
