@@ -2,8 +2,8 @@
 
     include('connect.php');
 
-    include('function/user.php');
+    include('function/reponsesannonces.php');
 
-    addUser($bdd, "bonjour", true, 545646);
+    addRepAnnonce($bdd, 1, 1, 1);
 
 ?>
