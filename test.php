@@ -2,8 +2,8 @@
 
     include('connect.php');
 
-    include('function/reponsesannonces.php');
+    include('function/messagerie.php');
 
-    addRepAnnonce($bdd, 1, 1, 1);
+    addMessage($bdd, 1, 1, "Test de message");
 
 ?>
