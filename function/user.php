@@ -38,4 +38,16 @@
         ]);
     }
 
+    // suppression de tous les users
+    function deleteAllUsers($bdd) {
+        $req = $bdd->prepare("DELETE FROM users");
+        $req->execute();
+    }
+
+    // suppression d'un utilisateur
+    function deleteUser($bdd, $idUser) {
+        $req = $bdd->prepare("DELETE FROM users WHERE id='$idUser'");
+        $req->execute();
+    }
+
 ?>

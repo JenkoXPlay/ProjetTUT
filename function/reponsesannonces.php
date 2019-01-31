@@ -20,4 +20,34 @@
         ]);
     }
 
+    // suppression tous les rep annonces
+    function deleteAllRep($bdd) {
+        $req = $bdd->prepare("DELETE FROM reponsesannonces");
+        $req->execute();
+    }
+
+    // suppresion par id
+    function deleteRepId($bdd, $idRep) {
+        $req = $bdd->prepare("DELETE FROM reponsesannonces WHERE id='$idRep'");
+        $req->execute();
+    }
+
+    // suppresion par annonces
+    function deleteRepAnnonce($bdd, $idAnnonce) {
+        $req = $bdd->prepare("DELETE FROM reponsesannonces WHERE idAnnoncesEntreprises='$idAnnonce'");
+        $req->execute();
+    }
+
+    // suppresion par candidat
+    function deleteRepCandidat($bdd, $idCandidat) {
+        $req = $bdd->prepare("DELETE FROM reponsesannonces WHERE candidat='$idCandidat'");
+        $req->execute();
+    }
+
+    // suppresion par entreprise
+    function deleteRepEntreprise($bdd, $idEntreprise) {
+        $req = $bdd->prepare("DELETE FROM reponsesannonces WHERE entreprise='$idEntreprise'");
+        $req->execute();
+    }
+
 ?>

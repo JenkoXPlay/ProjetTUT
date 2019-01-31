@@ -20,4 +20,22 @@
         ]);
     }
 
+    // suppression toutes annonces
+    function deleteAllAnnonces($bdd) {
+        $req = $bdd->prepare("DELETE FROM annoncesentreprises");
+        $req->execute();
+    }
+
+    // suppression annonce par id
+    function deleteAnnonceId($bdd, $idAnnonce) {
+        $req = $bdd->prepare("DELETE FROM annoncesentreprises WHERE id='$idAnnonce'");
+        $req->execute();
+    }
+
+    // suppression annonce par entreprise
+    function deleteAnnonceCompany($bdd, $idCompany) {
+        $req = $bdd->prepare("DELETE FROM annoncesentreprises WHERE entreprise='$idCompany'");
+        $req->execute();
+    }
+
 ?>

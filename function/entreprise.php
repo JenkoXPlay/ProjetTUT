@@ -24,4 +24,22 @@
         ]);
     }
 
+    // suppression toutes les entreprises
+    function deleteAllCompany($bdd) {
+        $req = $bdd->prepare("DELETE FROM entreprises");
+        $req->execute();
+    }
+
+    // suppression une entreprise par son id
+    function deleteCompanyId($bdd, $idCompany) {
+        $req = $bdd->prepare("DELETE FROM entreprises WHERE id='$idCompany'");
+        $req->execute();
+    }
+
+    // suppression entreprises par responsable
+    function deleteCompanyResponsable($bdd, $idResponsable) {
+        $req = $bdd->prepare("DELETE FROM entreprises WHERE responsable='$idResponsable'");
+        $req->execute();
+    }
+
 ?>

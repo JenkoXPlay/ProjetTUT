@@ -24,4 +24,16 @@
         ]);
     }
 
+    // suppression de tous les admins
+    function deleteAllAdmin($bdd) {
+        $req = $bdd->prepare("DELETE FROM admin");
+        $req->execute();
+    }
+
+    // suppression d'un compte admin
+    function deleteAdmin($bdd, $idAdmin) {
+        $req = $bdd->prepare("DELETE FROM admin WHERE id='$idAdmin'");
+        $req->execute();
+    }
+
 ?>
