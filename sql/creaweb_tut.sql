@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:3306
--- Généré le :  Jeu 24 Janvier 2019 à 08:16
+-- Généré le :  Jeu 31 Janvier 2019 à 09:29
 -- Version du serveur :  5.5.49-log
 -- Version de PHP :  7.0.9
 
@@ -35,7 +35,14 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `avatar` text NOT NULL,
   `privilege` varchar(100) NOT NULL,
   `ban` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `admin`
+--
+
+INSERT INTO `admin` (`id`, `pseudo`, `password`, `creation`, `last_connexion`, `avatar`, `privilege`, `ban`) VALUES
+(3, 'Maxime', '1234', '2019-01-17 00:00:00', '2019-01-11 00:00:00', 'zeazeaze', 'admin', 'non');
 
 -- --------------------------------------------------------
 
@@ -62,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `annoncesentreprises` (
   `description` text NOT NULL,
   `typeAnnonce` varchar(150) NOT NULL,
   `remuneration` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -93,7 +100,14 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
   `but` text NOT NULL,
   `typeEntreprise` varchar(150) NOT NULL,
   `siret` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `entreprises`
+--
+
+INSERT INTO `entreprises` (`id`, `responsable`, `nom`, `description`, `logo`, `but`, `typeEntreprise`, `siret`) VALUES
+(5, 1, 'mlklklmkm', 'lmkmlkmk', 'mlkmlkmlklklmk', 'kmklmkmlk', 'pme', 'lmkmkmlk');
 
 -- --------------------------------------------------------
 
@@ -162,10 +176,10 @@ CREATE TABLE IF NOT EXISTS `messagerie` (
   `id` int(11) NOT NULL,
   `sender` int(11) NOT NULL,
   `destinataire` int(11) NOT NULL,
-  `messsage` int(11) NOT NULL,
-  `vue` tinyint(1) NOT NULL,
+  `message` text NOT NULL,
+  `etat_msg` tinyint(1) NOT NULL,
   `date_msg` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -180,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `reponsesannonces` (
   `entreprise` int(11) NOT NULL,
   `datePostuler` datetime NOT NULL,
   `notif` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -204,7 +218,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `raison_ban` text NOT NULL,
   `admin` tinyint(1) NOT NULL,
   `premium` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `users`
+--
+
+INSERT INTO `users` (`id`, `prenom`, `nom`, `email`, `password`, `type_compte`, `departement`, `description`, `telephone`, `date_creation`, `date_last_connexion`, `avert`, `raison_ban`, `admin`, `premium`) VALUES
+(4, 'Maxime', 'Lefebvre', 'max@test.com', '1234', 'etudiant', 62, 'fdsfdsfs', 0, '2019-01-02 00:00:00', '2019-01-24 00:00:00', '0', 'sdsdqsd', 0, 0);
 
 --
 -- Index pour les tables exportées
@@ -304,7 +325,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `administration`
 --
@@ -314,7 +335,7 @@ ALTER TABLE `administration`
 -- AUTO_INCREMENT pour la table `annoncesentreprises`
 --
 ALTER TABLE `annoncesentreprises`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `competences`
 --
@@ -324,7 +345,7 @@ ALTER TABLE `competences`
 -- AUTO_INCREMENT pour la table `entreprises`
 --
 ALTER TABLE `entreprises`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `experiences`
 --
@@ -349,17 +370,17 @@ ALTER TABLE `maintenance`
 -- AUTO_INCREMENT pour la table `messagerie`
 --
 ALTER TABLE `messagerie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `reponsesannonces`
 --
 ALTER TABLE `reponsesannonces`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
