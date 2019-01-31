@@ -14,5 +14,17 @@
             $poste
          ]);
     }
+    function deleteExpAll($bdd){
+        $req= $bdd->prepare("DELETE FROM ProjetTut_experiences");
+        $req->execute();
+    }
+    function deleteExpId($bdd,$idExp){
+        $req= $bdd->prepare("DELETE FROM ProjetTut_experiences WHERE id='$idExp'");
+        $req->execute();
+    }
+    function deleteAllExpDe($bdd,$ExpDe){
+        $req= $bdd->prepare("DELETE FROM ProjetTut_experiences WHERE expDe='$ExpDe'");
+        $req->execute();
+    }
     
 ?>
