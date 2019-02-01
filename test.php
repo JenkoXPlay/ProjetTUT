@@ -2,8 +2,8 @@
 
     include('connect.php');
 
-    include('function/user.php');
+    include('function/messagerie.php');
 
-    addUser($bdd, "bonjour", true, 545646);
+    addMessage($bdd, 1, 1, "Test de message");
 
 ?>
