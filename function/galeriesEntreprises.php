@@ -1,7 +1,7 @@
 <?php
-
-    function addGaleriesEntreprises($bdd,$idEntreprises,$lienPhoto ){
-        $req= $bdd->prepare("INSERT INTO ProjetTut_galeriesEntreprises (id,idEntreprises,lienPhoto,ajoutDate) VALUES (?,?,?,?)");
+    // Ajout GalerieEntreprises
+    function addGalerieEntreprises($bdd,$idEntreprises,$lienPhoto ){
+        $req= $bdd->prepare("INSERT INTO galerieEntreprises (id,idEntreprises,lienPhoto,ajoutDate) VALUES (?,?,?,?)");
         $req->execute([ 
             '',
             $idEntreprises,
@@ -10,16 +10,19 @@
             
          ]);
     }
-    function deleteGaleriesEntreprisesAll($bdd){
-        $req= $bdd->prepare("DELETE FROM ProjetTut_galeriesEntreprises");
+    // Delete All GalerieEntreprises
+    function deleteGalerieEntreprisesAll($bdd){
+        $req= $bdd->prepare("DELETE FROM galerieEntreprises");
         $req->execute();
     }
-    function deleteGaleriesEntreprisesId($bdd,$idGaleEntreprise){
-        $req= $bdd->prepare("DELETE FROM ProjetTut_galeriesEntreprises WHERE id='$idGaleEntreprise'");
+    // Delete Expérience by GalerieEntreprises
+    function deleteGalerieEntreprisesId($bdd,$idGaleEntreprise){
+        $req= $bdd->prepare("DELETE FROM galerieEntreprises WHERE id='$idGaleEntreprise'");
         $req->execute();
     }
-    function deleteAllGaleriesEntreprises($bdd,$idEntreprise){
-        $req= $bdd->prepare("DELETE FROM ProjetTut_galeriesEntreprises WHERE idEntreprises='$idEntreprise'");
+    // Delete All Expérience by GalerieEntreprises
+    function deleteAllGalerieEntreprises($bdd,$idEntreprise){
+        $req= $bdd->prepare("DELETE FROM galerieEntreprises WHERE idEntreprises='$idEntreprise'");
         $req->execute();
     }
 ?>
