@@ -50,4 +50,39 @@
         $req->execute();
     }
 
+    // lecture all
+    function getRepEntreprise($bdd) {
+        $req = $bdd->prepare("SELECT * FROM reponsesannonces");
+        $req->execute();
+        return $req;
+    }
+
+    // lecture id
+    function getRepEntrepriseId($bdd, $idRep) {
+        $req = $bdd->prepare("SELECT * FROM reponsesannonces WHERE id='$idRep'");
+        $req->execute();
+        return $req;
+    }
+
+    // lecture id de l'annonce
+    function getRepEntrepriseId($bdd, $idAnnonce) {
+        $req = $bdd->prepare("SELECT * FROM reponsesannonces WHERE idAnnoncesEntreprises='$idAnnonce'");
+        $req->execute();
+        return $req;
+    }
+
+    // lecture par candidat
+    function getRepEntrepriseId($bdd, $idUser) {
+        $req = $bdd->prepare("SELECT * FROM reponsesannonces WHERE candidat='$idUser'");
+        $req->execute();
+        return $req;
+    }
+
+    // lecture par entreprise
+    function getRepEntrepriseId($bdd, $idCompany) {
+        $req = $bdd->prepare("SELECT * FROM reponsesannonces WHERE entreprise='$idCompany'");
+        $req->execute();
+        return $req;
+    }
+
 ?>

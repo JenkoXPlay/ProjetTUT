@@ -1,0 +1,126 @@
+.content {
+    width: 90%;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu {
+    width: 100%;
+    margin: 20px 0 20px 0;
+}
+.menu a {
+    color: #2d3436;
+    font-weight: 400;
+    font-size: 1.6em;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.menu a:hover {
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+form {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+form input, select, textarea {
+    width: 400px;
+    padding: 7px;
+    border-radius: 4px;
+    border: 1px solid #2d3436;
+    resize: none;
+}
+form input[type=submit] {
+    background: #0984e3;
+    color: #fff;
+    font-weight: bold;
+}
+form input[type=submit]:hover {
+    cursor: pointer;
+}
+.erreur {
+    border: 1px solid #d63031;
+    border-left: 5px solid #d63031;
+    border-radius: 4px;
+    padding: 7px;
+    color: #2d3436;
+    font-weight: 400;
+    margin: 10px 0 10px 0;
+    margin: 0 auto;
+    width: 400px;
+}
+.success {
+    border: 1px solid #00b894;
+    border-left: 5px solid #00b894;
+    border-radius: 4px;
+    padding: 7px;
+    color: #2d3436;
+    font-weight: 400;
+    margin: 10px 0 10px 0;
+    margin: 0 auto;
+    width: 400px;
+}
+
+.categorie {
+    width: 100%;
+    border: 1px solid #2d3436;
+    border-radius: 4px;
+    padding: 0 0 10px 0;
+    text-align: left;
+    font-style: Arial, sans-serif;
+}
+.categorie .titreCat {
+    background: #2d3436;
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.4em;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+}
+.categorie .sousContent {
+    color: #2d3436;
+    padding: 10px 10px 0 10px;
+}
+.categorie .sousContent .spanPost {
+    background: #00b894;
+    color: #2d3436;
+    font-weight: 400;
+    border-radius: 4px;
+    padding: 5px;
+    text-transform: uppercase;
+}
+.categorie .sousContent .spanGet {
+    background: #0984e3;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 4px;
+    padding: 5px;
+    text-transform: uppercase;
+}
+.categorie .sousContent .spanPut {
+    background: #6c5ce7;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 4px;
+    padding: 5px;
+    text-transform: uppercase;
+}
+.categorie .sousContent .spanDelete {
+    background: #d63031;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 4px;
+    padding: 5px;
+    text-transform: uppercase;
+}
+.categorie .sousContent .requete {
+    background: #fdcb6e;
+    color: #2d3436;
+    font-weight: 400;
+    border-radius: 4px;
+    padding: 5px;
+    margin-left: 10px;
+}

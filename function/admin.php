@@ -36,4 +36,25 @@
         $req->execute();
     }
 
+    // lecture all
+    function getAdmin($bdd) {
+        $req = $bdd->prepare("SELECT * FROM admin");
+        $req->execute();
+        return $req;
+    }
+
+    // lecture par id
+    function getAdminId($bdd, $id) {
+        $req = $bdd->prepare("SELECT * FROM admin WHERE id='$id'");
+        $req->execute();
+        return $req;
+    }
+
+    // lecture par pseudo
+    function getAdminPseudo($bdd, $pseudo) {
+        $req = $bdd->prepare("SELECT * FROM admin WHERE pseudo='$pseudo'");
+        $req->execute();
+        return $req;
+    }
+
 ?>

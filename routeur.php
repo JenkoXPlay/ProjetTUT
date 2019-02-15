@@ -50,8 +50,10 @@ class Router {
 
 $router = new Router();
 
-$router->setRoutes('/SmashChat/', 'index.php');
+$router->setRoutes('/Altitude/', 'index.php');
 $router->setRoutes('/home', 'index.php');
+$router->setRoutes('/swagger', './swagger/index.php');
+$router->setRoutes('/swaggerAdd', './swagger/add_swagger.php');
 $router->setRoutes('/logout', 'logout.php');
 $router->setRoutes('/profil/:id_membre', 'profil.php');
 $router->setRoutes('/maintenance', 'maintenance.php');

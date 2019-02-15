@@ -1,7 +1,7 @@
 <?php
 
     function addCompetences($bdd, $competenceDe, $domaine, $competence, $level){
-        $req= $bdd->prepare("INSERT INTO ProjetTut_competences (id, competenceDe, domaine, competence, level) VALUES (?,?,?,?,?);");
+        $req= $bdd->prepare("INSERT INTO competences (id, competenceDe, domaine, competence, level) VALUES (?,?,?,?,?);");
         $req->execute([ 
             '',
             $competenceDe,
@@ -11,17 +11,17 @@
          ]);
     }
     function deleteCompAll($bdd){
-        $req= $bdd->prepare("DELETE FROM ProjetTut_competences;");
+        $req= $bdd->prepare("DELETE FROM competences");
         $req->execute();
     }
 
     function deleteCompId($bdd,$idComp) {
-        $req = $bdd->prepare("DELETE FROM ProjetTut_competences WHERE id='$idComp'");
+        $req = $bdd->prepare("DELETE FROM competences WHERE id='$idComp'");
         $req->execute();
     }
 
     function deleteAllCompDe($bdd,$competenceDe) {
-        $req = $bdd->prepare("DELETE FROM ProjetTut_competences WHERE competenceDe='$competenceDe'");
+        $req = $bdd->prepare("DELETE FROM competences WHERE competenceDe='$competenceDe'");
         $req->execute();
     }
     

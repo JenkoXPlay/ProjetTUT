@@ -50,4 +50,25 @@
         $req->execute();
     }
 
+    // lecture de tous les users
+    function getAllUsers($bdd) {
+        $req = $bdd->prepare("SELECT * FROM users");
+        $req->execute();
+        return $req;
+    }
+
+    // lecture d'un utilisateur
+    function getIdUser($bdd, $idUser) {
+        $req = $bdd->prepare("SELECT * FROM users WHERE id='$idUser'");
+        $req->execute();
+        return $req;
+    }
+
+    // lecture des etudiants
+    function getUsersStatus($bdd, $status) {
+        $req = $bdd->prepare("SELECT * FROM users WHERE type_compte='$status'");
+        $req->execute();
+        return $req;
+    }
+
 ?>
