@@ -1,14 +1,14 @@
 <?php
     session_start();
     if (!isset($_SESSION['swagger']) || $_SESSION['swagger'] != "Lexa") {
-        header('Location:/swagger');
+        header('Location:index.php');
     }
 ?>
 <html>
     <head>
         <title>Swagger PHP - Maxime Lefebvre</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="./swagger/style.css" />
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         
@@ -19,7 +19,7 @@
             </div>
 
             <?php
-                include('./connect.php'); // chemin relatif car utlisation du routeur
+                include('../connect.php'); // chemin relatif car utlisation du routeur
                 if (isset($_POST['submit'])) {
                     $type = trim($_POST['type']);
                     $categorie = trim($_POST['categorie']);
@@ -55,6 +55,7 @@
                     <option>messagerie</option>
                     <option>reponsesannonces</option>
                     <option>users</option>
+                    <option>diplomes</option>
                 </select>
                 <br /><br />
                 <input type="text" name="requete" placeholder="Requête, ex : addUser($bdd, $pseudo, $password)" />

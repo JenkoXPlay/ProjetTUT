@@ -1,7 +1,7 @@
 <?php
 
     // Ajouter un utilisateur à la BDD
-    function addUser($bdd, $prenom, $nom, $email, $password, $type_compte){
+    function addUser($bdd, $prenom, $nom, $email, $password, $type_compte, $departement){
         $req = $bdd->prepare("INSERT INTO users 
                                         (id,
                                         prenom,
@@ -26,7 +26,7 @@
             $email,
             $password,
             $type_compte,
-            0,
+            $departement,
             "",
             0,
             date("Y-m-d H:i:s"),

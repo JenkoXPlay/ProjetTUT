@@ -1,0 +1,21 @@
+/* CSS GLOBAL */
+
+/* ALERT */
+.alertError {
+    border: 1px solid #d63031;
+    border-left: 7px solid #d63031;
+    color: #2d3436;
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 2px;
+}
+
+.alertSuccess {
+    border: 1px solid #00e1a0;
+    border-left: 7px solid #00e1a0;
+    color: #2d3436;
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 2px;
+}
+/* ALERT */
