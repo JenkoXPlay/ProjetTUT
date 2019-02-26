@@ -14,7 +14,7 @@
 
 <body>
     <div class="container_login">
-        <img class="logo" src="img/logo.svg"/>
+        <img class="logo" src="img/logo_black.svg"/>
 
         <div class="container_page">
             <div class="barre">
@@ -25,7 +25,7 @@
             <div class="container_formillu">
                 <div class="formulaire">
                     <h1 class="titre_connect">Connectez-vous</h1>
-                    <p>Vous n'avez pas encore un compte Alt'itude ? <br/><a href="#" class="btn_creer">Créez-en un</a></p>
+                    <p>Vous n'avez pas encore un compte Alt'itude ? <br/><a href="/register" class="btn_creer">Créez-en un</a></p>
 
                     <form action="" method="POST" autocomplete="off">
                         <label>Adresse email</label><br/>
@@ -35,10 +35,10 @@
                         <input class="password" type="password" name="password" placeholder="*******"/><br/>
                         <div class="container_checkbox">
                             <div class="container_btnCheck">
-                                <input class="check" type="checkbox"/><label> Maintenir la connexion </label>
+                                <input class="check" type="checkbox" id="maintenirSession" /><label for="maintenirSession"> Maintenir la connexion </label>
                             </div>
                             <div class="container_btnOubli">
-                                <a class="btn_oubli" href="#">J'ai oublié mon mot de passe</a><br/>
+                                <a class="btn_oubli" href="">J'ai oublié mon mot de passe</a><br/>
                             </div>
                         </div>
                         <center><input class="btn_connect" type="submit" value="Connexion" name="connexion" /></center>
