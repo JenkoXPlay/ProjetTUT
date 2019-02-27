@@ -109,18 +109,6 @@ body {
     border-radius: 5px;
     padding: 7px;
 }
-.container .formulaire form .btnRegister {
-    margin: 0 auto;
-    border: none;
-    color: #fff;
-    background: #4b00ff;
-    border-radius: 5px;
-    min-width: 300px;
-    padding: 10px 0 10px 0;
-}
-.container .formulaire form .btnRegister:hover {
-    cursor: pointer;
-}
 
 .container .illu {
     background: #eaeaeb;

@@ -80,21 +80,6 @@ body{
     border:none;
 }
 
-.btn_connect{
-    margin: 0 auto;
-    border: none;
-    color: #fff;
-    background: #4b00ff;
-    border-radius: 5px;
-    min-width: 300px;
-    padding: 10px 0 10px 0;
-    margin-top:50px;
-    margin-bottom:60px;
-}
-.btn_connect:hover {
-    cursor: pointer;
-}
-
 .btn_oubli{
     color: #4b00ff;
     text-decoration: none;

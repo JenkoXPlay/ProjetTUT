@@ -86,7 +86,7 @@
 
                         <br /><br />
                         <center>
-                            <input type="submit" name="createUser" class="btnRegister" value="Créer le compte" />
+                            <input type="submit" name="createUser" class="btnPurple min_width_300_px" value="Créer le compte" />
                         </center
                     </form>
                 </div>

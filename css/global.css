@@ -19,3 +19,23 @@
     border-radius: 2px;
 }
 /* ALERT */
+
+/* BOUTON */
+.btnPurple {
+    margin: 0 auto;
+    border: none;
+    color: #fff;
+    background: #4b00ff;
+    border-radius: 5px;
+    padding: 10px 0 10px 0;
+}
+.btnPurple:hover {
+    cursor: pointer;
+}
+/* BOUTON */
+
+/* WIDTH */
+.min_width_300_px {
+    min-width: 300px;
+}
+/* WIDTH */

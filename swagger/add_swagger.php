@@ -56,6 +56,7 @@
                     <option>reponsesannonces</option>
                     <option>users</option>
                     <option>diplomes</option>
+                    <option>competencesannonce</option>
                 </select>
                 <br /><br />
                 <input type="text" name="requete" placeholder="Requête, ex : addUser($bdd, $pseudo, $password)" />

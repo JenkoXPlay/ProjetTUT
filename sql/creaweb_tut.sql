@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:3306
--- Généré le :  Mar 26 Février 2019 à 13:47
+-- Généré le :  Mer 27 Février 2019 à 14:45
 -- Version du serveur :  5.5.49-log
 -- Version de PHP :  7.0.9
 
@@ -88,6 +88,20 @@ CREATE TABLE IF NOT EXISTS `competences` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `competencesannonce`
+--
+
+CREATE TABLE IF NOT EXISTS `competencesannonce` (
+  `id` int(11) NOT NULL,
+  `annonce` int(11) NOT NULL,
+  `domaine` varchar(255) NOT NULL,
+  `competence` varchar(255) NOT NULL,
+  `level` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `diplomes`
 --
 
@@ -121,16 +135,17 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
   `logo` text NOT NULL,
   `but` text NOT NULL,
   `typeEntreprise` varchar(150) NOT NULL,
-  `siret` text NOT NULL
+  `siret` text NOT NULL,
+  `departement` int(5) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `entreprises`
 --
 
-INSERT INTO `entreprises` (`id`, `responsable`, `nom`, `description`, `logo`, `but`, `typeEntreprise`, `siret`) VALUES
-(5, 1, 'mlklklmkm', 'lmkmlkmk', 'mlkmlkmlklklmk', 'kmklmkmlk', 'pme', 'lmkmkmlk'),
-(6, 4, 'IBM', 'Best Company', 'ljfksdjlksjlfjl', 'lkjlkjlkjl', 'ge', 'lsjkflsdjkfljlkdsf');
+INSERT INTO `entreprises` (`id`, `responsable`, `nom`, `description`, `logo`, `but`, `typeEntreprise`, `siret`, `departement`) VALUES
+(5, 1, 'mlklklmkm', 'lmkmlkmk', 'mlkmlkmlklklmk', 'kmklmkmlk', 'pme', 'lmkmkmlk', 59),
+(6, 4, 'IBM', 'Best Company', 'ljfksdjlksjlfjl', 'lkjlkjlkjl', 'ge', 'lsjkflsdjkfljlkdsf', 62);
 
 -- --------------------------------------------------------
 
@@ -246,7 +261,7 @@ CREATE TABLE IF NOT EXISTS `swagger` (
   `categorie` varchar(255) NOT NULL,
   `requete` text NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `swagger`
@@ -280,7 +295,7 @@ INSERT INTO `swagger` (`id`, `type`, `categorie`, `requete`, `description`) VALU
 (25, 'get', 'users', 'getAllUsers($bdd)', 'Récupérer tous les utilisateurs'),
 (26, 'get', 'users', 'getIdUser($bdd, $idUser)', 'Récupérer un utilisateur'),
 (27, 'get', 'users', 'getUsersStatus($bdd, $status)', 'Récupérer les utilisateurs en fonction de leur status'),
-(28, 'post', 'entreprise', 'addCompany($bdd, $responsable, $nom, $description, $logo, $but, $typeEntreprise, $siret)', 'Création d&#039;une entreprise'),
+(28, 'post', 'entreprise', 'addCompany($bdd, $responsable, $nom, $description, $logo, $but, $typeEntreprise, $siret, $departement)', 'Création d&#039;une entreprise'),
 (29, 'delete', 'entreprise', 'deleteAllCompany($bdd)', 'Suppression de toutes les entreprises'),
 (30, 'delete', 'entreprise', 'deleteCompanyId($bdd, $idCompany)', 'Suppression d&#039;une entreprise par son ID'),
 (31, 'delete', 'entreprise', 'deleteCompanyResponsable($bdd, $idResponsable)', 'Suppression d&#039;une entreprise en fonction du responsable'),
@@ -337,7 +352,14 @@ INSERT INTO `swagger` (`id`, `type`, `categorie`, `requete`, `description`) VALU
 (82, 'delete', 'diplomes', 'deleteDiplomeUser($bdd, $idUSer)', 'Supprime les diplomes d&#039;un utilisateur'),
 (83, 'get', 'diplomes', 'getDiplomes($bdd)', 'Récupère tous les diplomes'),
 (84, 'get', 'diplomes', 'getDiplomeId($bdd, $id)', 'Récupère diplome par id'),
-(85, 'get', 'diplomes', 'getDiplomeUser($bdd, $idUser)', 'Récupère les diplomes d&#039;un utilisateur');
+(85, 'get', 'diplomes', 'getDiplomeUser($bdd, $idUser)', 'Récupère les diplomes d&#039;un utilisateur'),
+(86, 'post', 'competencesannonce', 'addCompetencesAnnonce($bdd, $annonce, $domaine, $competence, $level)', 'Ajouter une compétence à une annonce'),
+(87, 'delete', 'competencesannonce', 'deleteCompAnnonceAll($bdd)', 'Supprimer toutes les compétences des annonces'),
+(88, 'delete', 'competencesannonce', 'deleteCompAnnonceId($bdd,$idComp)', 'Supprimer une compétence d&#039;une annonce par son id'),
+(89, 'delete', 'competencesannonce', 'deleteAllCompAnnonce($bdd,$annonce)', 'Supprimer toutes les compétences d&#039;une annonce'),
+(90, 'get', 'competencesannonce', 'getAllCompAnnonce($bdd)', 'Afficher toutes les compétences d&#039;une annonce'),
+(91, 'get', 'competencesannonce', 'getIdCompAnnonce($bdd,$idComp)', 'Afficher une compétence annonce par son id'),
+(92, 'get', 'competencesannonce', 'getAllCompAnnonce($bdd,$annonce)', 'Afficher toutes les compétences d&#039;une annonce');
 
 -- --------------------------------------------------------
 
@@ -407,20 +429,36 @@ ALTER TABLE `annoncesentreprises`
 --
 ALTER TABLE `competences`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `competenceDe` (`competenceDe`,`domaine`,`competence`,`level`);
+  ADD KEY `competenceDe` (`competenceDe`,`domaine`,`competence`,`level`),
+  ADD KEY `domaine` (`domaine`),
+  ADD KEY `competence` (`competence`,`level`),
+  ADD KEY `level` (`level`);
+
+--
+-- Index pour la table `competencesannonce`
+--
+ALTER TABLE `competencesannonce`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `annonce` (`annonce`),
+  ADD KEY `domaine` (`domaine`),
+  ADD KEY `competence` (`competence`),
+  ADD KEY `level` (`level`);
 
 --
 -- Index pour la table `diplomes`
 --
 ALTER TABLE `diplomes`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user` (`user`);
 
 --
 -- Index pour la table `entreprises`
 --
 ALTER TABLE `entreprises`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `responsable` (`responsable`,`nom`,`typeEntreprise`);
+  ADD KEY `responsable` (`responsable`,`nom`,`typeEntreprise`),
+  ADD KEY `typeEntreprise` (`typeEntreprise`),
+  ADD KEY `departement` (`departement`);
 
 --
 -- Index pour la table `experiences`
@@ -453,7 +491,8 @@ ALTER TABLE `maintenance`
 -- Index pour la table `messagerie`
 --
 ALTER TABLE `messagerie`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sender` (`sender`,`destinataire`,`etat_msg`);
 
 --
 -- Index pour la table `reponsesannonces`
@@ -469,7 +508,8 @@ ALTER TABLE `reponsesannonces`
 ALTER TABLE `swagger`
   ADD PRIMARY KEY (`id`),
   ADD KEY `categorie` (`categorie`),
-  ADD KEY `type` (`type`);
+  ADD KEY `type` (`type`),
+  ADD KEY `type_2` (`type`,`categorie`);
 
 --
 -- Index pour la table `users`
@@ -501,6 +541,11 @@ ALTER TABLE `annoncesentreprises`
 -- AUTO_INCREMENT pour la table `competences`
 --
 ALTER TABLE `competences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `competencesannonce`
+--
+ALTER TABLE `competencesannonce`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `diplomes`
@@ -546,7 +591,7 @@ ALTER TABLE `reponsesannonces`
 -- AUTO_INCREMENT pour la table `swagger`
 --
 ALTER TABLE `swagger`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=86;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=93;
 --
 -- AUTO_INCREMENT pour la table `users`
 --

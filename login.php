@@ -5,10 +5,11 @@
     <head>
         <title>Alt'itude - Trouvez un emploi à votre hauteur</title>
         <meta charset="utf-8"/>   
-        <link rel="stylesheet" href="css/spectre.min.css">
-        <link rel="stylesheet" href="css/spectre-icons.min.css">
-        <link rel="stylesheet" href="css/spectre-exp.min.css">
-        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/spectre.min.css" />
+        <link rel="stylesheet" href="css/spectre-icons.min.css" />
+        <link rel="stylesheet" href="css/spectre-exp.min.css" />
+        <link rel="stylesheet" href="./css/global.css" />
+        <link rel="stylesheet" href="css/login.css" />
     </head>
 </html>
 
@@ -41,7 +42,10 @@
                                 <a class="btn_oubli" href="">J'ai oublié mon mot de passe</a><br/>
                             </div>
                         </div>
-                        <center><input class="btn_connect" type="submit" value="Connexion" name="connexion" /></center>
+                        <br /><br />
+                        <center>
+                            <input class="btnPurple min_width_300_px" type="submit" value="Connexion" name="connexion" />
+                        </center>
                     </form>
                     <?php
                         //Ouverture de la session

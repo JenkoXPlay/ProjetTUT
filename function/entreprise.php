@@ -1,7 +1,7 @@
 <?php
 
     // Ajouter une entreprise à la BDD
-    function addCompany($bdd, $responsable, $nom, $description, $logo, $but, $typeEntreprise, $siret){
+    function addCompany($bdd, $responsable, $nom, $description, $logo, $but, $typeEntreprise, $siret, $departement){
         $req = $bdd->prepare("INSERT INTO entreprises 
                                         (id,
                                         responsable,
@@ -10,8 +10,9 @@
                                         logo,
                                         but,
                                         typeEntreprise,
-                                        siret)
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                                        siret,
+                                        departement)
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $req->execute([
             '',
             $responsable,
@@ -20,7 +21,8 @@
             $logo,
             $but,
             $typeEntreprise,
-            $siret
+            $siret,
+            $departement
         ]);
     }
 
