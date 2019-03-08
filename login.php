@@ -8,9 +8,9 @@
         <link rel="stylesheet" href="css/spectre.min.css">
         <link rel="stylesheet" href="css/spectre-icons.min.css">
         <link rel="stylesheet" href="css/spectre-exp.min.css">
-        <link rel="stylesheet" href="css/login.css" media="screen and (max-width:1920px)">
+        <link rel="stylesheet" href="css/styleLogRegister.css" media="screen and (max-width:1920px)">
         <link rel="stylesheet" href="css/styleGrand.css" media="screen and (min-width:1920px)"/>
-        <link rel="stylesheet" href="./css/global.css" />
+        <link rel="stylesheet" href="css/global.css" />
     </head>
 </html>
 
