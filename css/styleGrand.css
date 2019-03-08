@@ -80,8 +80,8 @@ body{
     text-decoration: none;
 }
 .container .formulaire a:hover, 
-.container_formillu .formulaire a:hover 
-.container_formillu .formulaire .containerBtnOubli a:hover{
+.containerFormIllu .formulaire a:hover,
+.containerFormIllu .formulaire .containerBtnOubli a:hover{
     text-decoration: underline;
 }
 

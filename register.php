@@ -1,7 +1,7 @@
 <?php include('./connect.php'); ?>
 <?php include('./script_php/security.php'); ?>
 
-<html>
+<html lang="fr">
     <head>
         <title>Alt'itude - Trouvez un emploi à votre hauteur !</title>
         <meta charset="utf-8" />
