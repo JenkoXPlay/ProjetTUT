@@ -33,7 +33,7 @@
                             $prenom = security($_POST['prenom']);
                             $email = security($_POST['email']);
                             $departement = security($_POST['departement']);
-                            if (isset($typeCompte)) {
+                            if (isset($typeCompte) && ( $typeCompte == "etudiant" OR $typeCompte == "pro")) {
                                 if ($nom && $prenom && $email && $departement) {
                                     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                                         if (is_numeric($departement)) {
@@ -56,7 +56,7 @@
                     <form method="post" action="" autocomplete="off">
                         <label>Type de compte</label>
                         <div class="typeCompte">
-                            <input type="radio" id="student" value="étudiant" name="typeCompte" class="typeCompteRadio" checked="checked" />
+                            <input type="radio" id="student" value="etudiant" name="typeCompte" class="typeCompteRadio" checked="checked" />
                             <label for="student" class="valueCompte">
                                 <img src="./img/student.png" /><br />
                                 Étudiant

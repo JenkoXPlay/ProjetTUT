@@ -17,8 +17,9 @@
                                         avert,
                                         raison_ban,
                                         admin,
-                                        premium)
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                                        premium,
+                                        avatar)
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $req->execute([
             '',
             $prenom,
@@ -34,7 +35,8 @@
             "0",
             "",
             false,
-            false
+            false,
+            "avatar.jpg"
         ]);
     }
 
@@ -57,9 +59,16 @@
         return $req;
     }
 
-    // lecture d'un utilisateur
+    // lecture d'un utilisateur par id
     function getIdUser($bdd, $idUser) {
         $req = $bdd->prepare("SELECT * FROM users WHERE id='$idUser'");
+        $req->execute();
+        return $req;
+    }
+
+    // lecture d'un utilisateur par mail
+    function getMailUser($bdd, $mail) {
+        $req = $bdd->prepare("SELECT * FROM users WHERE email='$mail'");
         $req->execute();
         return $req;
     }
