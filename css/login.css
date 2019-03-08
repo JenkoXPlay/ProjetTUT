@@ -16,19 +16,20 @@ body{
     height:auto;
 }
 
-.container_page{
+.containerPage{
     background:#e4e4e4;
     width:70%;
     margin:auto;
     margin-top:30px; 
+    margin-bottom:50px;
 }
 
-.btn_creer {
+.btnCreer {
     color: #4b00ff;
     text-decoration: none;
 }
 
-.container_formillu{
+.containerFormIllu{
     width:100%; 
     display:flex;   
     height: auto;
@@ -43,7 +44,7 @@ body{
     border-radius:0 0 0 10px;
 }
 
-.container_illustration{
+.containerIllustration{
     width:50%;
     background-color: #eaeaeb;
     height:auto;
@@ -80,16 +81,31 @@ body{
     border:none;
 }
 
-.btn_oubli{
+.btnConnect{
+    margin: 0 auto;
+    border: none;
+    color: #fff;
+    background: #4b00ff;
+    border-radius: 5px;
+    min-width: 300px;
+    padding: 10px 0 10px 0;
+    margin-top:50px;
+    margin-bottom:60px;
+}
+.btnConnect:hover {
+    cursor: pointer;
+}
+
+.btnOubli{
     color: #4b00ff;
     text-decoration: none;
     font-size:1em;
 }
-.titre_connect{
+.titreConnect{
     font-size:1.4em;
     font-weight:600;
 }
-.titre_illu{
+.title{
     font-size:3em;
     font-weight: bold;
     margin-left: auto;
@@ -97,17 +113,17 @@ body{
     padding:50px 10px 0 10px;
 }
 .illustration img{
-    width:60%;
+    width:80%;
     right:0;
     bottom:0;
     position:absolute;
 }
 
-.container_checkbox{
+.containerCheckbox{
     display:flex;
     justify-content: space-between;
 }
-.container_page .barre{
+.containerPage .barre{
     width:100%;
     height:20px;
     display:flex;
@@ -115,7 +131,7 @@ body{
     padding-left: 20px; 
     border-radius: 10px 10px 0 0;
  }
- .container_page .barre .point{
+ .containerPage .barre .point{
      background:#e4e4e4;
      border-radius:50px;
      width:8px;
