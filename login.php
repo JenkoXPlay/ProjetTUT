@@ -8,41 +8,25 @@
         <link rel="stylesheet" href="css/spectre.min.css">
         <link rel="stylesheet" href="css/spectre-icons.min.css">
         <link rel="stylesheet" href="css/spectre-exp.min.css">
-        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/login.css" media="screen and (max-width:1920px)">
+        <link rel="stylesheet" href="css/styleGrand.css" media="screen and (min-width:1920px)"/>
     </head>
 </html>
 
 <body>
-    <div class="container_login">
+   
         <img class="logo" src="img/logo_black.svg"/>
 
-        <div class="container_page">
+        <div class="containerPage">
             <div class="barre">
                     <div class="point"></div>
                     <div class="point"></div>
                     <div class="point"></div>
             </div>
-            <div class="container_formillu">
+            <div class="containerFormIllu">
                 <div class="formulaire">
-                    <h1 class="titre_connect">Connectez-vous</h1>
-                    <p>Vous n'avez pas encore un compte Alt'itude ? <br/><a href="/register" class="btn_creer">Créez-en un</a></p>
-
-                    <form action="" method="POST" autocomplete="off">
-                        <label>Adresse email</label><br/>
-                        <input class="email" type="email" name="email" placeholder="Adresse email" />
-                        <br/>
-                        <label>Mot de passe</label><br/>
-                        <input class="password" type="password" name="password" placeholder="*******"/><br/>
-                        <div class="container_checkbox">
-                            <div class="container_btnCheck">
-                                <input class="check" type="checkbox" id="maintenirSession" /><label for="maintenirSession"> Maintenir la connexion </label>
-                            </div>
-                            <div class="container_btnOubli">
-                                <a class="btn_oubli" href="">J'ai oublié mon mot de passe</a><br/>
-                            </div>
-                        </div>
-                        <center><input class="btn_connect" type="submit" value="Connexion" name="connexion" /></center>
-                    </form>
+                    <h1 class="title">Connectez-vous</h1>
+                    <p class="subtitle">Vous n'avez pas encore un compte Alt'itude ? <br/><a href="/register">Créez-en un</a></p> 
                     <?php
                         //Ouverture de la session
                         session_start();
@@ -89,14 +73,29 @@
                             }
                         }
                     ?>
+                    <form action="" method="POST" autocomplete="off">
+                        <label>Adresse email</label><br/>
+                        <input class="email" type="email" name="email" placeholder="Adresse email" />
+                        <br/>
+                        <label>Mot de passe</label><br/>
+                        <input class="password" type="password" name="password" placeholder="Mot de passe"/><br/>
+                        <div class="containerCheckbox">
+                            <div class="containerBtnCheck">
+                                <input class="check" type="checkbox" id="maintenirSession" /><label for="maintenirSession"> Maintenir la connexion </label>
+                            </div>
+                            <div class="containerBtnOubli">
+                                <a href="">J'ai oublié mon mot de passe</a><br/>
+                            </div>
+                        </div>
+                        <center><input class="btnConnect" type="submit" value="Connexion" name="connexion" /></center>
+                    </form>
                 </div>
-                <div class="container_illustration">
-                    <h1 class="titre_illu">Trouvez un emploi à votre hauteur !</h1>
+                <div class="containerIllustration">
+                    <h1 class="title">Trouvez un emploi à votre hauteur !</h1>
                     <div class="illustration">
                         <img class="" src="img/illustration.png">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>

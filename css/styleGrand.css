@@ -1,0 +1,195 @@
+/*Selectionne tout*/
+* {
+    box-sizing: border-box;
+  }
+
+/*Corps de la page*/
+body{
+    background: #e4e4e4;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-family:Montserrat;
+    color: #3B4351;
+}
+
+/*logo*/
+.logo{
+    min-width:200px;
+    max-width: 20%;
+    height:auto;
+}
+/*Contenu de la fenêtre*/
+.bigContent, .containerPage {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+ 
+.bigContent .barre,.containerPage .barre {
+    width: 100%;
+    background: #fff;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border-radius: 10px 10px 0 0;
+}
+.bigContent .barre .point, .containerPage .barre .point {
+    background: #e4e4e4;
+    border-radius: 50px;
+    width: 8px;
+    height: 8px;
+    margin: 0 3px 0 3px;
+}
+.container, .containerFormIllu {
+    width: 100%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 50px;
+}
+
+/*Contenu du bloc gauche de la fenêtre*/
+.containerFormIllu .formulaire, .container .formulaire{
+    width: 50%;
+    background: #f5f5f5;
+    padding: 50px;
+    font-family: Montserrat;
+    text-align: left;
+}
+.container .formulaire .title, .containerFormIllu .formulaire .title{
+    font-size: 1.4em;
+    color: #000;
+    font-weight: 600;
+}
+.containerFormIllu .formulaire .subtitle{
+    margin-bottom:80px;
+}
+.container .formulaire .subtitle, 
+.containerFormIllu .formulaire .subtitle  {
+    color: #000;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.container .formulaire a, 
+.containerFormIllu .formulaire a,
+.containerFormIllu .formulaire .containerBtnOubli a{
+    color: #4b00ff;
+    text-decoration: none;
+}
+.container .formulaire a:hover, 
+.container_formillu .formulaire a:hover 
+.container_formillu .formulaire .containerBtnOubli a:hover{
+    text-decoration: underline;
+}
+
+.container .formulaire form .typeCompte {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.container .formulaire form .typeCompte .valueCompte {
+    border-radius: 5px;
+    text-align: center;
+    width: 48%;
+    background: #fff;
+    padding: 7px 0 7px 0;
+    border: 2px solid #fff;
+}
+.container .formulaire form .typeCompte .typeCompteRadio:checked + label {
+    border: 2px solid #4b00ff;
+}
+.container .formulaire form .typeCompte .valueCompte img {
+    width: 50px;
+    height: auto;
+}
+.container .formulaire form .typeCompte img:hover {
+    cursor: pointer;
+}
+.container .formulaire form .typeCompte .typeCompteRadio {
+    display: none;
+}
+.container .formulaire form label{
+    display: block;
+}
+.containerFormIllu .formulaire form label,
+.container .formulaire form label{
+    font-size:1em;
+    font-weight:500;
+    margin-top: 15px;
+}
+.container .formulaire form .inputHype, 
+.containerFormIllu .formulaire form .email, 
+.containerFormIllu .formulaire form .password{
+    width: 100%;
+    border: none;
+    background: #fff;
+    border-radius: 5px;
+    padding: 7px;
+}
+.containerFormIllu .formulaire form .email, 
+.containerFormIllu .formulaire form .password{
+    margin-top: 10px;
+    margin-bottom:30px;
+}
+.containerFormIllu .formulaire form .email{
+    margin-bottom:50px;
+}
+.containerCheckbox{
+    display:flex;
+    justify-content: space-between;
+}
+.check{
+    background-color:white;
+    border:none;
+}
+.container .formulaire form .btnRegister, 
+.containerFormIllu .formulaire form .btnConnect  {
+    margin: 0 auto;
+    border: none;
+    color: #fff;
+    background: #4b00ff;
+    border-radius: 5px;
+    min-width: 300px;
+    padding: 10px 0 10px 0;
+}
+.containerFormIllu .formulaire form .btnConnect{
+    margin-top:50px;
+    margin-bottom:60px;
+}
+.containerFormIllu .formulaire form .btnConnect:hover,
+.container .formulaire form .btnRegister:hover {
+    cursor: pointer;
+}
+
+.containerFormIllu .containerIllustration, 
+.container .illu {
+    width:50%;
+    background-color: #eaeaeb; 
+    position:relative;
+}
+
+.containerFormIllu .containerIllustration .title, 
+.container .illu .title{
+    font-size:3em;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    padding:50px 20px 0 20px;
+}
+
+.containerFormIllu .illustration img, .container .illu img {
+    right:0;
+    bottom:0;
+    position:absolute;
+    height: auto;
+}
+.container .illu img{
+    width:60%;
+}
+.containerFormIllu .illustration img{
+    width:50%;
+}

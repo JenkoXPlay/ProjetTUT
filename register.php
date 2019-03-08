@@ -9,7 +9,8 @@
         <link rel="stylesheet" href="css/spectre-icons.min.css" />
         <link rel="stylesheet" href="css/spectre.min.css" />
         <link rel="stylesheet" href="css/global.css" />
-        <link rel="stylesheet" href="css/register.css" />
+        <link rel="stylesheet" href="css/register.css" media="screen and (max-width:1920px)"/>
+        <link rel="stylesheet" href="css/styleGrand.css" media="screen and (min-width:1920px)"/> 
     </head>
     <body>
 
