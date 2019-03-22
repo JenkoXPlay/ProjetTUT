@@ -95,3 +95,117 @@ body {
     width: 100%;
     height: 150px;
 }
+
+/* CONTENT GENERALE */
+.content {
+    background: #f9f9f9;
+    min-height: 80vh;
+    width: 100%;
+    text-align: center;
+}
+
+/* SEARCH BAR */
+.searchbar {
+    width: 100%;
+}
+.searchbar form {
+    display: flex;
+    justify-content: center;
+}
+.searchbar .job {
+    border: none;
+    background: #fff;
+    color: #000;
+    border-radius: 50px 0 0 50px;
+    padding: 15px;
+    width: 15%;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+}
+.searchbar .domaine, .type_contrat, .localisation {
+    border: 0;
+    background: #fff;
+    color: #000;
+    padding: 15px;
+}
+.searchbar .domaine > option:hover, .type_contrat > option:hover, .localisation > option:hover { /* revoir cette partie, car problème avec les options qui ne suivent pas avec le design de la search bar */
+    background: #4b00ff;
+    color: #fff;
+}
+.searchbar .sendSearch {
+    border: none;
+    background: #4b00ff;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 0 50px 50px 0;
+    padding: 15px;
+    width: 15%;
+}
+.searchbar .sendSearch:hover {
+    cursor: pointer;
+}
+
+/* Liste des annonces */
+.annonceList {
+    width: 100%;
+}
+.annonceList .annonce {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 50%;
+    display: flex;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #000;
+    transition: 0.3s;
+}
+.annonceList .annonce:hover {
+    width: 53%;
+    transition: 0.3s;
+}
+.annonceList .annonce .logo {
+    width: 30%;
+    background: #fff;
+    border-radius: 6px 0 0 6px;
+    display: flex;
+    align-content: center;
+    padding: 5px;
+}
+.annonceList .annonce .logo img {
+    width: 100%;
+    height: auto;
+}
+.annonceList .annonce .sujet {
+    width: 63%;
+    background: #3a3944;
+    color: #fff;
+    padding: 15px;
+    text-align: left;
+}
+.annonceList .annonce .sujet .titreAnnonce {
+    font-weight: 500;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+.annonceList .annonce .sujet .info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.annonceList .annonce .favoris {
+    width: 7%;
+    background: #403F4A;
+    border-radius: 0 6px 6px 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.annonceList .annonce .favoris img {
+    width: 60%;
+    height: auto;
+}
+.annonceList .annonce .favoris img:hover {
+    cursor: pointer;
+}
+/* Liste des annonces */

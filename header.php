@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="css/spectre-icons.min.css" />
         <link rel="stylesheet" href="css/spectre.min.css" />
         <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/global.css" />
         <script src="./js/jquery.min.js"></script>
     </head>
     <body>

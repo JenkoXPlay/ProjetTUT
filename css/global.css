@@ -40,3 +40,16 @@
 }
 /* WIDTH */
 
+/* TITRE */
+.titreNormal {
+    font-weight: 500;
+    font-size: 1.6em;
+    color: #2d3436;
+}
+/* TITRE */
+
+/* TEXTE */
+.txtGreen {
+    color: #00e1a0;
+}
+/* TEXTE */
