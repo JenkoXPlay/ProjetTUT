@@ -28,8 +28,18 @@
     background: #4b00ff;
     border-radius: 5px;
     padding: 10px 0 10px 0;
+    text-align: center;
 }
-.btnPurple:hover {
+.btnWhite {
+    margin: 0 auto;
+    border: none;
+    color: #4b00ff;
+    background: #dfe6e9;
+    border-radius: 5px;
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+.btnPurple:hover, .btnWhite:hover {
     cursor: pointer;
 }
 /* BOUTON */
@@ -37,6 +47,15 @@
 /* WIDTH */
 .min_width_300_px {
     min-width: 300px;
+}
+.width_100 {
+    width: 100%;
+}
+.width_90 {
+    width: 90%;
+}
+.width_45 {
+    width: 45%;
 }
 /* WIDTH */
 
@@ -49,7 +68,38 @@
 /* TITRE */
 
 /* TEXTE */
+.centered {
+    text-align: center;
+}
 .txtGreen {
     color: #00e1a0;
 }
+.txtPurple {
+    color: #4b00ff;
+}
+.txtGrey {
+    color: #3B4351;
+}
 /* TEXTE */
+
+/* FORMULAIRE INFO PERSO */
+.labelForm {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.inputSelect, .inputText, .inputTextarea {
+    background: #fff;
+    border: 1px solid #A0A0A5;
+    padding: 10px;
+    border-radius: 4px;
+}
+.noresize {
+    resize: none;
+}
+/* FORMULAIRE INFO PERSO */
+
+/* UTILES */
+.marginAuto {
+    margin: 0 auto;
+}
+/* UTILES */

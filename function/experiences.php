@@ -1,18 +1,18 @@
 <?php
 
     // ajout exp
-    function addExperience($bdd, $expDe, $nomEntreprise, $ville, $anneDebut, $anneeFin, $dureeTotal, $typeContrat, $poste){
-        $req= $bdd->prepare("INSERT INTO experiences (id, expDe, nomEntreprise, ville, anneeDebut, anneeFin, dureeTotal, typeContrat, poste) VALUES (?,?,?,?,?,?,?,?,?)");
+    function addExperience($bdd, $expDe, $poste, $typeContrat, $nomEntreprise, $ville, $date_debut, $date_fin, $description){
+        $req= $bdd->prepare("INSERT INTO experiences (id, expDe, poste, typeContrat, nomEntreprise, ville, date_debut, date_fin, description) VALUES (?,?,?,?,?,?,?,?,?)");
         $req->execute([ 
             '',
             $expDe,
+            $poste,
+            $typeContrat,
             $nomEntreprise,
-            $ville,
-            $anneDebut,
-            $anneeFin, 
-            $dureeTotal, 
-            $typeContrat, 
-            $poste
+            $ville, 
+            $date_debut, 
+            $date_fin, 
+            $description
          ]);
     }
 

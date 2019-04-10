@@ -54,6 +54,7 @@
                     <div class="boxProfile">
                         <div class="arrowProfile"></div>
                         <div class="contentProfile">
+                            <a href="/editprofile">Éditer mon profil</a>
                             <a href="/logout">Déconnexion</a>
                         </div>
                     </div>

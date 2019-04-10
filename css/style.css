@@ -87,6 +87,10 @@ body {
     background: #fff;
     padding: 10px;
     width: 100%;
+    text-align: center;
+}
+.contentProfile a {
+    display: block;
 }
 
 .banniereHome {
@@ -102,6 +106,116 @@ body {
     min-height: 80vh;
     width: 100%;
     text-align: center;
+}
+.content .informationProfil {
+    vertical-align: top;
+    display: inline-block;
+    margin: 20px 10px 20px 10px;
+    background: #fff;
+    border: 1px solid #A0A0A5;
+    border-radius: 4px;
+    padding: 10px;
+    width: 35%;
+    text-align: left;
+}
+.content .informationProfil .title {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+.content .informationProfil .subtitle {
+    font-size: 1em;
+    font-weight: 500;
+    color: #A0A0A5;
+}
+.content .informationProfil .contentAvatar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.content .informationProfil .contentAvatar .infoAvatar {
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+}
+.content .informationProfil .panelExpPro, .panelFormation {
+    width: 100%;
+    border: 1px solid #4B00FF;
+    box-shadow: 0 0 4px #4b00ff;
+    border-radius: 4px;
+    padding: 10px;
+}
+.content .informationProfil .panelExpPro .inputFlex {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.content .informationProfil .panelFormation .inputFlex {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.content .informationProfil .panelExpPro .inputFlex .itemFlex {
+    
+}
+.content .informationProfil .panelFormation .inputFlex .itemFlex {
+    
+}
+.content .informationProfil .panelExpPro .textareaFlex {
+    padding: 5px;
+    width: 100%;
+}
+.content .informationProfil .panelFormation .textareaFlex, .inputSoloFlex {
+    padding: 5px;
+    width: 100%;
+}
+.content .informationProfil .panelExpPro .btnFlex {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.content .informationProfil .panelFormation .btnFlex {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.content .informationProfil .expPro {
+    width: 100%;
+    border-radius: 4px;
+    border: 2px dashed #403F4A;
+    padding: 10px;
+    margin-top: 10px;
+}
+.content .informationProfil .forma {
+    width: 100%;
+    border-radius: 4px;
+    border: 2px dashed #403F4A;
+    padding: 10px;
+    margin-top: 10px;
+}
+.content .informationProfil .expPro .dateLieu {
+    margin-top: 5px;
+}
+.content .informationProfil .forma .dateLieu {
+    margin-top: 5px;
+}
+.content .informationProfil .expPro .dateLieu .dateExp {
+    background: #F0F0F1;
+    border-radius: 4px;
+    padding: 5px;
+    color: #3B4351;
+}
+.content .informationProfil .forma .dateLieu .dateExp {
+    background: #F0F0F1;
+    border-radius: 4px;
+    padding: 5px;
+    color: #3B4351;
+}
+.content .informationProfil .expPro .description {
+    margin-top: 10px;
+}
+.content .informationProfil .forma .description {
+    margin-top: 10px;
 }
 
 /* SEARCH BAR */

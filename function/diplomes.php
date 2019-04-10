@@ -1,20 +1,22 @@
 <?php
 
     // Ajouter un nouveau diplome à la BDD
-    function addDiplome($bdd, $idUser, $nomDiplome, $anneeObtention, $etablissement){
+    function addDiplome($bdd, $idUser, $nomDiplome, $anneeObtention, $etablissement, $description){
         $req = $bdd->prepare("INSERT INTO diplomes 
                                         (id,
                                         user,
                                         nom_diplome,
                                         annee_obtention,
-                                        etablissement)
-                                VALUES (?, ?, ?, ?, ?)");
+                                        etablissement,
+                                        description)
+                                VALUES (?, ?, ?, ?, ?, ?)");
         $req->execute([
             '',
             $idUser,
             $nomDiplome,
             $anneeObtention,
-            $etablissement
+            $etablissement,
+            $description
         ]);
     }
 
