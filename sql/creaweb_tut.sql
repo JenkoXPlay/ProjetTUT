@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 11 avr. 2019 à 13:50
+-- Généré le :  jeu. 11 avr. 2019 à 15:02
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -182,10 +182,10 @@ INSERT INTO `competencesannonce` (`id`, `annonce`, `domaine`, `competence`, `lev
 (7, 3, 'informatique', 'ReactJS', '4'),
 (8, 3, 'informatique', 'Angular', '4'),
 (9, 3, 'informatique', 'JS', '4'),
-(10, 4, 'Design', 'Photoshop', '4'),
-(11, 4, 'Design', 'InDesign', '4'),
-(12, 4, 'Design', 'Illustrator', '4'),
-(13, 4, 'Design', 'Adobe XD', '4'),
+(10, 4, 'Web Design', 'Photoshop', '4'),
+(11, 4, 'Web Design', 'InDesign', '4'),
+(12, 4, 'Web Design', 'Illustrator', '4'),
+(13, 4, 'Web Design', 'Adobe XD', '4'),
 (14, 5, 'Médecine', 'Anesthésie', '4'),
 (15, 5, 'Médecine', 'Urgences', '4'),
 (16, 5, 'Médecine', 'Tromat', '4'),
@@ -194,9 +194,9 @@ INSERT INTO `competencesannonce` (`id`, `annonce`, `domaine`, `competence`, `lev
 (19, 6, 'Web Design', 'HTML', '4'),
 (20, 6, 'Web Design', 'CSS', '4'),
 (21, 6, 'Web Design', 'JS', '4'),
-(22, 8, 'Design', 'Figma', '3'),
-(23, 8, 'Design', 'Adobe XD', '2'),
-(24, 8, 'Design', 'Illustrator', '3'),
+(22, 8, 'Web Design', 'Figma', '3'),
+(23, 8, 'Web Design', 'Adobe XD', '2'),
+(24, 8, 'Web Design', 'Illustrator', '3'),
 (25, 9, 'Informatique', 'Wordpress', '3'),
 (26, 9, 'Informatique', 'Prestashop', '4'),
 (27, 9, 'Informatique', 'Syphony', '5'),
