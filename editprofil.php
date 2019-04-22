@@ -16,9 +16,24 @@
                 <div class="contentAvatar">
                     <img src="./avatar/<?php echo $dataUser['avatar']; ?>" class="infoAvatar" />
                 </div>
+                <?php
+                    include('./script_php/security.php');
+                    include('./script_php/maj_info_perso.php');
+                ?>
                 <form action="" method="post" enctype="multipart/form-data">
-                    mettre bouton import une photo
-                    <br />
+                    <div class="centeredElement">
+                        <br />
+                        <label for="file" class="importAvatar">Importer une photo</label>
+                        <input id="file" name="avatar" class="inputNone inputAvatar" type="file" />
+                    </div> 
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('.importAvatar').click(function(event){
+                                event.preventDefault();
+                                $('.inputAvatar').click();
+                            });
+                        });
+                    </script>
                     <div class="subtitle labelForm">Prénom</div>
                     <input type="text" name="prenom" class="inputText width_100" placeholder="Prénom" value="<?php echo $dataUser['prenom']; ?>" />
                     <br />
@@ -39,6 +54,9 @@
                 <br />
                 <div class="title">Mot de passe</div>
                 <hr />
+                <?php
+                    include('./script_php/maj_pwd.php');
+                ?>
                 <form action="" method="post">
                     <div class="subtitle labelForm">Mot de passe actuel</div>
                     <input type="password" name="passwordActuel" class="inputText width_100" placeholder="Mot de passe actuel" />
@@ -56,15 +74,22 @@
             <div class="informationProfil">
                 <div class="title">Informations Professionnelles</div>
                 <hr />
+                <?php
+                    include('./script_php/maj_description.php');
+                ?>
                 <form action="" method="post">
                     <div class="subtitle labelForm">Description de vous</div>
-                    <textarea name="description"class="inputTextarea width_100 noresize" rows="3" placeholder="Description de vous"><?php echo $dataUser['description']; ?></textarea>
+                    <textarea name="description" class="inputTextarea width_100 noresize" rows="3" placeholder="Description de vous"><?php echo $dataUser['description']; ?></textarea>
                     <br /><br />
                     <input type="submit" name="submitDesc" class="btnPurple width_100" value="Mettre à jour" />
                     <br />
                 </form>
                 <div class="subtitle labelForm">Expériences professionnelles</div>
                 <div class="panelExpPro">
+                    <?php
+                        include('./function/experiences.php');
+                        include('./script_php/experiences.php');
+                    ?>
                     <form action="" method="post">
                         <div class="inputFlex">
                             <div class="itemFlex">
@@ -98,7 +123,7 @@
                         </div>
                         <div class="textareaFlex">
                             <div class="subtitle labelForm">Description de vos missions</div>
-                            <textarea name="description" class="inputTextarea noresize width_100" rows="3"></textarea>
+                            <textarea name="description" class="inputTextarea noresize width_100" rows="3" placeholder="Exemple : Testeur de code"></textarea>
                         </div>
                         <br />
                         <div class="btnFlex">
@@ -108,31 +133,31 @@
                     </form>
                 </div>
                 <br />
-                <div class="expPro">
-                    <b>Développeur Front-End</b> chez <span class="txtPurple">IBM Client Innovation Center</span>
-                    <div class="dateLieu">
-                        <span class="dateExp"> <i class="icon icon-time"></i> 15/05/1998 à 15/05/2019</span>
-                        <i class="icon icon-location txtGrey"></i>
-                        <b>Lille</b>
-                    </div>
-                    <div class="description">
-                        ksdhfkjhdsjkfhkdsfhsdfksjdfhksdjhfksdfhksdhfskdjfhkdsj hfkjdshfkjdshf dj sfhkjsd hfkjsd fks d
-                    </div>
-                </div>
-                <div class="expPro">
-                    <b>Développeur Front-End</b> chez <span class="txtPurple">IBM Client Innovation Center</span>
-                    <div class="dateLieu">
-                        <span class="dateExp"> <i class="icon icon-time"></i> 15/05/1998 à 15/05/2019</span>
-                        <i class="icon icon-location txtGrey"></i>
-                        <b>Lille</b>
-                    </div>
-                    <div class="description">
-                        ksdhfkjhdsjkfhkdsfhsdfksjdfhksdjhfksdfhksdhfskdjfhkdsj hfkjdshfkjdshf dj sfhkjsd hfkjsd fks d
-                    </div>
-                </div>
+                <?php
+                    $req_info_exp = getExpDe($bdd, $dataUser['id']);
+                    while($dataExp = $req_info_exp->fetch()) {
+                        ?>
+                            <div class="expPro">
+                                <b><?php echo $dataExp['poste']; ?></b> chez <span class="txtPurple"><?php echo $dataExp['nomEntreprise']; ?></span>
+                                <div class="dateLieu">
+                                    <span class="dateExp"> <i class="icon icon-time"></i> <?php echo $dataExp['date_debut']; ?> à <?php echo $dataExp['date_fin']; ?></span>
+                                    <i class="icon icon-location txtGrey"></i>
+                                    <b><?php echo $dataExp['ville']; ?></b>
+                                </div>
+                                <div class="description">
+                                    <?php echo $dataExp['description']; ?>
+                                </div>
+                            </div>
+                        <?php
+                    }
+                ?>
                 <br />
                 <div class="subtitle labelForm">Formations</div>
                 <div class="panelFormation">
+                    <?php
+                        include('./function/diplomes.php');
+                        include('./script_php/diplomes.php');
+                    ?>
                     <form action="" method="post">
                         <div class="inputFlex">
                             <div class="itemFlex">
@@ -160,15 +185,22 @@
                     </form>
                 </div>
                 <br />
-                <div class="forma">
-                    <b>Bac STI2D</b> à <span class="txtPurple">A.Malraux à Béthune</span>
-                    <div class="dateLieu">
-                        <span class="dateExp"> <i class="icon icon-time"></i> Obtention en 2016</span>
-                    </div>
-                    <div class="description">
-                        ksdhfkjhdsjkfhkdsfhsdfksjdfhksdjhfksdfhksdhfskdjfhkdsj hfkjdshfkjdshf dj sfhkjsd hfkjsd fks d
-                    </div>
-                </div>
+                <?php
+                    $req_info_forma = getDiplomeUser($bdd, $dataUser['id']);
+                    while ($dataForma = $req_info_forma->fetch()) {
+                        ?>
+                            <div class="forma">
+                                <b><?php echo $dataForma['nom_diplome']; ?></b> à <span class="txtPurple"><?php echo $dataForma['etablissement']; ?></span>
+                                <div class="dateLieu">
+                                    <span class="dateExp"> <i class="icon icon-time"></i> Obtention en <?php echo $dataForma['annee_obtention']; ?></span>
+                                </div>
+                                <div class="description">
+                                    <?php echo $dataForma['description']; ?>
+                                </div>
+                            </div>
+                        <?php
+                    }
+                ?>
             </div>
 
         <?php

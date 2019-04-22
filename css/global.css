@@ -96,10 +96,30 @@
 .noresize {
     resize: none;
 }
+.importAvatar {
+    border: none;
+    color: #fff;
+    background: #4b00ff;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+}
+.importAvatar:hover {
+    cursor: pointer;
+}
 /* FORMULAIRE INFO PERSO */
 
 /* UTILES */
 .marginAuto {
     margin: 0 auto;
+}
+
+.inputNone {
+    display: none;
+}
+
+.centeredElement {
+    width: 100%;
+    text-align: center;
 }
 /* UTILES */
