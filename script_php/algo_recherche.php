@@ -271,5 +271,31 @@ if (isset($_POST['sendSearch'])) {
             echo "<div class='alertError'>Veuillez remplir au moins le champ type de contrat</div>";
         } else echo "<div class='alertError'>Votre recherche n'est pas correcte !</div>";  // Sinon Msg erreur   
     } else echo "<div class='alertError'>Veuillez remplir le job souhaité</div>"; // Sinon Msg erreur champ job vide
+} else {
+    $req = $bdd->prepare("SELECT * FROM annoncesentreprises AS a, entreprises AS e WHERE e.id = a.entreprise ORDER BY a.id DESC LIMIT 5");
+    $req->execute();
+    while ($donnees = $req->fetch()){ 
+        echo "<div class='annonce'>";
+            echo "<div class='logo'><img src='./img/logo_black.svg' /></div>";
+            echo "<div class='sujet'>";
+                echo "<span>".$donnees['nom']."</span><br />";
+                echo "<span class='titreAnnonce'>".$donnees['titre']."</span>";
+                echo "<br /><br />";
+                echo "<div class='info'>";
+                    echo "<div>";
+                        echo "<img src='./img/malette.png' style='width: 16px; height: 16px;margin-right: 5px;' />";
+                        echo "<span class='txtGreen'>".$donnees['typeAnnonce']."</span>";
+                    echo "</div>";
+                    echo "<div>";
+                        echo "<img src='./img/localisation.png' style='width: 16px; height: 16px;margin-right: 5px;' />";
+                        echo "<span class='txtGreen'>".$donnees['departement']."</span>";
+                    echo "</div>";
+                echo "</div>";
+            echo "</div>";
+            echo "<div class='favoris'>";
+                echo "<img src='./img/star.svg' />";
+            echo "</div>";
+        echo "</div>";
+    }
 }   
 ?>
