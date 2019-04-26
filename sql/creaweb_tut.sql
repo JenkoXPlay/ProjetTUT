@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:3306
--- Généré le :  Ven 08 Mars 2019 à 14:50
+-- Généré le :  Ven 26 Avril 2019 à 08:22
 -- Version du serveur :  5.5.49-log
 -- Version de PHP :  7.0.9
 
@@ -69,7 +69,23 @@ CREATE TABLE IF NOT EXISTS `annoncesentreprises` (
   `description` text NOT NULL,
   `typeAnnonce` varchar(150) NOT NULL,
   `remuneration` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `annoncesentreprises`
+--
+
+INSERT INTO `annoncesentreprises` (`id`, `entreprise`, `titre`, `description`, `typeAnnonce`, `remuneration`) VALUES
+(1, 5, 'Developpeur WEB', 'Vous êtes coeur d une equipe de dev et evoluer en tant que tel', 'Alternance', 1100),
+(2, 6, 'Developpeur WEB', 'Vous êtes au coeur d une equipe de dev et evoluer en tant que tel', 'Alternance', 1100),
+(3, 7, 'Developpeur WEB Front end', 'Vous êtes motivé et passioné par le web en général et en particulier le front, des connaissance en Back sont un plus', 'stage', 350),
+(4, 8, 'Designer', 'Vous êtes force de proposition et créatif.', 'stage', 0),
+(5, 9, 'Infirmière', 'dfldfdghffgff', 'Alternance', 1600),
+(6, 10, 'WEB designer', 'Vous maitrisez design et developpement', 'Alternance', 1300),
+(7, 12, 'Developpement web full stack', 'Recherche de style', 'stage', 0),
+(8, 6, 'Designer', 'dfdfgfhfhgf', 'stage', 0),
+(9, 7, 'Developpeur WEB', 'Vous êtes coeur d une equipe de dev et evoluer en tant que tel', 'Alternance', 1200),
+(10, 11, 'Infirmière', 'dfgdfgfdfdg', 'Alternance', 1300);
 
 -- --------------------------------------------------------
 
@@ -97,7 +113,38 @@ CREATE TABLE IF NOT EXISTS `competencesannonce` (
   `domaine` varchar(255) NOT NULL,
   `competence` varchar(255) NOT NULL,
   `level` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `competencesannonce`
+--
+
+INSERT INTO `competencesannonce` (`id`, `annonce`, `domaine`, `competence`, `level`) VALUES
+(1, 2, 'informatique', 'PHP', '4'),
+(2, 2, 'informatique', 'HTML', '3'),
+(3, 2, 'informatique', 'CSS', '4'),
+(4, 2, 'informatique', 'Javascript', '3'),
+(5, 2, 'informatique', 'adobe xd', '4'),
+(6, 3, 'informatique', 'VueJS', '4'),
+(7, 3, 'informatique', 'ReactJS', '4'),
+(8, 3, 'informatique', 'Angular', '4'),
+(9, 3, 'informatique', 'JS', '4'),
+(10, 4, 'Web Design', 'Photoshop', '4'),
+(11, 4, 'Web Design', 'InDesign', '4'),
+(12, 4, 'Web Design', 'Illustrator', '4'),
+(13, 4, 'Web Design', 'Adobe XD', '4'),
+(14, 5, 'Médecine', 'Anesthésie', '4'),
+(15, 5, 'Médecine', 'Urgences', '4'),
+(16, 5, 'Médecine', 'Tromat', '4'),
+(17, 6, 'Web Design', 'Photoshop', '4'),
+(18, 6, 'Web Design', 'Figma', '4'),
+(19, 6, 'Web Design', 'HTML', '4'),
+(20, 6, 'Web Design', 'CSS', '4'),
+(21, 6, 'Web Design', 'JS', '4'),
+(22, 8, 'Web Design', 'Figma', '3'),
+(23, 8, 'Web Design', 'Adobe XD', '2'),
+(24, 8, 'Web Design', 'Illustrator', '3'),
+(25, 9, 'Informatique', 'Wordpress', '3');
 
 -- --------------------------------------------------------
 
@@ -110,16 +157,18 @@ CREATE TABLE IF NOT EXISTS `diplomes` (
   `user` int(11) NOT NULL,
   `nom_diplome` text NOT NULL,
   `annee_obtention` varchar(255) NOT NULL,
-  `etablissement` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `etablissement` text NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `diplomes`
 --
 
-INSERT INTO `diplomes` (`id`, `user`, `nom_diplome`, `annee_obtention`, `etablissement`) VALUES
-(1, 1, 'BAC STI2D', '2014', 'Malraux'),
-(2, 1, 'BAC STI2D', '2014', 'Malraux');
+INSERT INTO `diplomes` (`id`, `user`, `nom_diplome`, `annee_obtention`, `etablissement`, `description`) VALUES
+(1, 1, 'BAC STI2D', '2014', 'Malraux', ''),
+(2, 1, 'BAC STI2D', '2014', 'Malraux', ''),
+(3, 11, 'DUT Réseaux et Télécommunications', '2018', 'IUT de Béthune', 'Dans le domaine de l''informatique !');
 
 -- --------------------------------------------------------
 
@@ -137,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
   `typeEntreprise` varchar(150) NOT NULL,
   `siret` text NOT NULL,
   `departement` int(5) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `entreprises`
@@ -145,7 +194,13 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
 
 INSERT INTO `entreprises` (`id`, `responsable`, `nom`, `description`, `logo`, `but`, `typeEntreprise`, `siret`, `departement`) VALUES
 (5, 1, 'mlklklmkm', 'lmkmlkmk', 'mlkmlkmlklklmk', 'kmklmkmlk', 'pme', 'lmkmkmlk', 59),
-(6, 4, 'IBM', 'Best Company', 'ljfksdjlksjlfjl', 'lkjlkjlkjl', 'ge', 'lsjkflsdjkfljlkdsf', 62);
+(6, 4, 'IBM', 'Best Company', 'ljfksdjlksjlfjl', 'lkjlkjlkjl', 'ge', 'lsjkflsdjkfljlkdsf', 62),
+(7, 10, 'JOUVE', 'Imprimerie, Métiers du numérique', 'logo.png', 'Mettre le numériques en avant', 'SII', '122545121', 62),
+(8, 5, 'MBS communication', 'dfdfdfd', 'logo.png', 'dfdfd', 'SA', '789961', 59),
+(9, 13, 'Hopital de Lens', '', 'logo.png', '', 'Hopital', '1248541', 62),
+(10, 15, 'Worldline', 'dfdgd', 'logo.png', 'dfdfgf', 'SA', '89784534', 75),
+(11, 11, 'Polyclinique', 'rfgfg', 'logo.png', 'fdfgfg', 'SA', '54654654', 93),
+(12, 6, 'GG Style', 'avoir le style', 'logo.png', 'toujours plus de style', 'SI', '4787891561', 93);
 
 -- --------------------------------------------------------
 
@@ -156,22 +211,21 @@ INSERT INTO `entreprises` (`id`, `responsable`, `nom`, `description`, `logo`, `b
 CREATE TABLE IF NOT EXISTS `experiences` (
   `id` int(11) NOT NULL,
   `expDe` int(11) NOT NULL,
+  `poste` varchar(255) NOT NULL,
+  `typeContrat` varchar(100) NOT NULL,
   `nomEntreprise` varchar(255) NOT NULL,
   `ville` varchar(255) NOT NULL,
-  `anneeDebut` int(4) NOT NULL,
-  `anneeFin` int(4) NOT NULL,
-  `dureeTotal` varchar(100) NOT NULL,
-  `typeContrat` varchar(100) NOT NULL,
-  `poste` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `date_debut` varchar(20) NOT NULL,
+  `date_fin` varchar(20) NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `experiences`
 --
 
-INSERT INTO `experiences` (`id`, `expDe`, `nomEntreprise`, `ville`, `anneeDebut`, `anneeFin`, `dureeTotal`, `typeContrat`, `poste`) VALUES
-(1, 4, 'IBM', 'Lomme', 2018, 2019, '6 mois', 'Contrat Pro', 'Développeur'),
-(2, 5, 'IUT Lens', 'Lens', 2018, 2019, '10 mois', 'Licence', 'Étudiant');
+INSERT INTO `experiences` (`id`, `expDe`, `poste`, `typeContrat`, `nomEntreprise`, `ville`, `date_debut`, `date_fin`, `description`) VALUES
+(1, 11, 'Développeur Front End', 'Contrat Pro', 'IBM Client Innovation Center', 'Lille', '2018-09-03', '2019-08-30', 'Apprenti développeur front-end dans l''équipe Watson');
 
 -- --------------------------------------------------------
 
@@ -305,7 +359,7 @@ INSERT INTO `swagger` (`id`, `type`, `categorie`, `requete`, `description`) VALU
 (35, 'get', 'entreprise', 'getEntrepriseNom($bdd, $nom)', 'Récupère une entreprise en fonction du nom'),
 (36, 'get', 'entreprise', 'getEntrepriseSiret($bdd, $siret)', 'Récupère l&#039;entreprise en fonction du SIRET'),
 (37, 'get', 'entreprise', 'getEntrepriseType($bdd, $typeCompany)', 'Récupère les entreprises en fonction de leurs type'),
-(38, 'post', 'experiences', 'addExperience($bdd, $expDe, $nomEntreprise, $ville, $anneDebut, $anneeFin, $dureeTotal, $typeContrat, $poste)', 'Ajouter une expérience à un utilisateur'),
+(38, 'post', 'experiences', 'addExperience($bdd, $expDe, $poste, $typeContrat, $nomEntreprise, $ville, $date_debut, $date_fin, $description)', 'Ajouter une expérience à un utilisateur'),
 (39, 'delete', 'experiences', 'deleteExpAll($bdd)', 'Suppression de toutes les expériences'),
 (40, 'delete', 'experiences', 'deleteExpId($bdd,$idExp)', 'Suppression par ID'),
 (41, 'delete', 'experiences', 'deleteAllExpDe($bdd,$ExpDe)', 'Suppression de toutes les expériences d&#039;un utilisateur'),
@@ -346,7 +400,7 @@ INSERT INTO `swagger` (`id`, `type`, `categorie`, `requete`, `description`) VALU
 (76, 'get', 'reponsesannonces', 'getRepEntrepriseId($bdd, $idAnnonce)', 'Récupère les réponses en fonction de l&#039;id de l&#039;annonce'),
 (77, 'get', 'reponsesannonces', 'getRepEntrepriseId($bdd, $idUser)', 'Récupère toutes les réponses par candidat'),
 (78, 'get', 'reponsesannonces', 'getRepEntrepriseId($bdd, $idCompany)', 'Récupère les réponses par entreprise'),
-(79, 'post', 'diplomes', 'addDiplome($bdd, $idUser, $nomDiplome, $anneeObtention, $etablissement)', 'Ajoute un diplome'),
+(79, 'post', 'diplomes', 'addDiplome($bdd, $idUser, $nomDiplome, $anneeObtention, $etablissement, $description)', 'Ajoute un diplome'),
 (80, 'delete', 'diplomes', 'deleteAllDiplomes($bdd)', 'Supprime tous les diplomes'),
 (81, 'delete', 'diplomes', 'deleteDiplome($bdd, $idDiplome)', 'Supprime un diplome par son id'),
 (82, 'delete', 'diplomes', 'deleteDiplomeUser($bdd, $idUSer)', 'Supprime les diplomes d&#039;un utilisateur'),
@@ -397,7 +451,7 @@ INSERT INTO `users` (`id`, `prenom`, `nom`, `email`, `password`, `type_compte`, 
 (6, 'Juju', 'Col', 'lesuperbgdu62@gmail.com', 'saucisse2', 'pro', 0, '', 0, '2019-02-07 14:08:46', '2019-02-07 14:08:46', '0', '', 0, 0, 'avatar.jpg'),
 (9, 'Maxime', 'Lefebvre', 'maximelefebvre1505@gmail.com', '$2y$10$NUBKgMOJx2oijEflLpYytOXC8YjOgX8A7JhbUYkgQOwlMetcsFKsW', 'etudiant', 62, '', 0, '2019-02-26 12:54:30', '2019-02-26 12:54:30', '0', '', 0, 0, 'avatar.jpg'),
 (10, 'Nicolas', 'Paris', 'nicolas.paris_isc.france@ibm.com', '$2y$10$rk5LAKlNElmG621o6hFNLehP.goAybeGVQ.BTDofn8JNyV.MJlM46', 'pro', 59, '', 0, '2019-02-26 12:56:55', '2019-02-26 12:56:55', '0', '', 0, 0, 'avatar.jpg'),
-(11, 'Maxime', 'Lefebvre', 'admin@admin.com', '$2y$10$bLav65Dkrxl5Qsscyj9j4uOrRP9gr7bjfUmSGcLwJkNibRl4AXE0S', 'pro', 62, '', 0, '2019-03-08 09:33:23', '2019-03-08 09:33:23', '0', '', 0, 0, 'avatar.jpg');
+(11, 'Maxime', 'Lefebvre', 'admin@admin.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'pro', 62, 'Voici ma nouvelle description !', 0, '2019-03-08 09:33:23', '2019-03-08 09:33:23', '0', '', 0, 0, '11d0a67e9bde85d858daec17657babb32e.jpg');
 
 --
 -- Index pour les tables exportées
@@ -468,7 +522,7 @@ ALTER TABLE `entreprises`
 --
 ALTER TABLE `experiences`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `expDe` (`expDe`,`nomEntreprise`,`anneeDebut`,`anneeFin`,`dureeTotal`,`typeContrat`,`poste`);
+  ADD KEY `expDe` (`expDe`,`nomEntreprise`,`date_debut`,`date_fin`,`typeContrat`);
 
 --
 -- Index pour la table `galerie_entreprises`
@@ -539,7 +593,7 @@ ALTER TABLE `administration`
 -- AUTO_INCREMENT pour la table `annoncesentreprises`
 --
 ALTER TABLE `annoncesentreprises`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `competences`
 --
@@ -549,22 +603,22 @@ ALTER TABLE `competences`
 -- AUTO_INCREMENT pour la table `competencesannonce`
 --
 ALTER TABLE `competencesannonce`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT pour la table `diplomes`
 --
 ALTER TABLE `diplomes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `entreprises`
 --
 ALTER TABLE `entreprises`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `experiences`
 --
 ALTER TABLE `experiences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `galerie_entreprises`
 --
