@@ -33,7 +33,11 @@
         </div>
 
         <br />
-        <div class="titreNormal">5800 emplois qui vous correspondent !</div>
+        <?php
+            $countAnnonce = $bdd->query("SELECT COUNT(id) AS countid FROM annoncesentreprises");
+            $countAnnonceFetch = $countAnnonce->fetch();
+        ?>
+        <div class="titreNormal"><?php echo $countAnnonceFetch['countid']; ?> annonces sont actuellement en lignes !</div>
         <br />
 
         <div class="annonceList">
