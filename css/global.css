@@ -1,3 +1,9 @@
+/* fonts */
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/montserrat/Montserrat-Regular.ttf") format("ttf");
+}
+
 /* CSS GLOBAL */
 
 /* ALERT */
@@ -121,5 +127,11 @@
 .centeredElement {
     width: 100%;
     text-align: center;
+}
+
+.stickyTop {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10px;
 }
 /* UTILES */

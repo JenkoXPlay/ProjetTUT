@@ -1,3 +1,9 @@
+/* fonts */
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/montserrat/Montserrat-Regular.ttf") format("ttf");
+}
+
 /*Selectionne tout*/
 * {
     box-sizing: border-box;

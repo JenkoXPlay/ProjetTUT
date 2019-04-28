@@ -9,7 +9,7 @@
             while ($dataUser = $req_info_user->fetch()) {
         ?>
 
-            <div class="informationProfil">
+            <div class="informationProfil stickyTop">
                 <div class="title">Informations Personnelles</div>
                 <hr />
                 <div class="subtitle labelForm">Photo de profil</div>
@@ -34,22 +34,48 @@
                             });
                         });
                     </script>
-                    <div class="subtitle labelForm">Prénom</div>
-                    <input type="text" name="prenom" class="inputText width_100" placeholder="Prénom" value="<?php echo $dataUser['prenom']; ?>" />
-                    <br />
-                    <div class="subtitle labelForm">Nom</div>
-                    <input type="text" name="nom" class="inputText width_100" placeholder="Nom" value="<?php echo $dataUser['nom']; ?>" />
-                    <br />
-                    <div class="subtitle labelForm">Email</div>
-                    <input type="email" name="email" class="inputText width_100" placeholder="Email" value="<?php echo $dataUser['email']; ?>" />
-                    <br />
-                    <div class="subtitle labelForm">Téléphone</div>
-                    <input type="text" name="telephone" class="inputText width_100" placeholder="Téléphone" value="<?php echo $dataUser['telephone']; ?>" />
-                    <br />
-                    <div class="subtitle labelForm">Département</div>
-                    <input type="number" name="departement" class="inputText width_100" placeholder="Ex: 62" value="<?php echo $dataUser['departement']; ?>" />
-                    <br /><br />
-                    <input type="submit" name="submitPerso" class="btnPurple width_100" value="Mettre à jour" />
+                    <div id="showInfoPerso">
+                        <i class="icon icon-arrow-down"></i>
+                        <span>Afficher mes informations</span>
+                        <i class="icon icon-arrow-down"></i>
+                    </div>
+                    <div id="hideInfoPerso">
+                        <i class="icon icon-arrow-up"></i>
+                        <span>Cacher mes informations</span>
+                        <i class="icon icon-arrow-up"></i>
+                    </div>
+                    <div id="infoPersoDisplay">
+                        <div class="subtitle labelForm">Prénom</div>
+                        <input type="text" name="prenom" class="inputText width_100" placeholder="Prénom" value="<?php echo $dataUser['prenom']; ?>" />
+                        <br />
+                        <div class="subtitle labelForm">Nom</div>
+                        <input type="text" name="nom" class="inputText width_100" placeholder="Nom" value="<?php echo $dataUser['nom']; ?>" />
+                        <br />
+                        <div class="subtitle labelForm">Email</div>
+                        <input type="email" name="email" class="inputText width_100" placeholder="Email" value="<?php echo $dataUser['email']; ?>" />
+                        <br />
+                        <div class="subtitle labelForm">Téléphone</div>
+                        <input type="text" name="telephone" class="inputText width_100" placeholder="Téléphone" value="<?php echo $dataUser['telephone']; ?>" />
+                        <br />
+                        <div class="subtitle labelForm">Département</div>
+                        <input type="number" name="departement" class="inputText width_100" placeholder="Ex: 62" value="<?php echo $dataUser['departement']; ?>" />
+                        <br /><br />
+                        <input type="submit" name="submitPerso" class="btnPurple width_100" value="Mettre à jour" />
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#showInfoPerso').click(function(){
+                                $('#infoPersoDisplay').show();
+                                $('#showInfoPerso').hide();
+                                $('#hideInfoPerso').show();
+                            });
+                            $('#hideInfoPerso').click(function(){
+                                $('#infoPersoDisplay').hide();
+                                $('#showInfoPerso').show();
+                                $('#hideInfoPerso').hide();
+                            });
+                        });
+                    </script>
                 </form>
                 <br />
                 <div class="title">Mot de passe</div>

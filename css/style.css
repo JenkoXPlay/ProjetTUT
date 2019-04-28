@@ -1,3 +1,9 @@
+/* fonts */
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/montserrat/Montserrat-Regular.ttf") format("ttf");
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -117,6 +123,23 @@ body {
     padding: 10px;
     width: 35%;
     text-align: left;
+}
+.content .informationProfil #showInfoPerso {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+.content .informationProfil #showInfoPerso:hover {
+    cursor: pointer;
+}
+.content .informationProfil #hideInfoPerso, #infoPersoDisplay {
+    display: none;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+.content .informationProfil #hideInfoPerso:hover, #infoPersoDisplay:hover {
+    cursor: pointer;
 }
 .content .informationProfil .title {
     text-transform: uppercase;
