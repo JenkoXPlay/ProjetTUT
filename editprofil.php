@@ -110,6 +110,7 @@
                     <input type="submit" name="submitDesc" class="btnPurple width_100" value="Mettre à jour" />
                     <br />
                 </form>
+
                 <div class="subtitle labelForm">Expériences professionnelles</div>
                 <div class="panelExpPro">
                     <?php
@@ -177,7 +178,9 @@
                         <?php
                     }
                 ?>
+
                 <br />
+
                 <div class="subtitle labelForm">Formations</div>
                 <div class="panelFormation">
                     <?php
@@ -227,6 +230,65 @@
                         <?php
                     }
                 ?>
+
+                <br />
+
+                <div class="subtitle labelForm">Compétences</div>
+                    <div class="panelFormation">
+                        <?php
+                            include('./function/competences.php');
+                            include('./script_php/add_competence.php');
+                        ?>
+                        <form action="" method="post">
+                            <div class="inputFlex">
+                                <div class="itemFlex">
+                                    <input type="text" name="competence" class="inputText width_90" placeholder="Compétence : Photoshop" />
+                                </div>
+                                <div class="itemFlex">
+                                    <input type="text" name="domaine" class="inputText width_90" placeholder="Domaine : Informatique" />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="inputFlex">
+                                <select class="itemFlex inputSelect width_45" name="niveau">
+                                    <option selected>Niveau</option>
+                                    <option value="Débutant">Débutant</option>
+                                    <option value="Intermédiaire">Intermédiaire</option>
+                                    <option value="Avancé">Avancé</option>
+                                    <option value="Expert">Expert</option>
+                                </select>
+                                <input type="submit" name="submitCompetence" class="itemFlex btnPurple width_45" value="Ajouter" />
+                            </div>
+                        </form>
+                    </div>
+                    <br />
+                    <?php
+                        if (isset($_POST['deleteComp'])) {
+                            $idComp = security($_POST['idComp']);
+                            if ($idComp) {
+                                $req  = deleteCompId($bdd, $idComp);
+                                echo "<div class='alertSuccess'>Compétence supprimée !</div><br />";
+                            } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
+                        }
+                    ?>
+                    <div class="competences">
+                        <?php
+                            $req_info_comp = $bdd->prepare("SELECT * FROM competences WHERE competenceDe='{$dataUser['id']}'");
+                            $req_info_comp->execute();
+                            while ($dataComp = $req_info_comp->fetch()) {
+                                ?>
+                                    <form method="post" action="">
+                                        <input type="text" name="idComp" value="<?php echo $dataComp['id']; ?>" style="display:none;" />
+                                        <span>
+                                            <?php echo $dataComp['competence']." : ".$dataComp['level']; ?>
+                                            <input type="submit" name="deleteComp" class="btnCross" value="X" />
+                                        </span>
+                                    </form>
+                                <?php
+                            }
+                        ?>
+                    </div>
+                </div>
             </div>
 
         <?php

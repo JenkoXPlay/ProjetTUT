@@ -113,6 +113,17 @@
 .importAvatar:hover {
     cursor: pointer;
 }
+
+.btnCross {
+    color: #fff;
+    font-weight: 500;
+    background: none;
+    border: none;
+    display: inline-block;
+}
+.btnCross:hover {
+    cursor: pointer;
+}
 /* FORMULAIRE INFO PERSO */
 
 /* UTILES */

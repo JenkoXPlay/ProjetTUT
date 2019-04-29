@@ -168,6 +168,25 @@ body {
     border-radius: 4px;
     padding: 10px;
 }
+.competences {
+    width: 100%;
+    border-radius: 4px;
+    border: 2px dashed #403F4A;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.competences span {
+    background: #4b00ff;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 4px;
+    padding: 2px 5px 2px 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
 .content .informationProfil .panelExpPro .inputFlex {
     width: 100%;
     display: flex;
@@ -182,7 +201,7 @@ body {
     
 }
 .content .informationProfil .panelFormation .inputFlex .itemFlex {
-    
+
 }
 .content .informationProfil .panelExpPro .textareaFlex {
     padding: 5px;
