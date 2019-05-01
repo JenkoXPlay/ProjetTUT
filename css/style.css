@@ -149,7 +149,7 @@ body {
 .content .informationProfil .subtitle {
     font-size: 1em;
     font-weight: 500;
-    color: #A0A0A5;
+    color: #3B4351;
 }
 .content .informationProfil .contentAvatar {
     width: 100%;
@@ -162,13 +162,17 @@ body {
     height: 100px;
 }
 .content .informationProfil .panelExpPro, .panelFormation {
-    width: 100%;
+    /* width: 100%;
     border: 1px solid #4B00FF;
     box-shadow: 0 0 4px #4b00ff;
     border-radius: 4px;
+    padding: 10px; */
+    width: 100%;
+    border: 2px solid #4B00FF;
+    border-radius: 4px;
     padding: 10px;
 }
-.competences {
+.competences, .loisirs {
     width: 100%;
     border-radius: 4px;
     border: 2px dashed #403F4A;
@@ -178,7 +182,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
-.competences span {
+.competences span, .loisirs span {
     background: #4b00ff;
     color: #fff;
     font-weight: 400;
@@ -198,10 +202,10 @@ body {
     justify-content: space-around;
 }
 .content .informationProfil .panelExpPro .inputFlex .itemFlex {
-    
+    width: 50%;
 }
 .content .informationProfil .panelFormation .inputFlex .itemFlex {
-
+    width: 50%;
 }
 .content .informationProfil .panelExpPro .textareaFlex {
     padding: 5px;
@@ -268,16 +272,24 @@ body {
     display: flex;
     justify-content: center;
 }
-.searchbar .job {
+.searchbar .loupe {
     border: none;
     background: #fff;
     color: #000;
     border-radius: 50px 0 0 50px;
     padding: 15px;
-    width: 15%;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
     border-left: 1px solid #000;
+}
+.searchbar .job {
+    border: none;
+    background: #fff;
+    color: #000;
+    padding: 15px;
+    width: 20%;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
 }
 .searchbar .domaine, .type_contrat, .localisation {
     border: 0;
@@ -296,7 +308,7 @@ body {
     font-weight: 500;
     border-radius: 0 50px 50px 0;
     padding: 15px;
-    width: 15%;
+    width: 10%;
 }
 .searchbar .sendSearch:hover {
     cursor: pointer;

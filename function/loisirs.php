@@ -1,12 +1,11 @@
 <?php
     // Ajout loisirs
-    function addLoisirs($bdd, $loisirDe, $nomLoisir, $description){
-        $req= $bdd->prepare("INSERT INTO loisirs (id, loisirDe, nomLoisir, description) VALUES (?,?,?,?)");
+    function addLoisirs($bdd, $loisirDe, $nomLoisir){
+        $req= $bdd->prepare("INSERT INTO loisirs (id, loisirDe, nomLoisir) VALUES (?,?,?)");
         $req->execute([ 
             '',
             $loisirDe,
-            $nomLoisir,
-            $description
+            $nomLoisir
          ]);
     }
     function deleteLoisirAll($bdd){

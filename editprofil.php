@@ -111,7 +111,7 @@
                     <br />
                 </form>
 
-                <div class="subtitle labelForm">Expériences professionnelles</div>
+                <div class="title labelForm">Expériences professionnelles</div>
                 <div class="panelExpPro">
                     <?php
                         include('./function/experiences.php');
@@ -181,7 +181,7 @@
 
                 <br />
 
-                <div class="subtitle labelForm">Formations</div>
+                <div class="title labelForm">Formations</div>
                 <div class="panelFormation">
                     <?php
                         include('./function/diplomes.php');
@@ -233,7 +233,7 @@
 
                 <br />
 
-                <div class="subtitle labelForm">Compétences</div>
+                <div class="title labelForm">Compétences</div>
                     <div class="panelFormation">
                         <?php
                             include('./function/competences.php');
@@ -250,14 +250,18 @@
                             </div>
                             <br />
                             <div class="inputFlex">
-                                <select class="itemFlex inputSelect width_45" name="niveau">
-                                    <option selected>Niveau</option>
-                                    <option value="Débutant">Débutant</option>
-                                    <option value="Intermédiaire">Intermédiaire</option>
-                                    <option value="Avancé">Avancé</option>
-                                    <option value="Expert">Expert</option>
-                                </select>
-                                <input type="submit" name="submitCompetence" class="itemFlex btnPurple width_45" value="Ajouter" />
+                                <div class="itemFlex">
+                                    <select class="inputSelect width_90" name="niveau">
+                                        <option selected>Niveau</option>
+                                        <option value="Débutant">Débutant</option>
+                                        <option value="Intermédiaire">Intermédiaire</option>
+                                        <option value="Avancé">Avancé</option>
+                                        <option value="Expert">Expert</option>
+                                    </select>
+                                </div>
+                                <div class="itemFlex">
+                                    <input type="submit" name="submitCompetence" class="btnPurple width_90" value="Ajouter" />
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -287,6 +291,54 @@
                                 <?php
                             }
                         ?>
+                    </div>
+
+                    <br />
+
+                    <div class="title labelForm">Loisirs</div>
+                        <div class="panelFormation">
+                            <?php
+                                include('./function/loisirs.php');
+                                include('./script_php/loisirs.php');
+                            ?>
+                            <form action="" method="post">
+                                <div class="inputFlex">
+                                    <div class="itemFlex">
+                                        <input type="text" name="loisir" class="inputText width_90" placeholder="Exemple: natation, boxe, musique" />
+                                    </div>
+                                    <div class="itemFlex">
+                                        <input type="submit" name="submitLoisir" class="btnPurple width_90" value="Ajouter" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <br />
+                        <?php
+                            if (isset($_POST['deleteLoisir'])) {
+                                $idLoisir = security($_POST['idLoisir']);
+                                if ($idLoisir) {
+                                    $req  = deleteLoisirId($bdd, $idLoisir);
+                                    echo "<div class='alertSuccess'>Loisir supprimée !</div><br />";
+                                } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
+                            }
+                        ?>
+                        <div class="loisirs">
+                            <?php
+                                $req_info_loisir = $bdd->prepare("SELECT * FROM loisirs WHERE loisirDe='{$dataUser['id']}'");
+                                $req_info_loisir->execute();
+                                while ($dataLoisir = $req_info_loisir->fetch()) {
+                                    ?>
+                                        <form method="post" action="">
+                                            <input type="text" name="idLoisir" value="<?php echo $dataLoisir['id']; ?>" style="display:none;" />
+                                            <span>
+                                                <?php echo $dataLoisir['nomLoisir']; ?>
+                                                <input type="submit" name="deleteLoisir" class="btnCross" value="X" />
+                                            </span>
+                                        </form>
+                                    <?php
+                                }
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>

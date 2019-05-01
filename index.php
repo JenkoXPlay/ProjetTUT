@@ -6,6 +6,7 @@
 
         <div class="searchbar">
             <form action="" method="post" autocomplete="off">
+                <span class="loupe"><i class="icon icon-search"></i></span>
                 <input type="text" name="job" class="job" placeholder="Job que vous cherchez" />
                 <select name="domaine" class="domaine">
                     <option value="domaine" selected>Domaine</option>
