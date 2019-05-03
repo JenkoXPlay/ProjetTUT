@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="menuGeneral">
-                            <a href="" class="<?php if ($_SERVER['REQUEST_URI'] == "/home") { echo "menuActive"; } ?>">Annonces</a>
+                            <a href="/home" class="<?php if ($_SERVER['REQUEST_URI'] == "/home") { echo "menuActive"; } ?>">Annonces</a>
                             <a href="">Suggestions</a>
                             <?php
                                 if ($data['type_compte'] == "pro") {

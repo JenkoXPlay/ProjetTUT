@@ -162,11 +162,6 @@ body {
     height: 100px;
 }
 .content .informationProfil .panelExpPro, .panelFormation {
-    /* width: 100%;
-    border: 1px solid #4B00FF;
-    box-shadow: 0 0 4px #4b00ff;
-    border-radius: 4px;
-    padding: 10px; */
     width: 100%;
     border: 2px solid #4B00FF;
     border-radius: 4px;
@@ -384,3 +379,76 @@ body {
     cursor: pointer;
 }
 /* Liste des annonces */
+
+/* Page Annonce */
+.contentPageAnnonce {
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+.contentPageAnnonce .pageAnnonce {
+    background: #fff;
+    border-radius: 4px;
+    padding: 10px;
+    width: 65%;
+    border: 1px solid #E1E1E1;
+    text-align: left;
+}
+.contentPageAnnonce .pageAnnonce .goBack {
+    font-weight: 500;
+    color: #3B4351;
+    transition: 0.3s;
+}
+.contentPageAnnonce .pageAnnonce .goBack:hover {
+    text-decoration: none;
+}
+.contentPageAnnonce .pageAnnonce .goBack:hover i {
+    margin-right: 15px;
+    transition: 0.3s;
+}
+.contentPageAnnonce .pageAnnonce .headerAnnonce {
+    width: 100%;
+    text-align: center;
+}
+.contentPageAnnonce .pageAnnonce .headerAnnonce .logoInc {
+    height: 120px;
+    border-radius: 4px;
+    box-shadow: 0 0 4px #000;
+    margin-bottom: 5px;
+}
+.contentPageAnnonce .pageAnnonce .headerAnnonce .subtitle {
+    font-weight: bold;
+    font-size: 0.8em;
+}
+.contentPageAnnonce .pageAnnonce .headerAnnonce .title {
+    font-weight: 500;
+    font-size: 1.4em;
+    text-transform: uppercase;
+}
+.contentPageAnnonce .pageAnnonce .headerAnnonce .separator {
+    width: 15%;
+    height: 1px;
+    background: #3B4351;
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.contentPageAnnonce .pageAnnonce .headerAnnonce .info {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.contentPageAnnonce .annonceList {
+    width: 30%;
+    background: #fff;
+    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #E1E1E1;
+}
+/* Page Annonce */
