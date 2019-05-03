@@ -53,7 +53,7 @@
     }
 
     // lecture par entreprise
-    function getAnnonceId($bdd, $idCompany) {
+    function getAnnonceIdCompagny($bdd, $idCompany) {
         $req = $bdd->prepare("SELECT * FROM annoncesentreprises WHERE entreprise='$idCompany'");
         $req->execute();
         return $req;

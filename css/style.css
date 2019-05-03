@@ -351,7 +351,9 @@ body {
     padding: 15px;
     text-align: left;
 }
-.annonceList .annonce .sujet .titreAnnonce {
+.annonceList .annonce .sujet .titreAnnonce, .titreAnnonce:hover {
+    color: #F0F0F1;
+    text-decoration: none;
     font-weight: 500;
     font-size: 1.2em;
     text-transform: uppercase;

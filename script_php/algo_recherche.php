@@ -18,11 +18,12 @@ if (isset($_POST['sendSearch'])) {
                 $req->execute();
                 //On affiche les données dans le tableau
                 while ($donnees = $req->fetch()){
+                    echo "<input type='text' id='idAnnonce' value='".$donnees['id']."' readonly style='display:none;' />";
                     echo "<div class='annonce'>";
                         echo "<div class='logo'><img src='./img/logo_black.svg' /></div>";
                         echo "<div class='sujet'>";
                             echo "<span>".$donnees['nom']."</span><br />";
-                            echo "<span class='titreAnnonce'>".$donnees['titre']."</span>";
+                            echo "<a href='/annonce/".$donnees['id']."' class='titreAnnonce'>".$donnees['titre']."</a>";
                             echo "<br /><br />";
                             echo "<div class='info'>";
                                 echo "<div>";
@@ -38,7 +39,7 @@ if (isset($_POST['sendSearch'])) {
                         echo "<div class='favoris'>";
                             echo "<img src='./img/star.svg' />";
                         echo "</div>";
-                    echo "</div>";         
+                    echo "</div>";        
                 }
             } else {
                 /*Sinon Test le cas ou l'on cherche soit un stage ou soit une alternance*/
@@ -52,7 +53,7 @@ if (isset($_POST['sendSearch'])) {
                         echo "<div class='logo'><img src='./img/logo_black.svg' /></div>";
                         echo "<div class='sujet'>";
                             echo "<span>".$donnees['nom']."</span><br />";
-                            echo "<span class='titreAnnonce'>".$donnees['titre']."</span>";
+                            echo "<a href='/annonce/".$donnees['id']."' class='titreAnnonce'>".$donnees['titre']."</a>";
                             echo "<br /><br />";
                             echo "<div class='info'>";
                                 echo "<div>";
@@ -87,7 +88,7 @@ if (isset($_POST['sendSearch'])) {
                                 echo "<div class='logo'><img src='./img/logo_black.svg' /></div>";
                                 echo "<div class='sujet'>";
                                     echo "<span>".$donnees['nom']."</span><br />";
-                                    echo "<span class='titreAnnonce'>".$donnees['titre']."</span>";
+                                    echo "<a href='/annonce/".$donnees['id']."' class='titreAnnonce'>".$donnees['titre']."</a>";
                                     echo "<br /><br />";
                                     echo "<div class='info'>";
                                         echo "<div>";
@@ -117,7 +118,7 @@ if (isset($_POST['sendSearch'])) {
                                 echo "<div class='logo'><img src='./img/logo_black.svg' /></div>";
                                 echo "<div class='sujet'>";
                                     echo "<span>".$donnees['nom']."</span><br />";
-                                    echo "<span class='titreAnnonce'>".$donnees['titre']."</span>";
+                                    echo "<a href='/annonce/".$donnees['id']."' class='titreAnnonce'>".$donnees['titre']."</a>";
                                     echo "<br /><br />";
                                     echo "<div class='info'>";
                                         echo "<div>";
@@ -152,7 +153,7 @@ if (isset($_POST['sendSearch'])) {
                         echo "<div class='logo'><img src='./img/logo_black.svg' /></div>";
                         echo "<div class='sujet'>";
                             echo "<span>".$donnees['nom']."</span><br />";
-                            echo "<span class='titreAnnonce'>".$donnees['titre']."</span>";
+                            echo "<a href='/annonce/".$donnees['id']."' class='titreAnnonce'>".$donnees['titre']."</a>";
                             echo "<br /><br />";
                             echo "<div class='info'>";
                                 echo "<div>";
@@ -182,7 +183,7 @@ if (isset($_POST['sendSearch'])) {
                         echo "<div class='logo'><img src='./img/logo_black.svg' /></div>";
                         echo "<div class='sujet'>";
                             echo "<span>".$donnees['nom']."</span><br />";
-                            echo "<span class='titreAnnonce'>".$donnees['titre']."</span>";
+                            echo "<a href='/annonce/".$donnees['id']."' class='titreAnnonce'>".$donnees['titre']."</a>";
                             echo "<br /><br />";
                             echo "<div class='info'>";
                                 echo "<div>";
@@ -216,7 +217,7 @@ if (isset($_POST['sendSearch'])) {
                         echo "<div class='logo'><img src='./img/logo_black.svg' /></div>";
                         echo "<div class='sujet'>";
                             echo "<span>".$donnees['nom']."</span><br />";
-                            echo "<span class='titreAnnonce'>".$donnees['titre']."</span>";
+                            echo "<a href='/annonce/".$donnees['id']."' class='titreAnnonce'>".$donnees['titre']."</a>";
                             echo "<br /><br />";
                             echo "<div class='info'>";
                                 echo "<div>";
@@ -247,7 +248,7 @@ if (isset($_POST['sendSearch'])) {
                         echo "<div class='logo'><img src='./img/logo_black.svg' /></div>";
                         echo "<div class='sujet'>";
                             echo "<span>".$donnees['nom']."</span><br />";
-                            echo "<span class='titreAnnonce'>".$donnees['titre']."</span>";
+                            echo "<a href='/annonce/".$donnees['id']."' class='titreAnnonce'>".$donnees['titre']."</a>";
                             echo "<br /><br />";
                             echo "<div class='info'>";
                                 echo "<div>";
@@ -279,7 +280,7 @@ if (isset($_POST['sendSearch'])) {
             echo "<div class='logo'><img src='./img/logo_black.svg' /></div>";
             echo "<div class='sujet'>";
                 echo "<span>".$donnees['nom']."</span><br />";
-                echo "<span class='titreAnnonce'>".$donnees['titre']."</span>";
+                echo "<a href='/annonce/".$donnees['id']."' class='titreAnnonce'>".$donnees['titre']."</a>";
                 echo "<br /><br />";
                 echo "<div class='info'>";
                     echo "<div>";
