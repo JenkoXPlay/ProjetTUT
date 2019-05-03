@@ -55,6 +55,7 @@ $router->setRoutes('/home', 'index.php');
 $router->setRoutes('/logout', 'logout.php');
 $router->setRoutes('/login', 'login.php');
 $router->setRoutes('/editprofile', 'editprofil.php');
+$router->setRoutes('/editentreprise', 'editentreprise.php');
 $router->setRoutes('/register', 'register.php');
 $router->setRoutes('/annonce/:idAnnonce', 'annonce.php');
 $router->setRoutes('/profil/:id_membre', 'profil.php');
