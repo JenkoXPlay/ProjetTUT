@@ -8,11 +8,12 @@
             <form action="" method="post" autocomplete="off">
                 <span class="loupe"><i class="icon icon-search"></i></span>
                 <input type="text" name="job" class="job" placeholder="Job que vous cherchez" />
-                <select name="domaine" class="domaine">
+                <input type="text" name="domaine" class="domaine" placeholder="Domaine (ex : informatique)" />
+                <!-- <select name="domaine" class="domaine">
                     <option value="domaine" selected>Domaine</option>
                     <option class="option" value="medecine">Médecine</option>
                     <option class="option" value="informatique">Informatique</option>
-                </select>
+                </select> -->
                 <select name="type_contrat" class="type_contrat">
                     <option value="typeContrat" selected>Type de contrat</option>
                     <option value="all">Alternance ou Stage</option>

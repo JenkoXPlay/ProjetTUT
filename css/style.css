@@ -291,13 +291,18 @@ body {
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
 }
-.searchbar .domaine, .type_contrat, .localisation {
+.searchbar .domaine {
+    border: 1px solid #000;
+    padding: 15px;
+    width: 15%;
+}
+.searchbar .type_contrat, .localisation {
     border: 0;
     background: #fff;
     color: #000;
     padding: 15px;
 }
-.searchbar .domaine > option:hover, .type_contrat > option:hover, .localisation > option:hover { /* revoir cette partie, car problème avec les options qui ne suivent pas avec le design de la search bar */
+.searchbar .type_contrat > option:hover, .localisation > option:hover { /* revoir cette partie, car problème avec les options qui ne suivent pas avec le design de la search bar */
     background: #4b00ff;
     color: #fff;
 }
