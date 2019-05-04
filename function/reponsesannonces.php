@@ -51,7 +51,7 @@
     }
 
     // lecture all
-    function getRepEntreprise($bdd) {
+    function getRepAnnonce($bdd) {
         $req = $bdd->prepare("SELECT * FROM reponsesannonces");
         $req->execute();
         return $req;
@@ -65,21 +65,21 @@
     }
 
     // lecture id de l'annonce
-    function getRepEntrepriseId($bdd, $idAnnonce) {
+    function getRepAnnonceId($bdd, $idAnnonce) {
         $req = $bdd->prepare("SELECT * FROM reponsesannonces WHERE idAnnoncesEntreprises='$idAnnonce'");
         $req->execute();
         return $req;
     }
 
     // lecture par candidat
-    function getRepEntrepriseId($bdd, $idUser) {
+    function getRepEntrepriseIdCandidat($bdd, $idUser) {
         $req = $bdd->prepare("SELECT * FROM reponsesannonces WHERE candidat='$idUser'");
         $req->execute();
         return $req;
     }
 
     // lecture par entreprise
-    function getRepEntrepriseId($bdd, $idCompany) {
+    function getRepEntreprise($bdd, $idCompany) {
         $req = $bdd->prepare("SELECT * FROM reponsesannonces WHERE entreprise='$idCompany'");
         $req->execute();
         return $req;
