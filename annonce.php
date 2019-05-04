@@ -51,8 +51,6 @@
                                                     </div>
 
                                                     <br />
-
-                                                    <!-- Vérifier si id input == iduser connecté -->
                                                     
                                                     <?php
                                                         $req_user = getMailUser($bdd, $_SESSION['email']);
@@ -76,12 +74,14 @@
                                                                     if ($countCandidature['countid'] != 0) {
                                                                         echo "<div class='alertSuccess marginCenter width_50'>Votre candidature est en attente !</div><br />";
                                                                     } else {
-                                                                        ?>
-                                                                            <form action="" method="post">
-                                                                                <input type="text" name="idUser" value="<?php echo $dataUser['id']; ?>" readonly style="display:none;" />
-                                                                                <input type="submit" name="subPostuler" class="btnPostuler" value="Postuler maintenant" />
-                                                                            </form>
-                                                                        <?php
+                                                                        if ($dataUser['type_compte'] == "etudiant") {
+                                                                            ?>
+                                                                                <form action="" method="post">
+                                                                                    <input type="text" name="idUser" value="<?php echo $dataUser['id']; ?>" readonly style="display:none;" />
+                                                                                    <input type="submit" name="subPostuler" class="btnPostuler" value="Postuler maintenant" />
+                                                                                </form>
+                                                                            <?php
+                                                                        }
                                                                     }
                                                                 ?>
                                                                 
@@ -121,20 +121,22 @@
                                             $req_all_annonce = getAnnonceIdCompagny($bdd, $dataEntrepriseId['id']);
                                             while ($dataAllAnnonce = $req_all_annonce->fetch()) {
                                                 ?>
-                                                    <div class="annonceEntreprise">
-                                                        <span class="titre"><?php echo $dataAllAnnonce['titre']; ?></span>
-                                                        <div class="info">
-                                                            <div>
-                                                                <img src='/img/maletteNoir2.png' style='width: 14px; height: 14px;margin-right: 5px;' />
-                                                                <?php echo $dataAllAnnonce['typeAnnonce']; ?>
-                                                            </div>
+                                                    <a href="/annonce/<?php echo $dataAllAnnonce['id']; ?>">
+                                                        <div class="annonceEntreprise">
+                                                            <span class="titre"><?php echo $dataAllAnnonce['titre']; ?></span>
+                                                            <div class="info">
+                                                                <div>
+                                                                    <img src='/img/maletteNoir2.png' style='width: 14px; height: 14px;margin-right: 5px;' />
+                                                                    <?php echo $dataAllAnnonce['typeAnnonce']; ?>
+                                                                </div>
 
-                                                            <div>
-                                                                <?php echo $dataAllAnnonce['remuneration']; ?>
-                                                                <img src='/img/euro.png' style='width: 14px; height: 14px;margin-right: 5px;' />
+                                                                <div>
+                                                                    <?php echo $dataAllAnnonce['remuneration']; ?>
+                                                                    <img src='/img/euro.png' style='width: 14px; height: 14px;margin-right: 5px;' />
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </a>
                                                 <?php
                                             }
                                         }
@@ -146,7 +148,7 @@
                     } else echo "non";
                 }
             } else {
-                echo "erreur";
+                header('Location:/erreur');
             }
         ?>
 

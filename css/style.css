@@ -480,6 +480,13 @@ body {
     background: #f9f9f9;
     border: 1px solid #4B00FF;
 }
+.contentPageAnnonce .annonceList a {
+    color: #3B4351;
+}
+.contentPageAnnonce .annonceList a:hover {
+    color: #4B00FF;
+    text-decoration: none;
+}
 .contentPageAnnonce .annonceList .annonceEntreprise .titre {
     font-weight: 500;
     text-transform: uppercase;

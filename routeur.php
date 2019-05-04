@@ -58,8 +58,10 @@ $router->setRoutes('/editprofile', 'editprofil.php');
 $router->setRoutes('/editentreprise', 'editentreprise.php');
 $router->setRoutes('/register', 'register.php');
 $router->setRoutes('/annonce/:idAnnonce', 'annonce.php');
+$router->setRoutes('/candidatures', 'candidature.php');
 $router->setRoutes('/profil/:id_membre', 'profil.php');
 $router->setRoutes('/maintenance', 'maintenance.php');
+$router->setRoutes('/erreur', 'erreur.php');
 $router->setOtherwise('page', 'erreur.php');
 
 $router->search();
