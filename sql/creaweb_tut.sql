@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
--- https://www.phpmyadmin.net/
+-- version 4.4.15.5
+-- http://www.phpmyadmin.net
 --
 -- Client :  localhost:3306
--- Généré le :  Jeu 09 Mai 2019 à 11:37
+-- Généré le :  Jeu 09 Mai 2019 à 11:56
 -- Version du serveur :  5.5.49-log
 -- Version de PHP :  7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -28,25 +26,19 @@ SET time_zone = "+00:00";
 -- Structure de la table `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `pseudo` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
   `creation` datetime NOT NULL,
   `last_connexion` datetime NOT NULL,
   `avatar` text NOT NULL,
   `privilege` varchar(100) NOT NULL,
-  `ban` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id` (`id`),
-  KEY `pseudo` (`pseudo`),
-  KEY `privilege` (`privilege`),
-  KEY `ban` (`ban`)
+  `ban` varchar(20) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `admin`
+-- Contenu de la table `admin`
 --
 
 INSERT INTO `admin` (`id`, `pseudo`, `password`, `creation`, `last_connexion`, `avatar`, `privilege`, `ban`) VALUES
@@ -58,12 +50,10 @@ INSERT INTO `admin` (`id`, `pseudo`, `password`, `creation`, `last_connexion`, `
 -- Structure de la table `administration`
 --
 
-DROP TABLE IF EXISTS `administration`;
 CREATE TABLE IF NOT EXISTS `administration` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `etat` tinyint(1) NOT NULL,
-  `blockedBy` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `blockedBy` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -72,21 +62,17 @@ CREATE TABLE IF NOT EXISTS `administration` (
 -- Structure de la table `annoncesentreprises`
 --
 
-DROP TABLE IF EXISTS `annoncesentreprises`;
 CREATE TABLE IF NOT EXISTS `annoncesentreprises` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `entreprise` int(11) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `typeAnnonce` varchar(150) NOT NULL,
-  `remuneration` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `entreprise` (`entreprise`),
-  KEY `typeAnnonce` (`typeAnnonce`,`remuneration`)
+  `remuneration` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `annoncesentreprises`
+-- Contenu de la table `annoncesentreprises`
 --
 
 INSERT INTO `annoncesentreprises` (`id`, `entreprise`, `titre`, `description`, `typeAnnonce`, `remuneration`) VALUES
@@ -107,21 +93,21 @@ INSERT INTO `annoncesentreprises` (`id`, `entreprise`, `titre`, `description`, `
 -- Structure de la table `competences`
 --
 
-DROP TABLE IF EXISTS `competences`;
 CREATE TABLE IF NOT EXISTS `competences` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `competenceDe` int(11) NOT NULL,
   `domaine` varchar(255) NOT NULL,
   `competence` varchar(255) NOT NULL,
   `level` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `competences`
 --
 
 INSERT INTO `competences` (`id`, `competenceDe`, `domaine`, `competence`, `level`) VALUES
-(1, 11, 'Informatique', 'PHP', 'Intermédiaire');
+(1, 11, 'Informatique', 'PHP', 'Intermédiaire'),
+(2, 13, 'Alcool', 'Buveur de bière', 'Expert');
 
 -- --------------------------------------------------------
 
@@ -129,22 +115,16 @@ INSERT INTO `competences` (`id`, `competenceDe`, `domaine`, `competence`, `level
 -- Structure de la table `competencesannonce`
 --
 
-DROP TABLE IF EXISTS `competencesannonce`;
 CREATE TABLE IF NOT EXISTS `competencesannonce` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `annonce` int(11) NOT NULL,
   `domaine` varchar(255) NOT NULL,
   `competence` varchar(255) NOT NULL,
-  `level` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `annonce` (`annonce`),
-  KEY `domaine` (`domaine`),
-  KEY `competence` (`competence`),
-  KEY `level` (`level`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+  `level` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `competencesannonce`
+-- Contenu de la table `competencesannonce`
 --
 
 INSERT INTO `competencesannonce` (`id`, `annonce`, `domaine`, `competence`, `level`) VALUES
@@ -180,36 +160,24 @@ INSERT INTO `competencesannonce` (`id`, `annonce`, `domaine`, `competence`, `lev
 -- Structure de la table `diplomes`
 --
 
-DROP TABLE IF EXISTS `diplomes`;
 CREATE TABLE IF NOT EXISTS `diplomes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `nom_diplome` text NOT NULL,
   `annee_obtention` varchar(255) NOT NULL,
   `etablissement` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user` (`user`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+  `description` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `diplomes`
+-- Contenu de la table `diplomes`
 --
 
-INSERT INTO `diplomes` (`id`, `user`, `nom_diplome`, `annee_obtention`, `etablissement`) VALUES
-(1, 1, 'BAC STI2D', '2014', 'Malraux'),
-(2, 1, 'BAC STI2D', '2014', 'Malraux'),
-(3, 4, 'BAC S', '2015', 'Lycée Pablo Picasso'),
-(4, 6, 'License Professionnel Réseaux et télécome', '2018', 'IUT de Béthune'),
-(5, 4, 'Licences pro créaweb', '2019', 'IUT de Lens'),
-(6, 5, 'BAC pro SEN', '2016', 'Lycée Robespierre'),
-(7, 5, 'BTS SN', '2017', 'Lycée Malraux'),
-(8, 13, 'Prépa infirmière', '2017', 'CHU Arras'),
-(9, 9, 'Licences pro DIOC', '2017', 'IUT de béthune'),
-(10, 10, 'Licences MathInfo', '2015', 'Université de Lens'),
-(11, 4, 'Diplômes d ingénieur', '2016', 'IG2I'),
-(12, 11, 'Diplôme université de médecine', '2012', 'Université de Lille'),
-(13, 14, 'BAC S SI', '2013', 'Lycée Andrée Malraux'),
-(14, 12, 'Diplôme université de médecine', '2012', 'Université de Lille');
+INSERT INTO `diplomes` (`id`, `user`, `nom_diplome`, `annee_obtention`, `etablissement`, `description`) VALUES
+(1, 1, 'BAC STI2D', '2014', 'Malraux', ''),
+(2, 1, 'BAC STI2D', '2014', 'Malraux', ''),
+(3, 11, 'DUT Réseaux et Télécommunications', '2018', 'IUT de Béthune', 'Dans le domaine de l''informatique !'),
+(4, 13, 'BAC STI2D', '2015', 'A.Malraux Béthune', 'Un truc de branleur !');
 
 -- --------------------------------------------------------
 
@@ -217,9 +185,8 @@ INSERT INTO `diplomes` (`id`, `user`, `nom_diplome`, `annee_obtention`, `etablis
 -- Structure de la table `entreprises`
 --
 
-DROP TABLE IF EXISTS `entreprises`;
 CREATE TABLE IF NOT EXISTS `entreprises` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `responsable` int(11) NOT NULL,
   `nom` varchar(200) NOT NULL,
   `description` text NOT NULL,
@@ -227,15 +194,11 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
   `but` text NOT NULL,
   `typeEntreprise` varchar(150) NOT NULL,
   `siret` text NOT NULL,
-  `departement` int(5) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `responsable` (`responsable`,`nom`,`typeEntreprise`),
-  KEY `typeEntreprise` (`typeEntreprise`),
-  KEY `departement` (`departement`)
+  `departement` int(5) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `entreprises`
+-- Contenu de la table `entreprises`
 --
 
 INSERT INTO `entreprises` (`id`, `responsable`, `nom`, `description`, `logo`, `but`, `typeEntreprise`, `siret`, `departement`) VALUES
@@ -254,37 +217,25 @@ INSERT INTO `entreprises` (`id`, `responsable`, `nom`, `description`, `logo`, `b
 -- Structure de la table `experiences`
 --
 
-DROP TABLE IF EXISTS `experiences`;
 CREATE TABLE IF NOT EXISTS `experiences` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `expDe` int(11) NOT NULL,
+  `poste` varchar(255) NOT NULL,
+  `typeContrat` varchar(100) NOT NULL,
   `nomEntreprise` varchar(255) NOT NULL,
   `ville` varchar(255) NOT NULL,
-  `anneeDebut` int(4) NOT NULL,
-  `anneeFin` int(4) NOT NULL,
-  `dureeTotal` varchar(100) NOT NULL,
-  `typeContrat` varchar(100) NOT NULL,
-  `poste` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `expDe` (`expDe`,`nomEntreprise`,`anneeDebut`,`anneeFin`,`dureeTotal`,`typeContrat`,`poste`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+  `date_debut` varchar(20) NOT NULL,
+  `date_fin` varchar(20) NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `experiences`
+-- Contenu de la table `experiences`
 --
 
-INSERT INTO `experiences` (`id`, `expDe`, `nomEntreprise`, `ville`, `anneeDebut`, `anneeFin`, `dureeTotal`, `typeContrat`, `poste`) VALUES
-(1, 4, 'IBM', 'Lomme', 2018, 2019, '6 mois', 'Contrat Pro', 'Développeur'),
-(3, 5, 'JOUVE', 'LENS', 2017, 2017, '6semaines', 'Stage', 'Développeur'),
-(4, 9, 'Office du tourisme', 'Douai', 2019, 2019, '16semaines', 'Contrat de professionnalisation', 'Infographiste'),
-(5, 6, 'Facem Web', 'Arras', 2015, 2016, '1an', 'Alternance', 'Développeur PHP'),
-(6, 6, 'MBS Communication', 'Vimy', 2016, 2017, '6mois', 'Stage', 'Developpeur front end'),
-(7, 10, 'office de tourisme', 'Arras', 2017, 2017, '2mois', 'Job été', 'Infographiste'),
-(8, 14, 'Kaio', 'Roubaix', 2019, 2019, '3mois', 'Stage', 'Développeur back end'),
-(9, 10, 'Viously', 'Tourcoing', 2018, 2019, '1an', 'Contrat de professionalisation', 'Développeur front end'),
-(10, 12, 'cabinet orthodonthie', 'Lens', 2018, 2018, '1an', 'CDD', 'Assitante'),
-(11, 11, 'hopital de Lens', 'Lens', 2016, 2017, '1an', 'stage', 'infirmière'),
-(12, 13, 'Polyclinique de boisbernard', 'boisbernard', 2015, 2015, '6mois', 'stage', 'urgence');
+INSERT INTO `experiences` (`id`, `expDe`, `poste`, `typeContrat`, `nomEntreprise`, `ville`, `date_debut`, `date_fin`, `description`) VALUES
+(1, 11, 'Développeur Front End', 'Contrat Pro', 'IBM Client Innovation Center', 'Lille', '2018-09-03', '2019-08-30', 'Apprenti développeur front-end dans l''équipe Watson'),
+(2, 13, 'Serveur', 'CDI', 'Leffe', 'Lille', '2019-05-11', '2019-05-31', 'Je servais des bières');
 
 -- --------------------------------------------------------
 
@@ -292,14 +243,11 @@ INSERT INTO `experiences` (`id`, `expDe`, `nomEntreprise`, `ville`, `anneeDebut`
 -- Structure de la table `galerie_entreprises`
 --
 
-DROP TABLE IF EXISTS `galerie_entreprises`;
 CREATE TABLE IF NOT EXISTS `galerie_entreprises` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `idEntreprises` int(11) NOT NULL,
   `lienPhoto` text NOT NULL,
-  `ajout` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idEntreprises` (`idEntreprises`,`ajout`)
+  `ajout` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -308,26 +256,18 @@ CREATE TABLE IF NOT EXISTS `galerie_entreprises` (
 -- Structure de la table `loisirs`
 --
 
-DROP TABLE IF EXISTS `loisirs`;
 CREATE TABLE IF NOT EXISTS `loisirs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `loisirDe` int(11) NOT NULL,
   `nomLoisir` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `loisirs`
+-- Contenu de la table `loisirs`
 --
 
-INSERT INTO `loisirs` (`id`, `loisirDe`, `nomLoisir`, `description`) VALUES
-(1, 4, 'Sport', 'Nombreux sport collectifs (football, handball)'),
-(2, 4, 'Informatique', 'Réalisation de différents projet perso ex: créaion de mon site web'),
-(3, 5, 'Mécanique', 'Réparation de plusieurs véhicule personnel et familial'),
-(4, 5, 'Informatique', 'Maintenance informatique(réparation de pc)'),
-(5, 14, 'Dessin', 'Réalisation de plusieurs illustrations numériques'),
-(6, 11, 'Musique', 'Joue d instrument(guitarre,pianno)'),
-(7, 6, 'Jeux vidéo', 'Tournois d E-sport'),
-(8, 9, 'Sport', 'Tennis');
+INSERT INTO `loisirs` (`id`, `loisirDe`, `nomLoisir`) VALUES
+(1, 13, 'Tunning');
 
 -- --------------------------------------------------------
 
@@ -335,13 +275,11 @@ INSERT INTO `loisirs` (`id`, `loisirDe`, `nomLoisir`, `description`) VALUES
 -- Structure de la table `maintenance`
 --
 
-DROP TABLE IF EXISTS `maintenance`;
 CREATE TABLE IF NOT EXISTS `maintenance` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `etat` tinyint(1) NOT NULL,
   `maintenanceBy` int(11) NOT NULL,
-  `finMaintenance` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  `finMaintenance` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -350,20 +288,17 @@ CREATE TABLE IF NOT EXISTS `maintenance` (
 -- Structure de la table `messagerie`
 --
 
-DROP TABLE IF EXISTS `messagerie`;
 CREATE TABLE IF NOT EXISTS `messagerie` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `sender` int(11) NOT NULL,
   `destinataire` int(11) NOT NULL,
   `message` text NOT NULL,
   `etat_msg` tinyint(1) NOT NULL,
-  `date_msg` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `sender` (`sender`,`destinataire`,`etat_msg`)
+  `date_msg` datetime NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `messagerie`
+-- Contenu de la table `messagerie`
 --
 
 INSERT INTO `messagerie` (`id`, `sender`, `destinataire`, `message`, `etat_msg`, `date_msg`) VALUES
@@ -512,9 +447,8 @@ INSERT INTO `swagger` (`id`, `type`, `categorie`, `requete`, `description`) VALU
 -- Structure de la table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `prenom` varchar(100) NOT NULL,
   `nom` varchar(100) NOT NULL,
   `email` varchar(150) NOT NULL,
@@ -530,20 +464,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   `admin` tinyint(1) NOT NULL,
   `premium` tinyint(1) NOT NULL,
   `avatar` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `users`
+-- Contenu de la table `users`
 --
 
 INSERT INTO `users` (`id`, `prenom`, `nom`, `email`, `password`, `type_compte`, `departement`, `description`, `telephone`, `date_creation`, `date_last_connexion`, `avert`, `raison_ban`, `admin`, `premium`, `avatar`) VALUES
-(4, 'Maxime', 'Lefebvre', 'max@test.com', '$2y$10$BMEL4V9i3cDjYRvoju41t.621x6.PN0O6if7TDkljPl66tRfABPfW', 'etudiant', 62, 'fdsfdsfs', 0, '2019-01-02 00:00:00', '2019-01-24 00:00:00', '0', 'sdsdqsd', 0, 0, 'avatar.jpg'),
-(5, 'Albert', 'Pinot', 'lebgdu62@gmail.com', '$2y$10$wm2OEs6TIh3BpQeNS.LNGupvgQeL3RmfIfMyLJOlpWgZW6GeygB.e', 'pro', 0, '', 0, '2019-02-07 13:29:52', '2019-02-07 13:29:52', '0', '', 0, 0, 'avatar.jpg'),
-(6, 'Juju', 'Col', 'lesuperbgdu62@gmail.com', '$2y$10$gcIcYJFcjgkpSvEVnweJlef7/v3t1HYripF.35ASjjujDRjTO8Eqa', 'pro', 0, '', 0, '2019-02-07 14:08:46', '2019-02-07 14:08:46', '0', '', 0, 0, 'avatar.jpg'),
+(4, 'Maxime', 'Lefebvre', 'max@test.com', '1234', 'etudiant', 62, 'fdsfdsfs', 0, '2019-01-02 00:00:00', '2019-01-24 00:00:00', '0', 'sdsdqsd', 0, 0, 'avatar.jpg'),
+(5, 'Albert', 'Pinot', 'lebgdu62@gmail.com', 'saucisse', 'etudiant', 0, '', 0, '2019-02-07 13:29:52', '2019-02-07 13:29:52', '0', '', 0, 0, 'avatar.jpg'),
+(6, 'Juju', 'Col', 'lesuperbgdu62@gmail.com', 'saucisse2', 'pro', 0, '', 0, '2019-02-07 14:08:46', '2019-02-07 14:08:46', '0', '', 0, 0, 'avatar.jpg'),
 (9, 'Maxime', 'Lefebvre', 'maximelefebvre1505@gmail.com', '$2y$10$NUBKgMOJx2oijEflLpYytOXC8YjOgX8A7JhbUYkgQOwlMetcsFKsW', 'etudiant', 62, '', 0, '2019-02-26 12:54:30', '2019-02-26 12:54:30', '0', '', 0, 0, 'avatar.jpg'),
 (10, 'Nicolas', 'Paris', 'nicolas.paris_isc.france@ibm.com', '$2y$10$rk5LAKlNElmG621o6hFNLehP.goAybeGVQ.BTDofn8JNyV.MJlM46', 'pro', 59, '', 0, '2019-02-26 12:56:55', '2019-02-26 12:56:55', '0', '', 0, 0, 'avatar.jpg'),
 (11, 'Maxime', 'Lefebvre', 'admin@admin.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'pro', 62, 'Voici ma nouvelle description !', 0, '2019-03-08 09:33:23', '2019-03-08 09:33:23', '0', '', 0, 0, '11d0a67e9bde85d858daec17657babb32e.jpg'),
-(12, 'Maxime', 'Lefebvre', 'etu@etu.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'etudiant', 62, '', 0, '2019-05-04 12:30:42', '2019-05-04 12:30:42', '0', '', 0, 0, 'avatar.jpg');
+(12, 'Maxime', 'Lefebvre', 'etu@etu.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'etudiant', 62, '', 0, '2019-05-04 12:30:42', '2019-05-04 12:30:42', '0', '', 0, 0, 'avatar.jpg'),
+(13, 'Jacki', 'Tunning', 'user@user.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'etudiant', 62, '', 0, '2019-05-09 11:51:05', '2019-05-09 11:51:05', '0', '', 0, 0, 'avatar.jpg');
 
 --
 -- Index pour les tables exportées
@@ -690,7 +625,7 @@ ALTER TABLE `annoncesentreprises`
 -- AUTO_INCREMENT pour la table `competences`
 --
 ALTER TABLE `competences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `competencesannonce`
 --
@@ -700,7 +635,7 @@ ALTER TABLE `competencesannonce`
 -- AUTO_INCREMENT pour la table `diplomes`
 --
 ALTER TABLE `diplomes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `entreprises`
 --
@@ -710,7 +645,7 @@ ALTER TABLE `entreprises`
 -- AUTO_INCREMENT pour la table `experiences`
 --
 ALTER TABLE `experiences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `galerie_entreprises`
 --
@@ -720,7 +655,7 @@ ALTER TABLE `galerie_entreprises`
 -- AUTO_INCREMENT pour la table `loisirs`
 --
 ALTER TABLE `loisirs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `maintenance`
 --
@@ -745,7 +680,7 @@ ALTER TABLE `swagger`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
