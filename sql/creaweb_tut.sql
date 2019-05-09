@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 11 avr. 2019 à 15:02
--- Version du serveur :  5.7.23
--- Version de PHP :  7.2.10
+-- Client :  localhost:3306
+-- Généré le :  Jeu 09 Mai 2019 à 11:37
+-- Version du serveur :  5.5.49-log
+-- Version de PHP :  7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -99,7 +99,7 @@ INSERT INTO `annoncesentreprises` (`id`, `entreprise`, `titre`, `description`, `
 (7, 12, 'Developpement web full stack', 'Recherche de style', 'stage', 0),
 (8, 6, 'Designer', 'dfdfgfhfhgf', 'stage', 0),
 (9, 7, 'Developpeur WEB', 'Vous êtes coeur d une equipe de dev et evoluer en tant que tel', 'Alternance', 1200),
-(10, 11, 'Infirmière', 'dfgdfgfdfdg', 'Alternance', 1300);
+(10, 11, 'Infirmière', 'Vitalis Médical Nancy, agence de recrutement en intérim, vacation et CDI, spécialisée dans le Paramédical, Médical et social, recrute pour son client, un établissement sur Nancy, un Infirmier (H/F) DE pour travailler dans un service de dialyse.  Rattaché au Cadre de santé, vous serez en charge des missions suivantes : - Préparer les séances de dialyse et le matériel nécessaire, - Accueillir, installer et prendre en charge les patients, - Réaliser les séances de dialyse, - Assurer la qualité des soins, - Entretenir la relation avec les intervenants extérieurs, - Avoir un rôle éducatif avec les patients, - Gérer et suivre les dossiers, - Participer aux groupes de travail et au bon fonctionnement du service, - Gérer le matériel des salles, - Effectuer les commandes de pharmacie informatisées...Infirmier / Infirmière DE ayant l''expérience du travail en service de dialyse.  Le respect du secret professionnel, des règles de confidentialité, des droits et de la dignité du patient font partie de la pratique professionnelle quotidienne.   Vous êtes rigoureux(se), motivé(e) et consciencieux(se) alors n''hésitez pas à postuler directement sur l''annonce ou à nous envoyer votre CV à nancy@vitalis-medical.com  N''hésitez pas à partager et à nous contacter pour connaître l''ensemble des missions disponibles dans notre agence.', 'Alternance', 1300);
 
 -- --------------------------------------------------------
 
@@ -113,40 +113,15 @@ CREATE TABLE IF NOT EXISTS `competences` (
   `competenceDe` int(11) NOT NULL,
   `domaine` varchar(255) NOT NULL,
   `competence` varchar(255) NOT NULL,
-  `level` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `competenceDe` (`competenceDe`,`domaine`,`competence`,`level`),
-  KEY `domaine` (`domaine`),
-  KEY `competence` (`competence`,`level`),
-  KEY `level` (`level`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+  `level` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `competences`
+-- Contenu de la table `competences`
 --
 
 INSERT INTO `competences` (`id`, `competenceDe`, `domaine`, `competence`, `level`) VALUES
-(2, 4, 'Design', 'Photoshop', '3'),
-(3, 4, 'developpement web', 'Prestashop', '2'),
-(10, 5, 'Design', 'Figma', '3'),
-(6, 5, 'Design', 'illustrator', '4'),
-(8, 5, 'Design', 'InDesign', '3'),
-(7, 5, 'Design', 'Photoshop', '3'),
-(13, 6, 'developpement web', 'Angular', '5'),
-(11, 6, 'developpement web', 'Javascript', '3'),
-(12, 6, 'developpment', 'JAVA', '3'),
-(15, 9, 'developpement web', 'Laravel', '4'),
-(16, 9, 'developpement web', 'ReactJS', '4'),
-(14, 9, 'developpement web', 'Symfony', '4'),
-(18, 10, 'developpement web', 'Javascript', '4'),
-(17, 10, 'developpement web', 'VueJS', '4'),
-(19, 11, 'Medecine', 'anesthésie', '3'),
-(20, 12, 'Medecine', 'Chirurgie dentiste', '4'),
-(21, 13, 'Medecine', 'Urgence', '3'),
-(9, 14, 'Design', 'Adobe XD', '5'),
-(4, 14, 'developpement web', 'CSS', '3'),
-(5, 14, 'developpement web', 'HTML', '4'),
-(1, 14, 'developpement web', 'PHP', '3');
+(1, 11, 'Informatique', 'PHP', 'Intermédiaire');
 
 -- --------------------------------------------------------
 
@@ -173,34 +148,31 @@ CREATE TABLE IF NOT EXISTS `competencesannonce` (
 --
 
 INSERT INTO `competencesannonce` (`id`, `annonce`, `domaine`, `competence`, `level`) VALUES
-(1, 2, 'informatique', 'PHP', '4'),
-(2, 2, 'informatique', 'HTML', '3'),
-(3, 2, 'informatique', 'CSS', '4'),
-(4, 2, 'informatique', 'Javascript', '3'),
-(5, 2, 'informatique', 'adobe xd', '4'),
-(6, 3, 'informatique', 'VueJS', '4'),
-(7, 3, 'informatique', 'ReactJS', '4'),
-(8, 3, 'informatique', 'Angular', '4'),
-(9, 3, 'informatique', 'JS', '4'),
-(10, 4, 'Web Design', 'Photoshop', '4'),
-(11, 4, 'Web Design', 'InDesign', '4'),
-(12, 4, 'Web Design', 'Illustrator', '4'),
-(13, 4, 'Web Design', 'Adobe XD', '4'),
-(14, 5, 'Médecine', 'Anesthésie', '4'),
-(15, 5, 'Médecine', 'Urgences', '4'),
-(16, 5, 'Médecine', 'Tromat', '4'),
-(17, 6, 'Web Design', 'Photoshop', '4'),
-(18, 6, 'Web Design', 'Figma', '4'),
-(19, 6, 'Web Design', 'HTML', '4'),
-(20, 6, 'Web Design', 'CSS', '4'),
-(21, 6, 'Web Design', 'JS', '4'),
-(22, 8, 'Web Design', 'Figma', '3'),
-(23, 8, 'Web Design', 'Adobe XD', '2'),
-(24, 8, 'Web Design', 'Illustrator', '3'),
-(25, 9, 'Informatique', 'Wordpress', '3'),
-(26, 9, 'Informatique', 'Prestashop', '4'),
-(27, 9, 'Informatique', 'Syphony', '5'),
-(28, 1, 'Informatique', 'ES6 JS', '3');
+(1, 2, 'informatique', 'PHP', 'Expert'),
+(2, 2, 'informatique', 'HTML', 'Avancé'),
+(3, 2, 'informatique', 'CSS', 'Expert'),
+(4, 2, 'informatique', 'Javascript', 'Avancé'),
+(5, 2, 'informatique', 'adobe xd', 'Expert'),
+(6, 3, 'informatique', 'VueJS', 'Expert'),
+(7, 3, 'informatique', 'ReactJS', 'Expert'),
+(8, 3, 'informatique', 'Angular', 'Expert'),
+(9, 3, 'informatique', 'JS', 'Expert'),
+(10, 4, 'Web Design', 'Photoshop', 'Expert'),
+(11, 4, 'Web Design', 'InDesign', 'Expert'),
+(12, 4, 'Web Design', 'Illustrator', 'Expert'),
+(13, 4, 'Web Design', 'Adobe XD', 'Expert'),
+(14, 5, 'Médecine', 'Anesthésie', 'Expert'),
+(15, 5, 'Médecine', 'Urgences', 'Expert'),
+(16, 5, 'Médecine', 'Tromat', 'Expert'),
+(17, 6, 'Web Design', 'Photoshop', 'Expert'),
+(18, 6, 'Web Design', 'Figma', 'Expert'),
+(19, 6, 'Web Design', 'HTML', 'Expert'),
+(20, 6, 'Web Design', 'CSS', 'Expert'),
+(21, 6, 'Web Design', 'JS', 'Expert'),
+(22, 8, 'Web Design', 'Figma', 'Avancé'),
+(23, 8, 'Web Design', 'Adobe XD', 'Intermédiaire'),
+(24, 8, 'Web Design', 'Illustrator', 'Avancé'),
+(25, 9, 'Informatique', 'Wordpress', 'Avancé');
 
 -- --------------------------------------------------------
 
@@ -267,14 +239,14 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
 --
 
 INSERT INTO `entreprises` (`id`, `responsable`, `nom`, `description`, `logo`, `but`, `typeEntreprise`, `siret`, `departement`) VALUES
-(5, 1, 'mlklklmkm', 'lmkmlkmk', 'mlkmlkmlklklmk', 'kmklmkmlk', 'pme', 'lmkmkmlk', 59),
-(6, 4, 'IBM', 'Best Company', 'ljfksdjlksjlfjl', 'lkjlkjlkjl', 'ge', 'lsjkflsdjkfljlkdsf', 62),
-(7, 10, 'JOUVE', 'Imprimerie, Métiers du numérique', 'logo.png', 'Mettre le numériques en avant', 'SII', '122545121', 62),
-(8, 5, 'MBS communication', 'dfdfdfd', 'logo.png', 'dfdfd', 'SA', '789961', 59),
-(9, 13, 'Hopital de Lens', '', 'logo.png', '', 'Hopital', '1248541', 62),
-(10, 15, 'Worldline', 'dfdgd', 'logo.png', 'dfdfgf', 'SA', '89784534', 75),
-(11, 11, 'Polyclinique', 'rfgfg', 'logo.png', 'fdfgfg', 'SA', '54654654', 93),
-(12, 6, 'GG Style', 'avoir le style', 'logo.png', 'toujours plus de style', 'SI', '4787891561', 93);
+(5, 1, 'mlklklmkm', 'lmkmlkmk', 'avatar.jpg', 'kmklmkmlk', 'pme', 'lmkmkmlk', 59),
+(6, 4, 'IBM', 'Best Company', 'avatar.jpg', 'lkjlkjlkjl', 'ge', 'lsjkflsdjkfljlkdsf', 62),
+(7, 10, 'JOUVE', 'Imprimerie, Métiers du numérique', 'avatar.jpg', 'Mettre le numériques en avant', 'SII', '122545121', 62),
+(8, 5, 'MBS communication', 'dfdfdfd', 'avatar.jpg', 'dfdfd', 'SA', '789961', 59),
+(9, 13, 'Hopital de Lens', '', 'avatar.jpg', '', 'Hopital', '1248541', 62),
+(10, 15, 'Worldline', 'dfdgd', 'avatar.jpg', 'dfdfgf', 'SA', '89784534', 75),
+(11, 11, 'Polyclinique', 'rfgfg', 'avatar.jpg', 'fdfgfg', 'SA', '54654654', 93),
+(12, 6, 'GG Style', 'avoir le style', 'avatar.jpg', 'toujours plus de style', 'SI', '4787891561', 93);
 
 -- --------------------------------------------------------
 
@@ -340,11 +312,8 @@ DROP TABLE IF EXISTS `loisirs`;
 CREATE TABLE IF NOT EXISTS `loisirs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `loisirDe` int(11) NOT NULL,
-  `nomLoisir` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `loisirDe` (`loisirDe`,`nomLoisir`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `nomLoisir` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `loisirs`
@@ -403,6 +372,143 @@ INSERT INTO `messagerie` (`id`, `sender`, `destinataire`, `message`, `etat_msg`,
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `reponsesannonces`
+--
+
+CREATE TABLE IF NOT EXISTS `reponsesannonces` (
+  `id` int(11) NOT NULL,
+  `idAnnoncesEntreprises` int(11) NOT NULL,
+  `candidat` int(11) NOT NULL,
+  `entreprise` int(11) NOT NULL,
+  `datePostuler` datetime NOT NULL,
+  `notif` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `reponsesannonces`
+--
+
+INSERT INTO `reponsesannonces` (`id`, `idAnnoncesEntreprises`, `candidat`, `entreprise`, `datePostuler`, `notif`) VALUES
+(2, 8, 12, 6, '2019-05-09 09:05:57', 0),
+(4, 10, 12, 11, '2019-05-09 09:39:05', 1),
+(5, 7, 12, 12, '2019-05-09 09:45:52', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `swagger`
+--
+
+CREATE TABLE IF NOT EXISTS `swagger` (
+  `id` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `categorie` varchar(255) NOT NULL,
+  `requete` text NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `swagger`
+--
+
+INSERT INTO `swagger` (`id`, `type`, `categorie`, `requete`, `description`) VALUES
+(1, 'post', 'admin', 'addAdmin($bdd, $pseudo, $password, $privilege)', 'Créer un nouveau compte administrateur.\r\nPrivilège : admin, modo'),
+(2, 'delete', 'admin', 'deleteAllAdmin($bdd)', 'Supprime tous les admins'),
+(3, 'delete', 'admin', 'deleteAdmin($bdd, $idAdmin)', 'Supprimer selon l&#039;id du compte Admin'),
+(4, 'get', 'admin', 'getAdmin($bdd)', 'Affiche tous les comptes admin !'),
+(5, 'get', 'admin', 'getAdminId($bdd, $id)', 'Affiche par id d&#039;admin'),
+(6, 'get', 'admin', 'getAdminPseudo($bdd, $pseudo)', 'Affiche par pseudo !'),
+(7, 'post', 'annoncesentreprises', 'addAnnonceCompany($bdd, $entreprise, $titre, $description, $typeAnnonce, $remuneration)', 'Créer une nouvelle annonce'),
+(8, 'delete', 'annoncesentreprises', 'deleteAllAnnonces($bdd)', 'Supprime toutes les annonces'),
+(9, 'delete', 'annoncesentreprises', 'deleteAnnonceId($bdd, $idAnnonce)', 'Supprime une annonce selon son id'),
+(10, 'delete', 'annoncesentreprises', 'deleteAnnonceCompany($bdd, $idCompany)', 'Supprime en fonction de l&#039;id Entreprise'),
+(11, 'get', 'annoncesentreprises', 'getAnnonce($bdd)', 'Récupère toutes les annonces'),
+(12, 'get', 'annoncesentreprises', 'getAnnonceId($bdd, $idAnnonce)', 'Récupère en fonction de l&#039;id'),
+(13, 'get', 'annoncesentreprises', 'getAnnonceIdCompagny($bdd, $idCompany)', 'Récupère en fonction de l&#039;id Entreprise'),
+(14, 'get', 'annoncesentreprises', 'getAnnonceType($bdd, $typeAnnonce)', 'Récupère selon le type des annonces'),
+(15, 'post', 'competences', 'addCompetences($bdd, $competenceDe, $domaine, $competence, $level)', 'Ajouter une nouvelle compétence'),
+(16, 'delete', 'competences', 'deleteCompAll($bdd)', 'Supprime toutes les compétences !'),
+(17, 'delete', 'competences', 'deleteCompId($bdd,$idComp)', 'Supprime une compétence selon l&#039;id'),
+(18, 'delete', 'competences', 'deleteAllCompDe($bdd,$competenceDe)', 'Supprime toutes les compétences d&#039;un user'),
+(19, 'get', 'competences', 'getAllComp($bdd)', 'Affiche toutes les compétences'),
+(20, 'get', 'competences', 'getIdComp($bdd,$idComp)', 'Affiche une compétence selon l&#039;id'),
+(21, 'get', 'competences', 'getAllCompDe($bdd,$competencesDe)', 'Affiche les compétences d&#039;un utilisateurs'),
+(22, 'post', 'users', 'addUser($bdd, $prenom, $nom, $email, $password, $type_compte, $departement)', 'Permet l&#039;inscription d&#039;un utilisateur'),
+(23, 'delete', 'users', 'deleteAllUsers($bdd)', 'Suppression de tous les utilisateurs'),
+(24, 'delete', 'users', 'deleteUser($bdd, $idUser)', 'Suppression d&#039;un utilisateur'),
+(25, 'get', 'users', 'getAllUsers($bdd)', 'Récupérer tous les utilisateurs'),
+(26, 'get', 'users', 'getIdUser($bdd, $idUser)', 'Récupérer un utilisateur'),
+(27, 'get', 'users', 'getUsersStatus($bdd, $status)', 'Récupérer les utilisateurs en fonction de leur status'),
+(28, 'post', 'entreprise', 'addCompany($bdd, $responsable, $nom, $description, $logo, $but, $typeEntreprise, $siret, $departement)', 'Création d&#039;une entreprise'),
+(29, 'delete', 'entreprise', 'deleteAllCompany($bdd)', 'Suppression de toutes les entreprises'),
+(30, 'delete', 'entreprise', 'deleteCompanyId($bdd, $idCompany)', 'Suppression d&#039;une entreprise par son ID'),
+(31, 'delete', 'entreprise', 'deleteCompanyResponsable($bdd, $idResponsable)', 'Suppression d&#039;une entreprise en fonction du responsable'),
+(32, 'get', 'entreprise', 'getAllEntreprise($bdd)', 'Récupère toutes les entreprises'),
+(33, 'get', 'entreprise', 'getEntrepriseId($bdd, $idEntreprise)', 'Récupère une entreprise en fonction de son ID'),
+(34, 'get', 'entreprise', 'getEntrepriseResponsable($bdd, $idUser)', 'Récupère les entreprises en fonction du responsable'),
+(35, 'get', 'entreprise', 'getEntrepriseNom($bdd, $nom)', 'Récupère une entreprise en fonction du nom'),
+(36, 'get', 'entreprise', 'getEntrepriseSiret($bdd, $siret)', 'Récupère l&#039;entreprise en fonction du SIRET'),
+(37, 'get', 'entreprise', 'getEntrepriseType($bdd, $typeCompany)', 'Récupère les entreprises en fonction de leurs type'),
+(38, 'post', 'experiences', 'addExperience($bdd, $expDe, $poste, $typeContrat, $nomEntreprise, $ville, $date_debut, $date_fin, $description)', 'Ajouter une expérience à un utilisateur'),
+(39, 'delete', 'experiences', 'deleteExpAll($bdd)', 'Suppression de toutes les expériences'),
+(40, 'delete', 'experiences', 'deleteExpId($bdd,$idExp)', 'Suppression par ID'),
+(41, 'delete', 'experiences', 'deleteAllExpDe($bdd,$ExpDe)', 'Suppression de toutes les expériences d&#039;un utilisateur'),
+(42, 'get', 'experiences', 'getAllExp($bdd)', 'Récupère toutes les expériences'),
+(43, 'get', 'experiences', 'getExpId($bdd, $idExp)', 'Récupère expériences par id'),
+(44, 'get', 'experiences', 'getExpDe($bdd, $idUser)', 'Récupère les exp d&#039;un utilisateur'),
+(45, 'post', 'galerieEntreprises', 'addGalerieEntreprises($bdd,$idEntreprises,$lienPhoto )', 'Ajouter une photo à une entreprise'),
+(46, 'delete', 'galerieEntreprises', 'deleteGalerieEntreprisesAll($bdd)', 'Suppression de toutes les entreprises'),
+(47, 'delete', 'galerieEntreprises', 'deleteGalerieEntreprisesId($bdd, $idGaleEntreprise)', 'Suppression par id'),
+(48, 'delete', 'galerieEntreprises', 'deleteAllGalerieEntreprises($bdd, $idEntreprise)', 'Suppression des toutes les photos d&#039;une entreprise'),
+(49, 'get', 'galerieEntreprises', 'getGalerieEntreprises($bdd)', 'Récupère toutes les photos'),
+(50, 'get', 'galerieEntreprises', 'getGalerieEntreprisesId($bdd, $idGalComp)', 'Récupère toutes les photos d&#039;une entreprise'),
+(51, 'post', 'loisirs', 'addLoisirs($bdd, $loisirDe, $nomLoisir, $description)', 'Ajouter un loisir'),
+(52, 'delete', 'loisirs', 'deleteLoisirAll($bdd)', 'Suppression des tous les loisirs'),
+(53, 'delete', 'loisirs', 'deleteLoisirId($bdd,$idLoisirs)', 'Suppression d&#039;un loisir par son id'),
+(54, 'delete', 'loisirs', 'deleteLoisirsId($bdd,$loisirsDe)', 'Suppression de tous les loisirs d&#039;un utilisateur'),
+(55, 'get', 'loisirs', 'getAllLoisirs($bdd)', 'Récupère tous les loisirs'),
+(56, 'get', 'loisirs', 'getLoisirsId($bdd,$idLoisirs)', 'Récupère un loisir par son id'),
+(57, 'get', 'loisirs', 'getAllLoisirsDe($bdd,$loisirDe)', 'Récupère tous les loisirs d&#039;un utilisateur'),
+(58, 'post', 'messagerie', 'addMessage($bdd, $sender, $destinataire, $message)', 'Ajoute un message'),
+(59, 'delete', 'messagerie', 'deleteAllMsg($bdd)', 'Supprime tous les messages'),
+(60, 'delete', 'messagerie', 'deleteMsgId($bdd, $idMsg)', 'Suppression d&#039;un message par son id'),
+(61, 'delete', 'messagerie', 'deleteMsgSender($bdd, $idSender)', 'Supprimer tous les messages d&#039;un sender'),
+(62, 'delete', 'messagerie', 'deleteMsgDestinataire($bdd, $idDest)', 'Supprimer tous les messages d&#039;un destinataire'),
+(63, 'get', 'messagerie', 'getMsg($bdd)', 'Récupère tous les messages'),
+(64, 'get', 'messagerie', 'getMsgId($bdd, $idMsg)', 'Récupère un message par son id'),
+(65, 'get', 'messagerie', 'getMsgSender($bdd, $idSender)', 'Récupère tous les messages d&#039;un sender'),
+(66, 'get', 'messagerie', 'getMsgDestinataire($bdd, $idDest)', 'Récupère tous les messages d&#039;un destinataire'),
+(67, 'get', 'messagerie', 'getMsgSenderDestinataire($bdd, $idSender, $idDest)', 'Récupère une conversation complète entre 2 utilisateurs'),
+(68, 'post', 'reponsesannonces', 'addRepAnnonce($bdd, $idAnnoncesEntreprises, $candidat, $entreprise)', 'Ajoute une réponse à une annonce'),
+(69, 'delete', 'reponsesannonces', 'deleteAllRep($bdd)', 'Supprime toutes les réponses des annonces'),
+(70, 'delete', 'reponsesannonces', 'deleteRepId($bdd, $idRep)', 'Supprime une réponse par son id'),
+(71, 'delete', 'reponsesannonces', 'deleteRepAnnonce($bdd, $idAnnonce)', 'Supprime les réponses par annonce'),
+(72, 'delete', 'reponsesannonces', 'deleteRepCandidat($bdd, $idCandidat)', 'Suppression réponses par candidat'),
+(73, 'delete', 'reponsesannonces', 'deleteRepEntreprise($bdd, $idEntreprise)', 'Supprime les réponses par id entreprise'),
+(74, 'get', 'reponsesannonces', 'getRepAnnonce($bdd)', 'Récupère toutes les réponses aux annonces'),
+(75, 'get', 'reponsesannonces', 'getRepEntrepriseId($bdd, $idRep)', 'Récupère réponses par id'),
+(76, 'get', 'reponsesannonces', 'getRepAnnonceId($bdd, $idAnnonce)', 'Récupère les réponses en fonction de l&#039;id de l&#039;annonce'),
+(77, 'get', 'reponsesannonces', 'getRepEntrepriseIdCandidat($bdd, $idUser)', 'Récupère toutes les réponses par candidat'),
+(78, 'get', 'reponsesannonces', 'getRepEntreprise($bdd, $idCompany)', 'Récupère les réponses par entreprise'),
+(79, 'post', 'diplomes', 'addDiplome($bdd, $idUser, $nomDiplome, $anneeObtention, $etablissement, $description)', 'Ajoute un diplome'),
+(80, 'delete', 'diplomes', 'deleteAllDiplomes($bdd)', 'Supprime tous les diplomes'),
+(81, 'delete', 'diplomes', 'deleteDiplome($bdd, $idDiplome)', 'Supprime un diplome par son id'),
+(82, 'delete', 'diplomes', 'deleteDiplomeUser($bdd, $idUSer)', 'Supprime les diplomes d&#039;un utilisateur'),
+(83, 'get', 'diplomes', 'getDiplomes($bdd)', 'Récupère tous les diplomes'),
+(84, 'get', 'diplomes', 'getDiplomeId($bdd, $id)', 'Récupère diplome par id'),
+(85, 'get', 'diplomes', 'getDiplomeUser($bdd, $idUser)', 'Récupère les diplomes d&#039;un utilisateur'),
+(86, 'post', 'competencesannonce', 'addCompetencesAnnonce($bdd, $annonce, $domaine, $competence, $level)', 'Ajouter une compétence à une annonce'),
+(87, 'delete', 'competencesannonce', 'deleteCompAnnonceAll($bdd)', 'Supprimer toutes les compétences des annonces'),
+(88, 'delete', 'competencesannonce', 'deleteCompAnnonceId($bdd,$idComp)', 'Supprimer une compétence d&#039;une annonce par son id'),
+(89, 'delete', 'competencesannonce', 'deleteAllCompAnnonce($bdd,$annonce)', 'Supprimer toutes les compétences d&#039;une annonce'),
+(90, 'get', 'competencesannonce', 'getAllCompAnnonce($bdd)', 'Afficher toutes les compétences d&#039;une annonce'),
+(91, 'get', 'competencesannonce', 'getIdCompAnnonce($bdd,$idComp)', 'Afficher une compétence annonce par son id'),
+(92, 'get', 'competencesannonce', 'getAllCompAnnonceId($bdd,$annonce)', 'Afficher toutes les compétences d&#039;une annonce'),
+(93, 'get', 'users', 'getMailUser($bdd, $mail)', 'Récupération des infos d&#039;un utilisateur par son adresse mail');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
@@ -423,10 +529,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `raison_ban` text NOT NULL,
   `admin` tinyint(1) NOT NULL,
   `premium` tinyint(1) NOT NULL,
-  `avatar` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `prenom` (`prenom`,`nom`,`email`,`type_compte`,`departement`,`telephone`,`date_creation`,`date_last_connexion`,`avert`,`admin`,`premium`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+  `avatar` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `users`
@@ -438,14 +542,210 @@ INSERT INTO `users` (`id`, `prenom`, `nom`, `email`, `password`, `type_compte`, 
 (6, 'Juju', 'Col', 'lesuperbgdu62@gmail.com', '$2y$10$gcIcYJFcjgkpSvEVnweJlef7/v3t1HYripF.35ASjjujDRjTO8Eqa', 'pro', 0, '', 0, '2019-02-07 14:08:46', '2019-02-07 14:08:46', '0', '', 0, 0, 'avatar.jpg'),
 (9, 'Maxime', 'Lefebvre', 'maximelefebvre1505@gmail.com', '$2y$10$NUBKgMOJx2oijEflLpYytOXC8YjOgX8A7JhbUYkgQOwlMetcsFKsW', 'etudiant', 62, '', 0, '2019-02-26 12:54:30', '2019-02-26 12:54:30', '0', '', 0, 0, 'avatar.jpg'),
 (10, 'Nicolas', 'Paris', 'nicolas.paris_isc.france@ibm.com', '$2y$10$rk5LAKlNElmG621o6hFNLehP.goAybeGVQ.BTDofn8JNyV.MJlM46', 'pro', 59, '', 0, '2019-02-26 12:56:55', '2019-02-26 12:56:55', '0', '', 0, 0, 'avatar.jpg'),
-(11, 'Maxime', 'Lefebvre', 'admin@admin.com', '$2y$10$bLav65Dkrxl5Qsscyj9j4uOrRP9gr7bjfUmSGcLwJkNibRl4AXE0S', 'pro', 62, '', 0, '2019-03-08 09:33:23', '2019-03-08 09:33:23', '0', '', 0, 0, 'avatar.jpg'),
-(12, 'Gaspard', 'David', 'GD12@hotmail.fr', '$2y$10$kKmP85YLn/9rIxb13BbOl.tyP7MNbPS/rBnZ1Uq7yByptvgjNdUQ2', 'etudiant', 93, 'Je suis quelqu un de curieux et serieux', 321, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', 0, 0, ''),
-(13, 'Jacques', 'Jonquilles', 'jacques.jonquilles@hotmail.fr', '$2y$10$NhpUCRPl10sOhU1/TpWKjuPPbxQkoyOxzC3/NjtIdrnm8Gr6FTMwm', 'pro', 62, 'J aime le developpement dans toute sa forme', 651577311, '2019-03-15 10:54:13', '2019-03-15 10:54:13', '0', '', 0, 0, 'avatar.jpg'),
-(14, 'Julien', 'Colmont', 'Julien.Colmont@gmail.com', '$2y$10$InzzWaFFeoA2FGBB/XTogubrqWuv7eJUkwAXDfNCNEMstcp0AifPO', 'etudiant', 13, 'J aime le design', 612354568, '2019-03-15 10:58:01', '2019-03-15 10:58:01', '0', '', 0, 0, 'avatar.jpg'),
-(15, 'Gerard', 'Louvin', 'gerard.louvin@hotmail.fr', '$2y$10$ow6xZqRyxT5Z9lRLwB8TNe91Uo9pd8JEkAJgTwTcWCN/eAkHtjuE.', 'pro', 3, '', 321253612, '2019-03-15 10:59:36', '2019-03-15 10:59:36', '0', '', 0, 0, 'avatar.jpg'),
-(16, 'Claude', 'Jombier', 'Claude.Jombier@hotmail.fr', '$2y$10$YzQ1/zgniDozi3MuVN0jfe97PLj5.Z2RhC6jPYgItMQ6AFHUpoT.e', 'etudiant', 75, 'passioné de pêche et sport', 651577311, '2019-03-15 11:05:12', '2019-03-15 11:05:12', '0', '', 0, 0, 'avatar.jpg');
-COMMIT;
+(11, 'Maxime', 'Lefebvre', 'admin@admin.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'pro', 62, 'Voici ma nouvelle description !', 0, '2019-03-08 09:33:23', '2019-03-08 09:33:23', '0', '', 0, 0, '11d0a67e9bde85d858daec17657babb32e.jpg'),
+(12, 'Maxime', 'Lefebvre', 'etu@etu.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'etudiant', 62, '', 0, '2019-05-04 12:30:42', '2019-05-04 12:30:42', '0', '', 0, 0, 'avatar.jpg');
 
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`),
+  ADD KEY `pseudo` (`pseudo`),
+  ADD KEY `privilege` (`privilege`),
+  ADD KEY `ban` (`ban`);
+
+--
+-- Index pour la table `administration`
+--
+ALTER TABLE `administration`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `annoncesentreprises`
+--
+ALTER TABLE `annoncesentreprises`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `entreprise` (`entreprise`),
+  ADD KEY `typeAnnonce` (`typeAnnonce`,`remuneration`);
+
+--
+-- Index pour la table `competences`
+--
+ALTER TABLE `competences`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `competenceDe` (`competenceDe`,`domaine`,`competence`,`level`),
+  ADD KEY `domaine` (`domaine`),
+  ADD KEY `competence` (`competence`,`level`),
+  ADD KEY `level` (`level`);
+
+--
+-- Index pour la table `competencesannonce`
+--
+ALTER TABLE `competencesannonce`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `annonce` (`annonce`),
+  ADD KEY `domaine` (`domaine`),
+  ADD KEY `competence` (`competence`),
+  ADD KEY `level` (`level`);
+
+--
+-- Index pour la table `diplomes`
+--
+ALTER TABLE `diplomes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user` (`user`);
+
+--
+-- Index pour la table `entreprises`
+--
+ALTER TABLE `entreprises`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `responsable` (`responsable`,`nom`,`typeEntreprise`),
+  ADD KEY `typeEntreprise` (`typeEntreprise`),
+  ADD KEY `departement` (`departement`);
+
+--
+-- Index pour la table `experiences`
+--
+ALTER TABLE `experiences`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `expDe` (`expDe`,`nomEntreprise`,`date_debut`,`date_fin`,`typeContrat`);
+
+--
+-- Index pour la table `galerie_entreprises`
+--
+ALTER TABLE `galerie_entreprises`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idEntreprises` (`idEntreprises`,`ajout`);
+
+--
+-- Index pour la table `loisirs`
+--
+ALTER TABLE `loisirs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `loisirDe` (`loisirDe`,`nomLoisir`);
+
+--
+-- Index pour la table `maintenance`
+--
+ALTER TABLE `maintenance`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `messagerie`
+--
+ALTER TABLE `messagerie`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sender` (`sender`,`destinataire`,`etat_msg`);
+
+--
+-- Index pour la table `reponsesannonces`
+--
+ALTER TABLE `reponsesannonces`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idAnnoncesEntreprises` (`idAnnoncesEntreprises`,`candidat`,`entreprise`,`datePostuler`),
+  ADD KEY `notif` (`notif`);
+
+--
+-- Index pour la table `swagger`
+--
+ALTER TABLE `swagger`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `categorie` (`categorie`),
+  ADD KEY `type` (`type`),
+  ADD KEY `type_2` (`type`,`categorie`);
+
+--
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `prenom` (`prenom`,`nom`,`email`,`type_compte`,`departement`,`telephone`,`date_creation`,`date_last_connexion`,`avert`,`admin`,`premium`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `administration`
+--
+ALTER TABLE `administration`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `annoncesentreprises`
+--
+ALTER TABLE `annoncesentreprises`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT pour la table `competences`
+--
+ALTER TABLE `competences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `competencesannonce`
+--
+ALTER TABLE `competencesannonce`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT pour la table `diplomes`
+--
+ALTER TABLE `diplomes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `entreprises`
+--
+ALTER TABLE `entreprises`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT pour la table `experiences`
+--
+ALTER TABLE `experiences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `galerie_entreprises`
+--
+ALTER TABLE `galerie_entreprises`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `loisirs`
+--
+ALTER TABLE `loisirs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `maintenance`
+--
+ALTER TABLE `maintenance`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `messagerie`
+--
+ALTER TABLE `messagerie`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `reponsesannonces`
+--
+ALTER TABLE `reponsesannonces`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT pour la table `swagger`
+--
+ALTER TABLE `swagger`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=94;
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
