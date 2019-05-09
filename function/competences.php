@@ -46,7 +46,7 @@
     } 
 
     // Get All compétence by competenceDe 
-    function getAllCompDe($bdd,$competencesDe) {
+    function getAllCompDe($bdd,$competenceDe) {
         $req = $bdd->prepare("SELECT * FROM competences WHERE competenceDe='$competenceDe'");
         $req->execute();
         return $req;

@@ -145,7 +145,7 @@
                             </div>
 
                         <?php
-                    } else echo "non";
+                    } else echo "Une erreur est survenue !";
                 }
             } else {
                 header('Location:/erreur');
