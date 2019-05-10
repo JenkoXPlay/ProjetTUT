@@ -161,11 +161,33 @@
                 </div>
                 <br />
                 <?php
+                    if (isset($_POST['delExpPro'])) {
+                        $idExpPro = security($_POST['idExpPro']);
+                        if ($idExpPro) {
+                            $verifexppro = $bdd->query("SELECT COUNT(*) AS countid FROM experiences WHERE id='$idExpPro' AND expDe='{$dataUser['id']}'");
+                            $reqcount = $verifexppro->fetch();
+                            if ($reqcount['countid'] != 0) {
+                                $req_del = deleteExpId($bdd, $idExpPro);
+                                echo "<div class='alertSuccess'>Expérience supprimée avec succès !</div><br />";
+                            } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
+                        } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
+                    }
+
                     $req_info_exp = getExpDe($bdd, $dataUser['id']);
                     while($dataExp = $req_info_exp->fetch()) {
                         ?>
                             <div class="expPro">
-                                <b><?php echo $dataExp['poste']; ?></b> chez <span class="txtPurple"><?php echo $dataExp['nomEntreprise']; ?></span>
+                                <div class="flexSection">
+                                    <div>
+                                        <b><?php echo $dataExp['poste']; ?></b> chez <span class="txtPurple"><?php echo $dataExp['nomEntreprise']; ?></span>
+                                    </div>
+                                    <div>
+                                        <form action="" method="post">
+                                            <input type="text" name="idExpPro" value="<?php echo $dataExp['id']; ?>" readonly style="display:none;" />
+                                            <input type="submit" class="btnRemove" name="delExpPro" value="supprimer" />
+                                        </form>
+                                    </div>
+                                </div>
                                 <div class="dateLieu">
                                     <span class="dateExp"> <i class="icon icon-time"></i> <?php echo $dataExp['date_debut']; ?> à <?php echo $dataExp['date_fin']; ?></span>
                                     <i class="icon icon-location txtGrey"></i>
@@ -215,11 +237,33 @@
                 </div>
                 <br />
                 <?php
+                    if (isset($_POST['delForma'])) {
+                        $idForma = security($_POST['idForma']);
+                        if ($idForma) {
+                            $verifforma = $bdd->query("SELECT COUNT(*) AS countid FROM diplomes WHERE id='$idForma' AND user='{$dataUser['id']}'");
+                            $reqcount = $verifforma->fetch();
+                            if ($reqcount['countid'] != 0) {
+                                $req_del = deleteDiplome($bdd, $idForma);
+                                echo "<div class='alertSuccess'>Formation supprimée avec succès !</div><br />";
+                            } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
+                        } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
+                    }
+
                     $req_info_forma = getDiplomeUser($bdd, $dataUser['id']);
                     while ($dataForma = $req_info_forma->fetch()) {
                         ?>
                             <div class="forma">
-                                <b><?php echo $dataForma['nom_diplome']; ?></b> à <span class="txtPurple"><?php echo $dataForma['etablissement']; ?></span>
+                                <div class="flexSection">
+                                    <div>
+                                        <b><?php echo $dataForma['nom_diplome']; ?></b> à <span class="txtPurple"><?php echo $dataForma['etablissement']; ?></span>
+                                    </div>
+                                    <div>
+                                        <form action="" method="post">
+                                            <input type="text" name="idForma" value="<?php echo $dataForma['id']; ?>" readonly style="display:none;" />
+                                            <input type="submit" class="btnRemove" name="delForma" value="supprimer" />
+                                        </form>
+                                    </div>
+                                </div>
                                 <div class="dateLieu">
                                     <span class="dateExp"> <i class="icon icon-time"></i> Obtention en <?php echo $dataForma['annee_obtention']; ?></span>
                                 </div>

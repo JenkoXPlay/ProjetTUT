@@ -78,6 +78,23 @@
     background: transparent;
     color: #d63031;
 }
+
+.btnRemove {
+    border: none;
+    background: #d63031;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 60px;
+    font-size: 0.8em;
+    border: 1px solid #d63031;
+    transition: 0.3s;
+}
+.btnRemove:hover {
+    background: transparent;
+    color: #d63031;
+    cursor: pointer;
+    transition: 0.3s;
+}
 /* BOUTON */
 
 /* WIDTH */

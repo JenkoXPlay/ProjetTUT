@@ -106,12 +106,34 @@ body {
     height: 150px;
 }
 
+/* footer */
+.footer {
+    width: 100%;
+    background: #fff;
+    padding: 20px 50px 20px 50px;
+    text-align: center;
+}
+.footer .contentFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.footer .contentFooter .section {
+    width: 20%;
+    text-align: left;
+}
+.footer .contentFooter .section a {
+    display: block;
+}
+/* footer */
+
 /* CONTENT GENERALE */
 .content {
     background: #f9f9f9;
     min-height: 80vh;
     width: 100%;
     text-align: center;
+    padding-bottom: 20px;
 }
 .content .informationProfil {
     vertical-align: top;
@@ -227,12 +249,22 @@ body {
     padding: 10px;
     margin-top: 10px;
 }
+.content .informationProfil .expPro .flexSection {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
 .content .informationProfil .forma {
     width: 100%;
     border-radius: 4px;
     border: 2px dashed #403F4A;
     padding: 10px;
     margin-top: 10px;
+}
+.content .informationProfil .forma .flexSection {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 .content .informationProfil .expPro .dateLieu {
     margin-top: 5px;
@@ -503,7 +535,7 @@ body {
 .content .panelCandidature {
     background: #fff;
     border-radius: 4px;
-    border: 1px solid #3B4351;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
     padding: 10px;
     width: 70%;
     margin: 0 auto;
@@ -590,3 +622,28 @@ body {
     top: 20px;
 }
 /* page cv */
+
+/* equipe */
+.content .panelEquipe {
+    width: 50%;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 0 auto;
+}
+.content .panelEquipe .team {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.content .panelEquipe .team .photo {
+    width: 20%;
+}
+.content .panelEquipe .team .description {
+    width: 70%;
+    text-align: left;
+}
+/* equipe */
