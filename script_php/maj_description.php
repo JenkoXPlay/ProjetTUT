@@ -1,6 +1,6 @@
 <?php
     if (isset($_POST['submitDesc'])) {
-        $description = security($_POST['description']);
+        $description = addslashes(security($_POST['description']));
         if ($description) {
             if (strlen($description) >= 20) {
                 $req = $bdd->exec("UPDATE users SET description='$description' WHERE id='{$dataUser['id']}'");

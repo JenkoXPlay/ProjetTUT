@@ -10,6 +10,7 @@
     <head>
         <title>Alt'itude - Trouvez un emploi à votre hauteur !</title>
         <meta charset="utf-8" />
+        <link rel="icon" href="/img/favicon.svg" />
         <link rel="stylesheet" href="/css/spectre-exp.min.css" />
         <link rel="stylesheet" href="/css/spectre-icons.min.css" />
         <link rel="stylesheet" href="/css/spectre.min.css" />
@@ -38,6 +39,10 @@
                                     ?>
                                         <a href="">Mes Annonces</a>
                                     <?php
+                                } else if ($data['type_compte'] == "etudiant") {
+                                    ?>
+                                        <a href="/candidatures" class="<?php if ($_SERVER['REQUEST_URI'] == "/candidatures") { echo "menuActive"; } ?>">Candidature(s)</a>
+                                    <?php
                                 }
                             ?>
                         </div>
@@ -55,21 +60,29 @@
                         <div class="arrowProfile"></div>
                         <div class="contentProfile">
                             <a href="/editprofile">Éditer mon profil</a>
+                            <?php
+                                if ($data['type_compte'] == "pro") {
+                                    ?>
+                                        <a href="/editentreprise">Éditer mon entreprise</a>
+                                    <?php
+                                }
+                            ?>
                             <a href="/logout">Déconnexion</a>
                         </div>
                     </div>
 
                     <script type="text/javascript">
                         $(document).ready(function (){
-                            $("#userOpen").click(function (){
-                                $(".boxProfile").show();
-                                $("#userOpen").hide();
-                                $("#userClose").show();
-                            });
-                            $("#userClose").click(function (){
-                                $(".boxProfile").hide();
-                                $("#userOpen").show();
-                                $("#userClose").hide();
+                            $('body').click(function (event) {
+                                if (event.target.id == 'userOpen') {
+                                    $(".boxProfile").show();
+                                    $("#userOpen").hide();
+                                    $("#userClose").show();
+                                } else {
+                                    $(".boxProfile").hide();
+                                    $("#userOpen").show();
+                                    $("#userClose").hide();
+                                }
                             });
                         });
                     </script>

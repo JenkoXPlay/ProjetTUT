@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:3306
--- Généré le :  Ven 26 Avril 2019 à 08:22
+-- Généré le :  Jeu 09 Mai 2019 à 11:37
 -- Version du serveur :  5.5.49-log
 -- Version de PHP :  7.0.9
 
@@ -85,7 +85,7 @@ INSERT INTO `annoncesentreprises` (`id`, `entreprise`, `titre`, `description`, `
 (7, 12, 'Developpement web full stack', 'Recherche de style', 'stage', 0),
 (8, 6, 'Designer', 'dfdfgfhfhgf', 'stage', 0),
 (9, 7, 'Developpeur WEB', 'Vous êtes coeur d une equipe de dev et evoluer en tant que tel', 'Alternance', 1200),
-(10, 11, 'Infirmière', 'dfgdfgfdfdg', 'Alternance', 1300);
+(10, 11, 'Infirmière', 'Vitalis Médical Nancy, agence de recrutement en intérim, vacation et CDI, spécialisée dans le Paramédical, Médical et social, recrute pour son client, un établissement sur Nancy, un Infirmier (H/F) DE pour travailler dans un service de dialyse.  Rattaché au Cadre de santé, vous serez en charge des missions suivantes : - Préparer les séances de dialyse et le matériel nécessaire, - Accueillir, installer et prendre en charge les patients, - Réaliser les séances de dialyse, - Assurer la qualité des soins, - Entretenir la relation avec les intervenants extérieurs, - Avoir un rôle éducatif avec les patients, - Gérer et suivre les dossiers, - Participer aux groupes de travail et au bon fonctionnement du service, - Gérer le matériel des salles, - Effectuer les commandes de pharmacie informatisées...Infirmier / Infirmière DE ayant l''expérience du travail en service de dialyse.  Le respect du secret professionnel, des règles de confidentialité, des droits et de la dignité du patient font partie de la pratique professionnelle quotidienne.   Vous êtes rigoureux(se), motivé(e) et consciencieux(se) alors n''hésitez pas à postuler directement sur l''annonce ou à nous envoyer votre CV à nancy@vitalis-medical.com  N''hésitez pas à partager et à nous contacter pour connaître l''ensemble des missions disponibles dans notre agence.', 'Alternance', 1300);
 
 -- --------------------------------------------------------
 
@@ -99,7 +99,14 @@ CREATE TABLE IF NOT EXISTS `competences` (
   `domaine` varchar(255) NOT NULL,
   `competence` varchar(255) NOT NULL,
   `level` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `competences`
+--
+
+INSERT INTO `competences` (`id`, `competenceDe`, `domaine`, `competence`, `level`) VALUES
+(1, 11, 'Informatique', 'PHP', 'Intermédiaire');
 
 -- --------------------------------------------------------
 
@@ -120,31 +127,31 @@ CREATE TABLE IF NOT EXISTS `competencesannonce` (
 --
 
 INSERT INTO `competencesannonce` (`id`, `annonce`, `domaine`, `competence`, `level`) VALUES
-(1, 2, 'informatique', 'PHP', '4'),
-(2, 2, 'informatique', 'HTML', '3'),
-(3, 2, 'informatique', 'CSS', '4'),
-(4, 2, 'informatique', 'Javascript', '3'),
-(5, 2, 'informatique', 'adobe xd', '4'),
-(6, 3, 'informatique', 'VueJS', '4'),
-(7, 3, 'informatique', 'ReactJS', '4'),
-(8, 3, 'informatique', 'Angular', '4'),
-(9, 3, 'informatique', 'JS', '4'),
-(10, 4, 'Web Design', 'Photoshop', '4'),
-(11, 4, 'Web Design', 'InDesign', '4'),
-(12, 4, 'Web Design', 'Illustrator', '4'),
-(13, 4, 'Web Design', 'Adobe XD', '4'),
-(14, 5, 'Médecine', 'Anesthésie', '4'),
-(15, 5, 'Médecine', 'Urgences', '4'),
-(16, 5, 'Médecine', 'Tromat', '4'),
-(17, 6, 'Web Design', 'Photoshop', '4'),
-(18, 6, 'Web Design', 'Figma', '4'),
-(19, 6, 'Web Design', 'HTML', '4'),
-(20, 6, 'Web Design', 'CSS', '4'),
-(21, 6, 'Web Design', 'JS', '4'),
-(22, 8, 'Web Design', 'Figma', '3'),
-(23, 8, 'Web Design', 'Adobe XD', '2'),
-(24, 8, 'Web Design', 'Illustrator', '3'),
-(25, 9, 'Informatique', 'Wordpress', '3');
+(1, 2, 'informatique', 'PHP', 'Expert'),
+(2, 2, 'informatique', 'HTML', 'Avancé'),
+(3, 2, 'informatique', 'CSS', 'Expert'),
+(4, 2, 'informatique', 'Javascript', 'Avancé'),
+(5, 2, 'informatique', 'adobe xd', 'Expert'),
+(6, 3, 'informatique', 'VueJS', 'Expert'),
+(7, 3, 'informatique', 'ReactJS', 'Expert'),
+(8, 3, 'informatique', 'Angular', 'Expert'),
+(9, 3, 'informatique', 'JS', 'Expert'),
+(10, 4, 'Web Design', 'Photoshop', 'Expert'),
+(11, 4, 'Web Design', 'InDesign', 'Expert'),
+(12, 4, 'Web Design', 'Illustrator', 'Expert'),
+(13, 4, 'Web Design', 'Adobe XD', 'Expert'),
+(14, 5, 'Médecine', 'Anesthésie', 'Expert'),
+(15, 5, 'Médecine', 'Urgences', 'Expert'),
+(16, 5, 'Médecine', 'Tromat', 'Expert'),
+(17, 6, 'Web Design', 'Photoshop', 'Expert'),
+(18, 6, 'Web Design', 'Figma', 'Expert'),
+(19, 6, 'Web Design', 'HTML', 'Expert'),
+(20, 6, 'Web Design', 'CSS', 'Expert'),
+(21, 6, 'Web Design', 'JS', 'Expert'),
+(22, 8, 'Web Design', 'Figma', 'Avancé'),
+(23, 8, 'Web Design', 'Adobe XD', 'Intermédiaire'),
+(24, 8, 'Web Design', 'Illustrator', 'Avancé'),
+(25, 9, 'Informatique', 'Wordpress', 'Avancé');
 
 -- --------------------------------------------------------
 
@@ -193,14 +200,14 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
 --
 
 INSERT INTO `entreprises` (`id`, `responsable`, `nom`, `description`, `logo`, `but`, `typeEntreprise`, `siret`, `departement`) VALUES
-(5, 1, 'mlklklmkm', 'lmkmlkmk', 'mlkmlkmlklklmk', 'kmklmkmlk', 'pme', 'lmkmkmlk', 59),
-(6, 4, 'IBM', 'Best Company', 'ljfksdjlksjlfjl', 'lkjlkjlkjl', 'ge', 'lsjkflsdjkfljlkdsf', 62),
-(7, 10, 'JOUVE', 'Imprimerie, Métiers du numérique', 'logo.png', 'Mettre le numériques en avant', 'SII', '122545121', 62),
-(8, 5, 'MBS communication', 'dfdfdfd', 'logo.png', 'dfdfd', 'SA', '789961', 59),
-(9, 13, 'Hopital de Lens', '', 'logo.png', '', 'Hopital', '1248541', 62),
-(10, 15, 'Worldline', 'dfdgd', 'logo.png', 'dfdfgf', 'SA', '89784534', 75),
-(11, 11, 'Polyclinique', 'rfgfg', 'logo.png', 'fdfgfg', 'SA', '54654654', 93),
-(12, 6, 'GG Style', 'avoir le style', 'logo.png', 'toujours plus de style', 'SI', '4787891561', 93);
+(5, 1, 'mlklklmkm', 'lmkmlkmk', 'avatar.jpg', 'kmklmkmlk', 'pme', 'lmkmkmlk', 59),
+(6, 4, 'IBM', 'Best Company', 'avatar.jpg', 'lkjlkjlkjl', 'ge', 'lsjkflsdjkfljlkdsf', 62),
+(7, 10, 'JOUVE', 'Imprimerie, Métiers du numérique', 'avatar.jpg', 'Mettre le numériques en avant', 'SII', '122545121', 62),
+(8, 5, 'MBS communication', 'dfdfdfd', 'avatar.jpg', 'dfdfd', 'SA', '789961', 59),
+(9, 13, 'Hopital de Lens', '', 'avatar.jpg', '', 'Hopital', '1248541', 62),
+(10, 15, 'Worldline', 'dfdgd', 'avatar.jpg', 'dfdfgf', 'SA', '89784534', 75),
+(11, 11, 'Polyclinique', 'rfgfg', 'avatar.jpg', 'fdfgfg', 'SA', '54654654', 93),
+(12, 6, 'GG Style', 'avoir le style', 'avatar.jpg', 'toujours plus de style', 'SI', '4787891561', 93);
 
 -- --------------------------------------------------------
 
@@ -249,8 +256,7 @@ CREATE TABLE IF NOT EXISTS `galerie_entreprises` (
 CREATE TABLE IF NOT EXISTS `loisirs` (
   `id` int(11) NOT NULL,
   `loisirDe` int(11) NOT NULL,
-  `nomLoisir` varchar(255) NOT NULL,
-  `description` text NOT NULL
+  `nomLoisir` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -301,7 +307,16 @@ CREATE TABLE IF NOT EXISTS `reponsesannonces` (
   `entreprise` int(11) NOT NULL,
   `datePostuler` datetime NOT NULL,
   `notif` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `reponsesannonces`
+--
+
+INSERT INTO `reponsesannonces` (`id`, `idAnnoncesEntreprises`, `candidat`, `entreprise`, `datePostuler`, `notif`) VALUES
+(2, 8, 12, 6, '2019-05-09 09:05:57', 0),
+(4, 10, 12, 11, '2019-05-09 09:39:05', 1),
+(5, 7, 12, 12, '2019-05-09 09:45:52', 0);
 
 -- --------------------------------------------------------
 
@@ -334,7 +349,7 @@ INSERT INTO `swagger` (`id`, `type`, `categorie`, `requete`, `description`) VALU
 (10, 'delete', 'annoncesentreprises', 'deleteAnnonceCompany($bdd, $idCompany)', 'Supprime en fonction de l&#039;id Entreprise'),
 (11, 'get', 'annoncesentreprises', 'getAnnonce($bdd)', 'Récupère toutes les annonces'),
 (12, 'get', 'annoncesentreprises', 'getAnnonceId($bdd, $idAnnonce)', 'Récupère en fonction de l&#039;id'),
-(13, 'get', 'annoncesentreprises', 'getAnnonceId($bdd, $idCompany)', 'Récupère en fonction de l&#039;id Entreprise'),
+(13, 'get', 'annoncesentreprises', 'getAnnonceIdCompagny($bdd, $idCompany)', 'Récupère en fonction de l&#039;id Entreprise'),
 (14, 'get', 'annoncesentreprises', 'getAnnonceType($bdd, $typeAnnonce)', 'Récupère selon le type des annonces'),
 (15, 'post', 'competences', 'addCompetences($bdd, $competenceDe, $domaine, $competence, $level)', 'Ajouter une nouvelle compétence'),
 (16, 'delete', 'competences', 'deleteCompAll($bdd)', 'Supprime toutes les compétences !'),
@@ -395,11 +410,11 @@ INSERT INTO `swagger` (`id`, `type`, `categorie`, `requete`, `description`) VALU
 (71, 'delete', 'reponsesannonces', 'deleteRepAnnonce($bdd, $idAnnonce)', 'Supprime les réponses par annonce'),
 (72, 'delete', 'reponsesannonces', 'deleteRepCandidat($bdd, $idCandidat)', 'Suppression réponses par candidat'),
 (73, 'delete', 'reponsesannonces', 'deleteRepEntreprise($bdd, $idEntreprise)', 'Supprime les réponses par id entreprise'),
-(74, 'get', 'reponsesannonces', 'getRepEntreprise($bdd)', 'Récupère toutes les réponses aux annonces'),
+(74, 'get', 'reponsesannonces', 'getRepAnnonce($bdd)', 'Récupère toutes les réponses aux annonces'),
 (75, 'get', 'reponsesannonces', 'getRepEntrepriseId($bdd, $idRep)', 'Récupère réponses par id'),
-(76, 'get', 'reponsesannonces', 'getRepEntrepriseId($bdd, $idAnnonce)', 'Récupère les réponses en fonction de l&#039;id de l&#039;annonce'),
-(77, 'get', 'reponsesannonces', 'getRepEntrepriseId($bdd, $idUser)', 'Récupère toutes les réponses par candidat'),
-(78, 'get', 'reponsesannonces', 'getRepEntrepriseId($bdd, $idCompany)', 'Récupère les réponses par entreprise'),
+(76, 'get', 'reponsesannonces', 'getRepAnnonceId($bdd, $idAnnonce)', 'Récupère les réponses en fonction de l&#039;id de l&#039;annonce'),
+(77, 'get', 'reponsesannonces', 'getRepEntrepriseIdCandidat($bdd, $idUser)', 'Récupère toutes les réponses par candidat'),
+(78, 'get', 'reponsesannonces', 'getRepEntreprise($bdd, $idCompany)', 'Récupère les réponses par entreprise'),
 (79, 'post', 'diplomes', 'addDiplome($bdd, $idUser, $nomDiplome, $anneeObtention, $etablissement, $description)', 'Ajoute un diplome'),
 (80, 'delete', 'diplomes', 'deleteAllDiplomes($bdd)', 'Supprime tous les diplomes'),
 (81, 'delete', 'diplomes', 'deleteDiplome($bdd, $idDiplome)', 'Supprime un diplome par son id'),
@@ -413,7 +428,7 @@ INSERT INTO `swagger` (`id`, `type`, `categorie`, `requete`, `description`) VALU
 (89, 'delete', 'competencesannonce', 'deleteAllCompAnnonce($bdd,$annonce)', 'Supprimer toutes les compétences d&#039;une annonce'),
 (90, 'get', 'competencesannonce', 'getAllCompAnnonce($bdd)', 'Afficher toutes les compétences d&#039;une annonce'),
 (91, 'get', 'competencesannonce', 'getIdCompAnnonce($bdd,$idComp)', 'Afficher une compétence annonce par son id'),
-(92, 'get', 'competencesannonce', 'getAllCompAnnonce($bdd,$annonce)', 'Afficher toutes les compétences d&#039;une annonce'),
+(92, 'get', 'competencesannonce', 'getAllCompAnnonceId($bdd,$annonce)', 'Afficher toutes les compétences d&#039;une annonce'),
 (93, 'get', 'users', 'getMailUser($bdd, $mail)', 'Récupération des infos d&#039;un utilisateur par son adresse mail');
 
 -- --------------------------------------------------------
@@ -439,7 +454,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `admin` tinyint(1) NOT NULL,
   `premium` tinyint(1) NOT NULL,
   `avatar` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `users`
@@ -451,7 +466,8 @@ INSERT INTO `users` (`id`, `prenom`, `nom`, `email`, `password`, `type_compte`, 
 (6, 'Juju', 'Col', 'lesuperbgdu62@gmail.com', 'saucisse2', 'pro', 0, '', 0, '2019-02-07 14:08:46', '2019-02-07 14:08:46', '0', '', 0, 0, 'avatar.jpg'),
 (9, 'Maxime', 'Lefebvre', 'maximelefebvre1505@gmail.com', '$2y$10$NUBKgMOJx2oijEflLpYytOXC8YjOgX8A7JhbUYkgQOwlMetcsFKsW', 'etudiant', 62, '', 0, '2019-02-26 12:54:30', '2019-02-26 12:54:30', '0', '', 0, 0, 'avatar.jpg'),
 (10, 'Nicolas', 'Paris', 'nicolas.paris_isc.france@ibm.com', '$2y$10$rk5LAKlNElmG621o6hFNLehP.goAybeGVQ.BTDofn8JNyV.MJlM46', 'pro', 59, '', 0, '2019-02-26 12:56:55', '2019-02-26 12:56:55', '0', '', 0, 0, 'avatar.jpg'),
-(11, 'Maxime', 'Lefebvre', 'admin@admin.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'pro', 62, 'Voici ma nouvelle description !', 0, '2019-03-08 09:33:23', '2019-03-08 09:33:23', '0', '', 0, 0, '11d0a67e9bde85d858daec17657babb32e.jpg');
+(11, 'Maxime', 'Lefebvre', 'admin@admin.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'pro', 62, 'Voici ma nouvelle description !', 0, '2019-03-08 09:33:23', '2019-03-08 09:33:23', '0', '', 0, 0, '11d0a67e9bde85d858daec17657babb32e.jpg'),
+(12, 'Maxime', 'Lefebvre', 'etu@etu.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'etudiant', 62, '', 0, '2019-05-04 12:30:42', '2019-05-04 12:30:42', '0', '', 0, 0, 'avatar.jpg');
 
 --
 -- Index pour les tables exportées
@@ -598,7 +614,7 @@ ALTER TABLE `annoncesentreprises`
 -- AUTO_INCREMENT pour la table `competences`
 --
 ALTER TABLE `competences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `competencesannonce`
 --
@@ -643,7 +659,7 @@ ALTER TABLE `messagerie`
 -- AUTO_INCREMENT pour la table `reponsesannonces`
 --
 ALTER TABLE `reponsesannonces`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `swagger`
 --
@@ -653,7 +669,7 @@ ALTER TABLE `swagger`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

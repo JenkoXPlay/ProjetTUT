@@ -34,7 +34,7 @@
     }
     // Get All loisirs by loisirDe 
     function getAllLoisirsDe($bdd,$loisirDe){
-        $req=$bdd->prepare("SELECT * FROM loisirs WHERE loisirDe='$loisirsDe'");
+        $req=$bdd->prepare("SELECT * FROM loisirs WHERE loisirDe='$loisirDe'");
         $req->execute();
         return $req;
     }

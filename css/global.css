@@ -48,6 +48,36 @@
 .btnPurple:hover, .btnWhite:hover {
     cursor: pointer;
 }
+.btnPostuler, .btnMsg {
+    border: 1px solid #4b00ff;
+    background: none;
+    color: #4b00ff;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 5px 20px 5px 20px;
+    transition: 0.3s;
+}
+.btnPostuler:hover, .btnMsg:hover {
+    cursor: pointer;
+    color: #fff;
+    background: #4b00ff;
+    transition: 0.3s;
+}
+.btnRed {
+    background: #d63031;
+    color: #fff;
+    font-weight: 500;
+    border: 1px solid #d63031;
+    padding: 5px 10px 5px 10px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+.btnRed:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    background: transparent;
+    color: #d63031;
+}
 /* BOUTON */
 
 /* WIDTH */
@@ -63,6 +93,9 @@
 .width_45 {
     width: 45%;
 }
+.width_50 {
+    width: 50%;
+}
 /* WIDTH */
 
 /* TITRE */
@@ -76,6 +109,12 @@
 /* TEXTE */
 .centered {
     text-align: center;
+}
+.txtLeft {
+    text-align: left;
+}
+.txtRight {
+    text-align: right;
 }
 .txtGreen {
     color: #00e1a0;
@@ -144,5 +183,9 @@
     position: -webkit-sticky;
     position: sticky;
     top: 10px;
+}
+
+.marginCenter {
+    margin: 0 auto;
 }
 /* UTILES */

@@ -46,7 +46,7 @@
     } 
 
     // Get All compétence by annonce 
-    function getAllCompAnnonce($bdd,$annonce) {
+    function getAllCompAnnonceId($bdd,$annonce) {
         $req = $bdd->prepare("SELECT * FROM competencesannonce WHERE annonce='$annonce'");
         $req->execute();
         return $req;
