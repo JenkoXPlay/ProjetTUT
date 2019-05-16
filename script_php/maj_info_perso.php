@@ -9,7 +9,7 @@
         if ($prenom&&$nom&&$email&&$departement) {
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 if (is_numeric($telephone)) {
-                    if ($departement > 0 && $departement <= 99) {
+                    if (is_numeric($departement)&&($departement > 0 && $departement <= 99)) {
                         $newAvatar = $_FILES['avatar']['name'];
                         if ($newAvatar) {
                             $extensions_valides = array('jpg', 'jpeg', 'png');

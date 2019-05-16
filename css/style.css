@@ -291,6 +291,40 @@ body {
     margin-top: 10px;
 }
 
+.content .contentEntreprise{
+    background-color:#fff; 
+    margin:0 auto;
+    width: 40%;
+    padding: 10px;
+    border-radius:4px; 
+    box-shadow:0 0 6px rgba(0, 0, 0, 0.15);
+}
+
+.content .contentEntreprise .title{
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+.content .contentEntreprise .textLogo{
+    text-align: left;
+    font-weight: 500;
+    font-size: 1em;
+}
+.content .contentEntreprise .lab{
+    text-align:left; 
+    font-weight: 500;
+    font-size: 1em;
+    margin-top:20px;
+    margin-bottom:0px; 
+}
+.content .contentEntreprise .btPadding{
+    padding:10px 20px; 
+    margin-left:auto; 
+}
+.content .contentEntreprise .right{
+    text-align: right;
+}
 /* SEARCH BAR */
 .searchbar {
     width: 100%;
