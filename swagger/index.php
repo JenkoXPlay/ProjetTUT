@@ -387,6 +387,36 @@
                 </div>
             </div>
 
+                <br /><br />
+
+            <div class="categorie">
+                <div class="titreCat">Favoris</div>
+                <div class="sousContent">
+                    <?php
+                        $req = $bdd->query("SELECT * FROM swagger WHERE categorie='favoris'");
+                        while ($data = $req->fetch()) {
+                            ?>
+                                <?php if ($data['type'] == "post") { ?><span class="spanPost">POST</span><?php } ?>
+                                <?php if ($data['type'] == "get") { ?><span class="spanGet">GET</span><?php } ?>
+                                <?php if ($data['type'] == "put") { ?><span class="spanPut">PUT</span><?php } ?>
+                                <?php if ($data['type'] == "delete") { ?><span class="spanDelete">DELETE</span><?php } ?>
+
+                                <span class="requete"><?php echo $data['requete']; ?></span>
+                                <br /><br />
+                                <div class="about">
+                                    <b>Description :</b><br />
+                                    <?php echo nl2br($data['description']); ?>
+                                </div>
+
+                                <br />
+                                <hr />
+                                <br />
+                            <?php
+                        }
+                    ?>
+                </div>
+            </div>
+
         </div>
 
     </body>

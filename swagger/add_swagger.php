@@ -50,6 +50,7 @@
                     <option>competences</option>
                     <option>entreprise</option>
                     <option>experiences</option>
+                    <option>favoris</option>
                     <option>galerieEntreprises</option>
                     <option>loisirs</option>
                     <option>messagerie</option>

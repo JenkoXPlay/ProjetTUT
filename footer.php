@@ -17,7 +17,7 @@
                     <b>Liens utiles</b><br />
                     <a href="">Nous contacter</a>
                     <a href="/equipe">L'équipe</a>
-                    <a href="">Fonctionnalités à venir</a>
+                    <a href="/avenir">Fonctionnalités à venir</a>
                 </div>
 
                 <div class="section">

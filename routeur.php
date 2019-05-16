@@ -62,6 +62,7 @@ $router->setRoutes('/candidatures', 'candidature.php');
 $router->setRoutes('/profil/:id_membre', 'profil.php');
 $router->setRoutes('/user/:idUser', 'user.php');
 $router->setRoutes('/equipe', 'equipe.php');
+$router->setRoutes('/avenir', 'avenir.php');
 $router->setRoutes('/maintenance', 'maintenance.php');
 $router->setRoutes('/erreur', 'erreur.php');
 $router->setOtherwise('page', 'erreur.php');
