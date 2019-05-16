@@ -300,6 +300,15 @@ body {
     box-shadow:0 0 6px rgba(0, 0, 0, 0.15);
 }
 
+.content .contentEntreprise .contentAvatar {
+    width: 100%;
+}
+.content .contentEntreprise .contentAvatar img {
+    width: 150px;
+    height: 150;
+    border-radius: 120px;
+}
+
 .content .contentEntreprise .title{
     text-align: left;
     text-transform: uppercase;

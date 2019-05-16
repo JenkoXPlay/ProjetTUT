@@ -15,24 +15,27 @@
                     $req_info_entreprise = getEntrepriseResponsable($bdd,$dataUser['id']);
                     $req2 = $bdd->query("SELECT COUNT(*) AS countid FROM entreprises WHERE responsable='{$dataUser['id']}'"); //(responsable = id user)
                     $reqfetch = $req2->fetch();
-                    if ($reqfetch['countid'] != 0){
-                        while($dataEntreprise = $req_info_entreprise->fetch()){
+                    if ($reqfetch['countid'] != 0) {
+                        while ($dataEntreprise = $req_info_entreprise->fetch()) {
         ?>
-                            <br/>
-                            <br/>
+                            <br />
+                            <br />
+
                             <div class="contentEntreprise">
                                 <div class="title">Information sur l'entreprise</div>
                                 <hr />
 
-                                <div class="textLogo">Logo</div>
-                                
-                                <div class="contentAvatar">
-                                        <img src="./avatar/<?php echo $dataUser['avatar']; ?>" class="width_20" />
-                                </div>
                                 <?php
                                     include('./script_php/security.php');
                                     include('./script_php/maj_info_entreprise.php');
                                 ?>
+
+                                <div class="textLogo">Logo</div>
+                                
+                                <div class="contentAvatar">
+                                    <img src="/avatar/<?php echo $dataEntreprise['logo']; ?>" class="width_20" />
+                                </div>
+                            
                                 <form action="" method="post" enctype="multipart/form-data">
                                     <div class="centeredElement">
                                         <br />
@@ -48,34 +51,34 @@
                                         });
                                     </script>
                                     <div class="lab" for="nom">Nom de l'entreprise</div>
-                                    <br/>
+                                    <br />
                                     <input class="inputText width_100" name="nom" type="text" value="<?php echo $dataEntreprise['nom']; ?>"/>
-                                    <br/>
+                                    <br />
                                     <div class="lab" for="site">Site web</div>
-                                    <br/>
+                                    <br />
                                     <input class="inputText width_100" name="site" type="text" value="<?php echo $dataEntreprise['siteweb']; ?>"/>         
-                                    <br/>   
+                                    <br />   
                                     <div class="lab" for="but">But de l'entreprise</div>
-                                    <br/>
+                                    <br />
                                     <input class="inputText width_100" name="but" type="text" value="<?php echo $dataEntreprise['but']; ?>"/>         
-                                    <br/>                               
+                                    <br />                               
                                     <div class="lab" for="description">Description</div>
-                                    <br/>
+                                    <br />
                                     <textarea name="description" class="inputTextarea width_100 noresize" rows="9"><?php echo $dataEntreprise['description']; ?></textarea>    
-                                    <br/>   
+                                    <br />   
                                     <div class="lab" for="siren">N° SIREN</div>
-                                    <br/>
+                                    <br />
                                     <input class="inputText width_100" name="siren" type="text" value="<?php echo $dataEntreprise['siren']; ?>" />       
-                                    <br/>  
+                                    <br />  
                                     <div class="lab" for="typeEntreprise">Type d'entreprise</div>
-                                    <br/>
+                                    <br />
                                     <input class="inputText width_100" name="typeEntreprise" type="text" value="<?php echo $dataEntreprise['typeEntreprise']; ?>" />       
-                                    <br/>   
+                                    <br />   
                                     <div class="lab" for="description">Département</div>
-                                    <br/>
+                                    <br />
                                     <input class="inputText width_100" name="departement" type="text" value="<?php echo $dataEntreprise['departement']; ?>" />       
-                                    <br/>    
-                                    <br/> 
+                                    <br />    
+                                    <br /> 
                                     <div class="right">
                                         <input type="submit" name="submitEntreprise" class="btnPurple btpadding" value="Mettre à jour" /> 
                                     </div>
@@ -83,65 +86,56 @@
                             </div>
         <?php
                         }
-                    } else {?>
-                        <br/>
-                        <br/>
+                    } else {
+        ?>
+                        <br />
+                        <br />
+
                         <div class="contentEntreprise">
                             <div class="title">Information sur l'entreprise</div>
                             <hr />
 
-                            <div class="textLogo">Logo</div>
-                            
-                            <div class="contentAvatar">
-                                    <img src="./avatar/<?php echo $dataUser['avatar']; ?>" class="width_20" />
-                            </div>
                             <?php
                                 include('./script_php/security.php');
                                 include('./script_php/add_info_entreprise.php');
                             ?>
-                            <form action="" method="post" enctype="multipart/form-data">
-                                <div class="centeredElement">
-                                    <br />
-                                    <label for="file" class="importAvatar">Importer une photo</label>
-                                    <input id="file" name="avatar" class="inputNone inputAvatar" type="file" />
-                                </div>
-                                <script type="text/javascript">
-                                    $(document).ready(function () {
-                                        $('.importAvatar').click(function(event){
-                                            event.preventDefault();
-                                            $('.inputAvatar').click();
-                                        });
-                                    });
-                                </script>
+
+                            <div class="textLogo">Logo</div>
+                            
+                            <div class="contentAvatar">
+                                    <img src="/avatar/<?php echo $dataEntreprise['logo']; ?>" class="width_20" />
+                            </div>
+                            
+                            <form action="" method="post">
                                 <div class="lab" for="nom">Nom de l'entreprise</div>
-                                <br/>
+                                <br />
                                 <input class="inputText width_100" name="nom" type="text" placeholder="Nom"/>
-                                <br/>
+                                <br />
                                 <div class="lab" for="site">Site web</div>
-                                <br/>
+                                <br />
                                 <input class="inputText width_100" name="site" type="text" placeholder="Ex: https://monentreprise.fr"/>         
-                                <br/>   
+                                <br />   
                                 <div class="lab" for="but">But de l'entreprise</div>
-                                <br/>
+                                <br />
                                 <input class="inputText width_100" name="but" type="text" placeholder="But"/>         
-                                <br/>                               
+                                <br />                               
                                 <div class="lab" for="description">Description</div>
-                                <br/>
-                                <textarea name="description" class="inputTextarea width_100 noresize" rows="9">Description de votre entreprise...</textarea>    
-                                <br/>   
+                                <br />
+                                <textarea name="description" placeholder="Description de votre entreprise..." class="inputTextarea width_100 noresize" rows="9"></textarea>    
+                                <br />   
                                 <div class="lab" for="siren">N° SIREN</div>
-                                <br/>
+                                <br />
                                 <input class="inputText width_100" name="siren" type="text" placeholder="Ex: 123456789" />       
-                                <br/>  
+                                <br />  
                                 <div class="lab" for="typeEntreprise">Type d'entreprise</div>
-                                <br/>
+                                <br />
                                 <input class="inputText width_100" name="typeEntreprise" type="text" placeholder="Ex : SSII" />       
-                                <br/>   
+                                <br />   
                                 <div class="lab" for="description">Département</div>
-                                <br/>
+                                <br />
                                 <input class="inputText width_100" name="departement" type="text" placeholder="Département de l'entreprise" />       
-                                <br/>    
-                                <br/> 
+                                <br />    
+                                <br /> 
                                 <div class="right">
                                     <input type="submit" name="submitEntreprise" class="btnPurple btpadding" value="Créer votre entreprise" /> 
                                 </div>
