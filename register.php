@@ -58,7 +58,7 @@
                             <input type="number" name="departement" class="inputHype" placeholder="Ex: 62" />
 
                         <br /><br />
-                        <center><i>En vous inscrivant vous acceptez les <a href="">C.G.U</a></i></center>
+                        <center><i>En vous inscrivant vous acceptez les <a href="/conditions" target="_blank">C.G.U</a></i></center>
 
                         <br /><br />
                         <center>

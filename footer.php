@@ -18,6 +18,7 @@
                     <a href="/contact">Nous contacter</a>
                     <a href="/equipe">L'équipe</a>
                     <a href="/avenir">Fonctionnalités à venir</a>
+                    <a href="/conditions" target="_blank">CGU</a>
                 </div>
 
                 <div class="section">
