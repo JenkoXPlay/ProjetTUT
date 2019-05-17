@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:3306
--- Généré le :  Jeu 09 Mai 2019 à 11:37
+-- Généré le :  Ven 17 Mai 2019 à 09:20
 -- Version du serveur :  5.5.49-log
 -- Version de PHP :  7.0.9
 
@@ -99,14 +99,18 @@ CREATE TABLE IF NOT EXISTS `competences` (
   `domaine` varchar(255) NOT NULL,
   `competence` varchar(255) NOT NULL,
   `level` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `competences`
 --
 
 INSERT INTO `competences` (`id`, `competenceDe`, `domaine`, `competence`, `level`) VALUES
-(1, 11, 'Informatique', 'PHP', 'Intermédiaire');
+(1, 11, 'Informatique', 'PHP', 'Intermédiaire'),
+(2, 13, 'Alcool', 'Buveur de bière', 'Expert'),
+(3, 13, 'Mécanique', 'Voiture', 'Expert'),
+(5, 13, 'mklmkm', 'ertyuio', 'Expert'),
+(4, 13, 'Test', 'mksdflmdks', 'Expert');
 
 -- --------------------------------------------------------
 
@@ -156,6 +160,31 @@ INSERT INTO `competencesannonce` (`id`, `annonce`, `domaine`, `competence`, `lev
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `contact`
+--
+
+CREATE TABLE IF NOT EXISTS `contact` (
+  `id` int(11) NOT NULL,
+  `nom_complet` varchar(255) NOT NULL,
+  `email` text NOT NULL,
+  `sujet` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `date_ajout` datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `contact`
+--
+
+INSERT INTO `contact` (`id`, `nom_complet`, `email`, `sujet`, `message`, `date_ajout`) VALUES
+(1, 'Maxime Lefebvre', 'a@a.com', 'Bug(s) trouvé(s)', 'azezea', '2019-05-17 00:00:00'),
+(2, 'Maxime Lefebvre', 'a@a.com', 'Bug(s) trouvé(s)', 'azezea', '2019-05-17 09:01:02'),
+(3, 'zrezrzer', 'zerzer@erzerze.com', 'Bug(s) trouvé(s)', 'azezeaze l''état', '2019-05-17 09:01:23'),
+(4, 'Jean Jack', 'a@a.com', 'Proposer une amélioration', 'azeazeaze', '2019-05-17 09:05:25');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `diplomes`
 --
 
@@ -166,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `diplomes` (
   `annee_obtention` varchar(255) NOT NULL,
   `etablissement` text NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `diplomes`
@@ -175,7 +204,8 @@ CREATE TABLE IF NOT EXISTS `diplomes` (
 INSERT INTO `diplomes` (`id`, `user`, `nom_diplome`, `annee_obtention`, `etablissement`, `description`) VALUES
 (1, 1, 'BAC STI2D', '2014', 'Malraux', ''),
 (2, 1, 'BAC STI2D', '2014', 'Malraux', ''),
-(3, 11, 'DUT Réseaux et Télécommunications', '2018', 'IUT de Béthune', 'Dans le domaine de l''informatique !');
+(3, 11, 'DUT Réseaux et Télécommunications', '2018', 'IUT de Béthune', 'Dans le domaine de l''informatique !'),
+(4, 13, 'BAC STI2D', '2015', 'A.Malraux Béthune', 'Un truc de branleur !');
 
 -- --------------------------------------------------------
 
@@ -191,23 +221,24 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
   `logo` text NOT NULL,
   `but` text NOT NULL,
   `typeEntreprise` varchar(150) NOT NULL,
-  `siret` text NOT NULL,
-  `departement` int(5) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+  `siren` text NOT NULL,
+  `departement` int(5) NOT NULL,
+  `siteweb` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `entreprises`
 --
 
-INSERT INTO `entreprises` (`id`, `responsable`, `nom`, `description`, `logo`, `but`, `typeEntreprise`, `siret`, `departement`) VALUES
-(5, 1, 'mlklklmkm', 'lmkmlkmk', 'avatar.jpg', 'kmklmkmlk', 'pme', 'lmkmkmlk', 59),
-(6, 4, 'IBM', 'Best Company', 'avatar.jpg', 'lkjlkjlkjl', 'ge', 'lsjkflsdjkfljlkdsf', 62),
-(7, 10, 'JOUVE', 'Imprimerie, Métiers du numérique', 'avatar.jpg', 'Mettre le numériques en avant', 'SII', '122545121', 62),
-(8, 5, 'MBS communication', 'dfdfdfd', 'avatar.jpg', 'dfdfd', 'SA', '789961', 59),
-(9, 13, 'Hopital de Lens', '', 'avatar.jpg', '', 'Hopital', '1248541', 62),
-(10, 15, 'Worldline', 'dfdgd', 'avatar.jpg', 'dfdfgf', 'SA', '89784534', 75),
-(11, 11, 'Polyclinique', 'rfgfg', 'avatar.jpg', 'fdfgfg', 'SA', '54654654', 93),
-(12, 6, 'GG Style', 'avoir le style', 'avatar.jpg', 'toujours plus de style', 'SI', '4787891561', 93);
+INSERT INTO `entreprises` (`id`, `responsable`, `nom`, `description`, `logo`, `but`, `typeEntreprise`, `siren`, `departement`, `siteweb`) VALUES
+(5, 1, 'mlklklmkm', 'lmkmlkmk', 'avatar.jpg', 'kmklmkmlk', 'pme', 'lmkmkmlk', 59, 'http://www.google.fr'),
+(6, 4, 'IBM', 'Best Company', 'avatar.jpg', 'lkjlkjlkjl', 'ge', 'lsjkflsdjkfljlkdsf', 62, 'http://www.google.fr'),
+(7, 10, 'JOUVE', 'Imprimerie, Métiers du numérique', 'avatar.jpg', 'Mettre le numériques en avant', 'SII', '122545121', 62, 'http://www.google.fr'),
+(8, 5, 'MBS communication', 'dfdfdfd', 'avatar.jpg', 'dfdfd', 'SA', '789961', 59, 'http://www.google.fr'),
+(9, 13, 'Hopital de Lens', '', 'avatar.jpg', '', 'Hopital', '1248541', 62, 'http://www.google.fr'),
+(10, 15, 'Worldline', 'dfdgd', 'avatar.jpg', 'dfdfgf', 'SA', '89784534', 75, 'http://www.google.fr'),
+(12, 6, 'GG Style', 'avoir le style', 'avatar.jpg', 'toujours plus de style', 'SI', '4787891561', 93, 'http://www.google.fr'),
+(13, 11, 'azeazeazeaz', 'azeazeazez', 'avatar.jpg', 'aeazeazeaz', 'SSI', '123456789', 62, 'eazeaze');
 
 -- --------------------------------------------------------
 
@@ -225,14 +256,34 @@ CREATE TABLE IF NOT EXISTS `experiences` (
   `date_debut` varchar(20) NOT NULL,
   `date_fin` varchar(20) NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `experiences`
 --
 
 INSERT INTO `experiences` (`id`, `expDe`, `poste`, `typeContrat`, `nomEntreprise`, `ville`, `date_debut`, `date_fin`, `description`) VALUES
-(1, 11, 'Développeur Front End', 'Contrat Pro', 'IBM Client Innovation Center', 'Lille', '2018-09-03', '2019-08-30', 'Apprenti développeur front-end dans l''équipe Watson');
+(1, 11, 'Développeur Front End', 'Contrat Pro', 'IBM Client Innovation Center', 'Lille', '2018-09-03', '2019-08-30', 'Apprenti développeur front-end dans l''équipe Watson'),
+(2, 13, 'Serveur', 'CDI', 'Leffe', 'Lille', '2019-05-11', '2019-05-31', 'Je servais des bières');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `favoris`
+--
+
+CREATE TABLE IF NOT EXISTS `favoris` (
+  `id` int(11) NOT NULL,
+  `id_annonce` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `favoris`
+--
+
+INSERT INTO `favoris` (`id`, `id_annonce`, `id_user`) VALUES
+(1, 2, 12);
 
 -- --------------------------------------------------------
 
@@ -257,7 +308,14 @@ CREATE TABLE IF NOT EXISTS `loisirs` (
   `id` int(11) NOT NULL,
   `loisirDe` int(11) NOT NULL,
   `nomLoisir` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `loisirs`
+--
+
+INSERT INTO `loisirs` (`id`, `loisirDe`, `nomLoisir`) VALUES
+(1, 13, 'Tunning');
 
 -- --------------------------------------------------------
 
@@ -307,16 +365,15 @@ CREATE TABLE IF NOT EXISTS `reponsesannonces` (
   `entreprise` int(11) NOT NULL,
   `datePostuler` datetime NOT NULL,
   `notif` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `reponsesannonces`
 --
 
 INSERT INTO `reponsesannonces` (`id`, `idAnnoncesEntreprises`, `candidat`, `entreprise`, `datePostuler`, `notif`) VALUES
-(2, 8, 12, 6, '2019-05-09 09:05:57', 0),
-(4, 10, 12, 11, '2019-05-09 09:39:05', 1),
-(5, 7, 12, 12, '2019-05-09 09:45:52', 0);
+(7, 6, 12, 10, '2019-05-09 14:20:59', 1),
+(8, 10, 12, 11, '2019-05-16 11:19:06', 0);
 
 -- --------------------------------------------------------
 
@@ -330,7 +387,7 @@ CREATE TABLE IF NOT EXISTS `swagger` (
   `categorie` varchar(255) NOT NULL,
   `requete` text NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `swagger`
@@ -364,7 +421,7 @@ INSERT INTO `swagger` (`id`, `type`, `categorie`, `requete`, `description`) VALU
 (25, 'get', 'users', 'getAllUsers($bdd)', 'Récupérer tous les utilisateurs'),
 (26, 'get', 'users', 'getIdUser($bdd, $idUser)', 'Récupérer un utilisateur'),
 (27, 'get', 'users', 'getUsersStatus($bdd, $status)', 'Récupérer les utilisateurs en fonction de leur status'),
-(28, 'post', 'entreprise', 'addCompany($bdd, $responsable, $nom, $description, $logo, $but, $typeEntreprise, $siret, $departement)', 'Création d&#039;une entreprise'),
+(28, 'post', 'entreprise', 'addCompany($bdd, $responsable, $nom, $description, $logo, $but, $typeEntreprise, $siret, $departement, $siteweb)', 'Création d&#039;une entreprise'),
 (29, 'delete', 'entreprise', 'deleteAllCompany($bdd)', 'Suppression de toutes les entreprises'),
 (30, 'delete', 'entreprise', 'deleteCompanyId($bdd, $idCompany)', 'Suppression d&#039;une entreprise par son ID'),
 (31, 'delete', 'entreprise', 'deleteCompanyResponsable($bdd, $idResponsable)', 'Suppression d&#039;une entreprise en fonction du responsable'),
@@ -429,7 +486,22 @@ INSERT INTO `swagger` (`id`, `type`, `categorie`, `requete`, `description`) VALU
 (90, 'get', 'competencesannonce', 'getAllCompAnnonce($bdd)', 'Afficher toutes les compétences d&#039;une annonce'),
 (91, 'get', 'competencesannonce', 'getIdCompAnnonce($bdd,$idComp)', 'Afficher une compétence annonce par son id'),
 (92, 'get', 'competencesannonce', 'getAllCompAnnonceId($bdd,$annonce)', 'Afficher toutes les compétences d&#039;une annonce'),
-(93, 'get', 'users', 'getMailUser($bdd, $mail)', 'Récupération des infos d&#039;un utilisateur par son adresse mail');
+(93, 'get', 'users', 'getMailUser($bdd, $mail)', 'Récupération des infos d&#039;un utilisateur par son adresse mail'),
+(94, 'post', 'favoris', 'addFav($bdd, $idAnnonce, $idUser)', 'Ajouter un favoris'),
+(95, 'delete', 'favoris', 'deleteAllFav($bdd)', 'Suppression de tous les favoris'),
+(96, 'delete', 'favoris', 'deleteFavId($bdd, $idFav)', 'Suppression d&#039;un favoris par son id'),
+(97, 'delete', 'favoris', 'deleteFavByUser($bdd, $idUser)', 'Suppression de tous les favoris d&#039;un user par son id'),
+(98, 'delete', 'favoris', 'deleteFavByAnnonce($bdd, $idAnnonce)', 'Suppression de tous les favoris par annonce avec son id'),
+(99, 'get', 'favoris', 'getAllFav($bdd)', 'Récupération de tous les favoris'),
+(100, 'get', 'favoris', 'getFavById($bdd, $idFav)', 'Récupération d&#039;un favoris par son id'),
+(101, 'get', 'favoris', 'getFavByUser($bdd, $idUser)', 'Récupération des favoris d&#039;un utilisateur par son id'),
+(102, 'get', 'favoris', 'getFavByAnnonce($bdd, $idAnnonce)', 'Récupération des favoris par id d&#039;une annonce'),
+(103, 'post', 'contact', 'addContact($bdd, $nom_complet, $email, $sujet, $message)', 'Ajouter un formulaire de contact'),
+(104, 'delete', 'contact', 'deleteAllContact($bdd)', 'Suppression de tous les contacts'),
+(105, 'delete', 'contact', 'deleteContactId($bdd, $idContact)', 'Suppression d&#039;un contact par son id'),
+(106, 'get', 'contact', 'getAllContact($bdd)', 'Récupérer tous les contacts'),
+(107, 'get', 'contact', 'getContactId($bdd, $idContact)', 'Récupérer un contact par son id'),
+(108, 'get', 'contact', 'getContactEmail($bdd, $email)', 'Récupérer tous les contacts d&#039;une adresse mail');
 
 -- --------------------------------------------------------
 
@@ -454,7 +526,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `admin` tinyint(1) NOT NULL,
   `premium` tinyint(1) NOT NULL,
   `avatar` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `users`
@@ -467,7 +539,8 @@ INSERT INTO `users` (`id`, `prenom`, `nom`, `email`, `password`, `type_compte`, 
 (9, 'Maxime', 'Lefebvre', 'maximelefebvre1505@gmail.com', '$2y$10$NUBKgMOJx2oijEflLpYytOXC8YjOgX8A7JhbUYkgQOwlMetcsFKsW', 'etudiant', 62, '', 0, '2019-02-26 12:54:30', '2019-02-26 12:54:30', '0', '', 0, 0, 'avatar.jpg'),
 (10, 'Nicolas', 'Paris', 'nicolas.paris_isc.france@ibm.com', '$2y$10$rk5LAKlNElmG621o6hFNLehP.goAybeGVQ.BTDofn8JNyV.MJlM46', 'pro', 59, '', 0, '2019-02-26 12:56:55', '2019-02-26 12:56:55', '0', '', 0, 0, 'avatar.jpg'),
 (11, 'Maxime', 'Lefebvre', 'admin@admin.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'pro', 62, 'Voici ma nouvelle description !', 0, '2019-03-08 09:33:23', '2019-03-08 09:33:23', '0', '', 0, 0, '11d0a67e9bde85d858daec17657babb32e.jpg'),
-(12, 'Maxime', 'Lefebvre', 'etu@etu.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'etudiant', 62, '', 0, '2019-05-04 12:30:42', '2019-05-04 12:30:42', '0', '', 0, 0, 'avatar.jpg');
+(12, 'Maxime', 'Lefebvre', 'etu@etu.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'etudiant', 62, 'Mon incroyable description !', 0, '2019-05-04 12:30:42', '2019-05-04 12:30:42', '0', '', 0, 0, '1208dbb84770743d4afa22b7935676d55b.jpg'),
+(13, 'Jacki', 'Tunning', 'user@user.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'etudiant', 62, 'J''adore la bière et le tunning', 0, '2019-05-09 11:51:05', '2019-05-09 11:51:05', '0', '', 0, 0, '1338e11a95c89bb0671c92d17e48330404.jpg');
 
 --
 -- Index pour les tables exportées
@@ -518,6 +591,12 @@ ALTER TABLE `competencesannonce`
   ADD KEY `level` (`level`);
 
 --
+-- Index pour la table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `diplomes`
 --
 ALTER TABLE `diplomes`
@@ -539,6 +618,12 @@ ALTER TABLE `entreprises`
 ALTER TABLE `experiences`
   ADD PRIMARY KEY (`id`),
   ADD KEY `expDe` (`expDe`,`nomEntreprise`,`date_debut`,`date_fin`,`typeContrat`);
+
+--
+-- Index pour la table `favoris`
+--
+ALTER TABLE `favoris`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `galerie_entreprises`
@@ -614,26 +699,36 @@ ALTER TABLE `annoncesentreprises`
 -- AUTO_INCREMENT pour la table `competences`
 --
 ALTER TABLE `competences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `competencesannonce`
 --
 ALTER TABLE `competencesannonce`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
+-- AUTO_INCREMENT pour la table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT pour la table `diplomes`
 --
 ALTER TABLE `diplomes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `entreprises`
 --
 ALTER TABLE `entreprises`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT pour la table `experiences`
 --
 ALTER TABLE `experiences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT pour la table `favoris`
+--
+ALTER TABLE `favoris`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `galerie_entreprises`
@@ -644,7 +739,7 @@ ALTER TABLE `galerie_entreprises`
 -- AUTO_INCREMENT pour la table `loisirs`
 --
 ALTER TABLE `loisirs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `maintenance`
 --
@@ -659,17 +754,17 @@ ALTER TABLE `messagerie`
 -- AUTO_INCREMENT pour la table `reponsesannonces`
 --
 ALTER TABLE `reponsesannonces`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pour la table `swagger`
 --
 ALTER TABLE `swagger`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=94;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=109;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

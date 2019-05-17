@@ -702,3 +702,15 @@ body {
     margin: 0 auto;
 }
 /* panelAvenir */
+
+/* panelContact */
+.content .panelContact {
+    width: 50%;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 0 auto;
+}
+/* panelContact */

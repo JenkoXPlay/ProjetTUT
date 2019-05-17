@@ -48,6 +48,7 @@
                     <option>admin</option>
                     <option>annoncesentreprises</option>
                     <option>competences</option>
+                    <option>contact</option>
                     <option>entreprise</option>
                     <option>experiences</option>
                     <option>favoris</option>
