@@ -63,8 +63,20 @@ $router->setRoutes('/profil/:id_membre', 'profil.php');
 $router->setRoutes('/user/:idUser', 'user.php');
 $router->setRoutes('/equipe', 'equipe.php');
 $router->setRoutes('/avenir', 'avenir.php');
+// $router->setRoutes('/editannonce', 'editannonce.php'); // insertion annonce
+// $router->setRoutes('/editannonce/:id_annonce', 'editannonce.php'); // edition d'une annonce
 $router->setRoutes('/maintenance', 'maintenance.php');
 $router->setRoutes('/erreur', 'erreur.php');
 $router->setOtherwise('page', 'erreur.php');
 
 $router->search();
+
+/*
+
+	if ($this->params['id_annonce']) {
+		page edition d'une annonce
+	} else {
+		page d'insertion d'annonce
+	}
+
+*/
