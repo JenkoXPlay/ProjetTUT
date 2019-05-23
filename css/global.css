@@ -97,6 +97,13 @@
 }
 /* BOUTON */
 
+/* MARGIN*/
+.margin_tb_20{
+    margin:20px 0;
+}
+
+/* MARGIN*/
+
 /* WIDTH */
 .min_width_300_px {
     min-width: 300px;

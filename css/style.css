@@ -327,7 +327,7 @@ body {
     margin-top:20px;
     margin-bottom:0px; 
 }
-.content .contentEntreprise .btPadding{
+.content .contentEntreprise .btnPadding{
     padding:10px 20px; 
     margin-left:auto; 
 }
@@ -472,6 +472,10 @@ body {
     width: 65%;
     border: 1px solid #E1E1E1;
     text-align: left;
+}
+.contentPageAnnonce .pageAnnonce .btnPadding{
+    padding:10px 20px; 
+    margin-top:20px;
 }
 .contentPageAnnonce .pageAnnonce .goBack {
     font-weight: 500;
