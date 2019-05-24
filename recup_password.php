@@ -56,6 +56,9 @@
                     <?php
                 }
             ?>
+
+            <br /><br />
+            <a href="/home">Aller à la page d'accueil</a>
             
         </div>
 
