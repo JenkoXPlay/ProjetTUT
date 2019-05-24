@@ -578,6 +578,61 @@ body {
 }
 /* Page Annonce */
 
+/* Gestion Annonce */
+.contentPageAnnonce .gestionAnnonceList {
+    display: flex;
+    align-content: center;
+    width: 100%;
+    padding: 10px;
+    color:white;
+}
+.contentPageAnnonce .gestionAnnonceList a {
+    color:white;
+}
+.contentPageAnnonce .annonceEntreprise{
+    background: #3a3944;
+    border-radius: 8px 0px 0px 8px;
+    padding: 10px;
+}
+.contentPageAnnonce .annonceEntreprise .info {
+    display: flex;
+    justify-content: space-around;
+}
+.contentPageAnnonce .annonceEntreprise .titre {
+    font-weight: 500;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.contentPageAnnonce .gestionAnnonceList .annonce {
+    width:30%;
+}
+.contentPageAnnonce .gestionAnnonceList .contentGestion {
+    width:70%;
+    background:#f0f0f0;
+    border-radius: 0px 8px 8px 0px;
+    display:flex;
+    align-items: center;
+}
+.contentPageAnnonce .gestionAnnonceList .contentGestion .gestionAnnonce {
+    width: 100%; 
+}
+.contentPageAnnonce .gestionAnnonceList .contentGestion .gestionAnnonce .form{
+    display:flex;
+    justify-content: space-between;
+    width: 90%;
+    margin:0 auto;
+}
+.contentPageAnnonce .gestionAnnonceList .contentGestion .gestionAnnonce .form input:nth-child(1),
+.contentPageAnnonce .gestionAnnonceList .contentGestion .gestionAnnonce .form input:nth-child(2),
+.contentPageAnnonce .gestionAnnonceList .contentGestion .gestionAnnonce .form input:nth-child(3), 
+.contentPageAnnonce .gestionAnnonceList .contentGestion .gestionAnnonce .form input:nth-child(4) {
+    margin: 0px 20px; 
+}
+
+/* Gestion Annonce */
+
 /* page candidatures */
 .content .panelCandidature {
     background: #fff;

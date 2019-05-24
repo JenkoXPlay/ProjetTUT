@@ -17,7 +17,6 @@
                     if ($reqfetch['countid'] != 0) {
                         $req_info_entreprise = getEntrepriseResponsable($bdd,$dataUser['id']);
                         while($dataEntreprise = $req_info_entreprise->fetch()) {
-                            $req_annonce = getAnnonceIdCompagny($bdd,$dataEntreprise['id']);
                             $req3 = $bdd->query("SELECT COUNT(*) AS countid FROM annoncesentreprises WHERE entreprise='{$dataEntreprise['id']}'");
                             $CountAnnonce = $req3->fetch();
                             if ($CountAnnonce['countid'] <= 2) { ?>
