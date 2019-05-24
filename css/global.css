@@ -48,7 +48,7 @@
 .btnPurple:hover, .btnWhite:hover {
     cursor: pointer;
 }
-.btnPostuler, .btnMsg {
+.btnPostuler, .btnMsg, .btnPwd {
     border: 1px solid #4b00ff;
     background: none;
     color: #4b00ff;
@@ -57,7 +57,7 @@
     padding: 5px 20px 5px 20px;
     transition: 0.3s;
 }
-.btnPostuler:hover, .btnMsg:hover {
+.btnPostuler:hover, .btnMsg:hover, .btnPwd:hover {
     cursor: pointer;
     color: #fff;
     background: #4b00ff;

@@ -716,12 +716,23 @@ body {
 /* panelContact */
 
 /* panelCGU */
-.bodyCGU {
+.bodyCGU, .bodyPwd {
     background: rgb(221, 221, 221);
     padding: 0;
     margin: 0;
 }
 .bodyCGU .panelCGU {
+    width: 50%;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.bodyPwd .panelPwd {
     width: 50%;
     background: #fff;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);

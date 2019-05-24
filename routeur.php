@@ -65,6 +65,7 @@ $router->setRoutes('/equipe', 'equipe.php');
 $router->setRoutes('/avenir', 'avenir.php');
 $router->setRoutes('/contact', 'contact.php');
 $router->setRoutes('/conditions', 'cgu.php');
+$router->setRoutes('/recup_password', 'recup_password.php');
 $router->setRoutes('/maintenance', 'maintenance.php');
 $router->setRoutes('/erreur', 'erreur.php');
 $router->setOtherwise('page', 'erreur.php');

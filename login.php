@@ -42,7 +42,7 @@
                                 <input class="check" type="checkbox" id="maintenirSession" /><label for="maintenirSession"> Maintenir la connexion </label>
                             </div>
                             <div class="containerBtnOubli">
-                                <a href="">J'ai oublié mon mot de passe</a><br/>
+                                <a href="/recup_password">J'ai oublié mon mot de passe</a><br/>
                             </div>
                         </div>
                         <center><input class="btnConnect" type="submit" value="Connexion" name="connexion" /></center>
