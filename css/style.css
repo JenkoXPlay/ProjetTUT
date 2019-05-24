@@ -583,6 +583,35 @@ body {
     width: 70%;
     margin: 0 auto;
 }
+.content .panelCandidature .candidature {
+    width: 100%;
+    display: flex;
+    padding: 20px;
+}
+.content .panelCandidature .candidature .user {
+    display: flex;
+    width: 40%;
+    align-items: center;
+}
+.content .panelCandidature .candidature .user .headCandidat {
+    width: 100px;
+    height: 100px;
+    border-radius: 120px;
+    border: 1px solid #4b00ff;
+    margin-right: 10px;
+}
+.content .panelCandidature .candidature .visite {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content .panelCandidature .candidature .action {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* page candidatures */
 
 /* page cv */

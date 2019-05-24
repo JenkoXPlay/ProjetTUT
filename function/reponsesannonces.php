@@ -8,15 +8,17 @@
                                         candidat,
                                         entreprise,
                                         datePostuler,
-                                        notif)
-                                VALUES (?, ?, ?, ?, ?, ?)");
+                                        notif,
+                                        reponse)
+                                VALUES (?, ?, ?, ?, ?, ?, ?)");
         $req->execute([
             '',
             $idAnnoncesEntreprises,
             $candidat,
             $entreprise,
             date("Y-m-d H:i:s"),
-            false
+            false,
+            'attente'
         ]);
     }
 
