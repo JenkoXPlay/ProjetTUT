@@ -33,8 +33,7 @@
                                             <input class="inputText width_100 margin_tb_20" type="text" name="title" placeholder="Titre de votre annonce"/>
                                             <label for="description">Description de l'offre</label> 
                                             <textarea name="description" class="inputTextarea width_100 noresize margin_tb_20" rows="10" placeholder="Description de l'offre"></textarea>
-                                            <label for="profil">Profil recherché</label>
-                                            <input placeholder="Le profil sera modifiable une fois l'annonce créée.." name="profil" class="inputText width_100 margin_tb_20"/>
+                                            <br />
                                             <label for="typeAnnonce">Type d'annonce</label>
                                             <select class="inputText width_100 margin_tb_20"  name="typeAnnonce" class="type_contrat">
                                                 <option value="typeAnnonce" selected>Type d'annonce</option>
@@ -49,7 +48,7 @@
                                         </form>
                                     </div>
                                     <div class="annonceList">
-                                            <div class="title">Les annonces de l'entreprise</div>
+                                        <div class="title">Les annonces de l'entreprise</div>
                                             <?php
                                                 // si problème alignement regarder dans le css position sticky
                                                 $reqEntrepriseId = getEntrepriseId($bdd, $dataEntreprise['id']);
@@ -77,8 +76,8 @@
                                                     }
                                                 }
                                             ?>
-                                        </div>
                                     </div>
+                                </div>
 
         <?php
                             } else {

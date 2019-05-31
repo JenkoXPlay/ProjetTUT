@@ -109,7 +109,7 @@
     cursor: pointer;
     transition: 0.3s;
 }
-.btnGestion{
+.btnGestion {
     border: none;
     background: transparent;
     color: #4b00ff;
@@ -123,7 +123,7 @@
     cursor: pointer;
     transition: 0.3s;
 }
-.
+
 /* BOUTON */
 
 /* MARGIN*/
@@ -225,7 +225,9 @@
 .marginAuto {
     margin: 0 auto;
 }
-
+.margin_auto {
+    margin:auto;
+}
 .inputNone {
     display: none;
 }

@@ -12,10 +12,22 @@
         if ($nom&&$siteWeb&&$description&&$numSiren&&$departement&&$typeEntreprise&&$but) {
             if (is_numeric($numSiren)&&strlen($numSiren)== 9) {
                 if (is_numeric($departement)&&($departement > 0 && $departement <= 95)) {
-
-                    /*Import Script upload avatar*/
-
-                    $req = $bdd->exec("UPDATE entreprises SET nom='$nom', description='$description', logo='$logo', departement='$departement', but='$but', typeEntreprise='$typeEntreprise', siren='$numSiren', siteweb='$siteWeb' WHERE responsable='{$dataUser['id']}'");
+                    $newAvatar = $_FILES['avatar']['name'];
+                    if ($newAvatar) {
+                        $extensions_valides = array('jpg', 'jpeg', 'png');
+                        $extension_upload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1));
+                        if (in_array($extension_upload,$extensions_valides)) {
+                            $newNameAvatar = $dataUser['id'].md5(uniqid(rand(), true)).'.'.$extension_upload;
+                            $uploadDuFichier = move_uploaded_file($_FILES['avatar']['tmp_name'],'./avatar/'.$newNameAvatar);
+                            if ($uploadDuFichier) {
+                                if ($dataUser['avatar'] != "avatar.jpg") {
+                                    unlink('./avatar/'.$dataUser['avatar']);
+                                }
+                                $avatar = $newNameAvatar;
+                            } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
+                        } else echo "<div class='alertError'>L'extension n'est pas valide !</div><br />";
+                    }
+                    $req = $bdd->exec("UPDATE entreprises SET nom='$nom', description='$description', logo='$avatar', departement='$departement', but='$but', typeEntreprise='$typeEntreprise', siren='$numSiren', siteweb='$siteWeb' WHERE responsable='{$dataUser['id']}'");
                     echo "<div class='alertSuccess width_50 marginAuto'>Votre entreprise a été mise à jour !<br />Redirection en cours...</div><br />";
                     ?><head><meta http-equiv="refresh" content="2;URL=/editentreprise" /></head><?php
                 

@@ -42,11 +42,9 @@
                                                     <input class="inputText width_100 margin_tb_20" type="text" name="title" value="<?php echo $dataAnnonce['titre'];?>"/>
                                                     <label for="description">Description de l'offre</label> 
                                                     <textarea name="description" class="inputTextarea width_100 noresize margin_tb_20" rows="10" value="" ><?php echo $dataAnnonce['description'];?></textarea>
-                                                    <label for="profil">Profil recherché</label>
-                                                    <input placeholder="Le profil sera modifiable une fois l'annonce créée.." name="profil" class="inputText width_100 margin_tb_20"/>
                                                     <label for="typeAnnonce">Type d'annonce</label>
                                                     <select class="inputText width_100 margin_tb_20"  name="typeAnnonce" class="type_contrat">
-                                                        <option value="<?php echo $dataAnnonce['typeAnnonce']; ?>" selected><?php echo $dataAnnonce['typeAnnonce']; ?></option>
+                                                        <option style="display:none;"value="<?php echo $dataAnnonce['typeAnnonce']; ?>" selected><?php echo $dataAnnonce['typeAnnonce']; ?></option>
                                                         <option value="Alternance">Alternance</option>
                                                         <option value="stage">Stage</option>
                                                     </select>
@@ -56,36 +54,96 @@
                                                         <input type="submit" name="subAnnonce" value="Modifier" class="btnPurple btnpadding" />
                                                     </div>
                                                 </form>
+                                                <form action="" method="POST">
+                                                    <div class="title labelForm">Profil recherché</div>
+                                                    <div class="panelModifAnnonce">
+                                                    <?php
+                                                        include('./function/competencesannonce.php');
+                                                        include('./script_php/add_competencesannonce.php');
+                                                    ?>
+                                                        
+                                                            <div class="inputFlex">
+                                                                <div class="itemFlex">
+                                                                    <input type="text" name="competence" class="inputText width_90" placeholder="Compétence : Photoshop" />
+                                                                </div>
+                                                                <div class="itemFlex">
+                                                                    <input type="text" name="domaine" class="inputText width_90" placeholder="Domaine : Informatique" />
+                                                                </div>
+                                                            </div>
+                                                            <br />
+                                                            <div class="inputFlex">
+                                                                <div class="itemFlex">
+                                                                    <select class="inputSelect width_90" name="niveau">
+                                                                        <option selected>Niveau</option>
+                                                                        <option value="Débutant">Débutant</option>
+                                                                        <option value="Intermédiaire">Intermédiaire</option>
+                                                                        <option value="Avancé">Avancé</option>
+                                                                        <option value="Expert">Expert</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="itemFlex">
+                                                                    <input type="submit" name="submitCompetence" class="btnPurple width_90" value="Ajouter" />
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                    <br />
+                                                    <?php
+                                                        if (isset($_POST['deleteComp'])) {
+                                                            $idComp = security($_POST['idComp']);
+                                                            if ($idComp) {
+                                                                $req  = deleteCompAnnonceId($bdd, $idComp);
+                                                                echo "<div class='alertSuccess'>Compétence supprimée !</div><br />";
+                                                            } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
+                                                        }
+                                                    ?>
+                                                    <div class="competences">
+                                                        <?php
+                                                            $req_info_comp = $bdd->prepare("SELECT * FROM competencesannonce WHERE annonce='{$dataAnnonce['id']}'");
+                                                            $req_info_comp->execute();
+                                                            while ($dataComp = $req_info_comp->fetch()) {
+                                                                ?>
+                                                                    
+                                                                        <input type="text" name="idComp" value="<?php echo $dataComp['id']; ?>" style="display:none;" />
+                                                                        <span>
+                                                                            <?php echo $dataComp['competence']." : ".$dataComp['level']; ?>
+                                                                            <input type="submit" name="deleteComp" class="btnCross" value="X" />
+                                                                        </span>
+                                                                    
+                                                                <?php
+                                                            }
+                                                        ?>
+                                                    </div>
+                                                </form>
                                             </div>
                                             <div class="annonceList">
                                                 <div class="title">Les annonces de l'entreprise</div>
                                                 <?php
-                                                // si problème alignement regarder dans le css position sticky
-                                                $reqEntrepriseId = getEntrepriseId($bdd, $dataEntreprise['id']);
-                                                while ($dataEntrepriseId = $reqEntrepriseId->fetch()) {
-                                                    $req_all_annonce = getAnnonceIdCompagny($bdd, $dataEntrepriseId['id']);
-                                                    while ($dataAllAnnonce = $req_all_annonce->fetch()) {
-                                                        ?>
-                                                            <a href="/editannonce/<?php echo $dataAllAnnonce['id']; ?>">
-                                                                <div class="annonceEntreprise">
-                                                                    <span class="titre"><?php echo $dataAllAnnonce['titre']; ?></span>
-                                                                    <div class="info">
-                                                                        <div>
-                                                                            <img src='/img/maletteNoir2.png' style='width: 14px; height: 14px;margin-right: 5px;' />
-                                                                            <?php echo $dataAllAnnonce['typeAnnonce']; ?>
-                                                                        </div>
+                                                    // si problème alignement regarder dans le css position sticky
+                                                    $reqEntrepriseId = getEntrepriseId($bdd, $dataEntreprise['id']);
+                                                    while ($dataEntrepriseId = $reqEntrepriseId->fetch()) {
+                                                        $req_all_annonce = getAnnonceIdCompagny($bdd, $dataEntrepriseId['id']);
+                                                        while ($dataAllAnnonce = $req_all_annonce->fetch()) {
+                                                            ?>
+                                                                <a href="/editannonce/<?php echo $dataAllAnnonce['id']; ?>">
+                                                                    <div class="annonceEntreprise">
+                                                                        <span class="titre"><?php echo $dataAllAnnonce['titre']; ?></span>
+                                                                        <div class="info">
+                                                                            <div>
+                                                                                <img src='/img/maletteNoir2.png' style='width: 14px; height: 14px;margin-right: 5px;' />
+                                                                                <?php echo $dataAllAnnonce['typeAnnonce']; ?>
+                                                                            </div>
 
-                                                                        <div>
-                                                                            <?php echo $dataAllAnnonce['remuneration']; ?>
-                                                                            <img src='/img/euro.png' style='width: 14px; height: 14px;margin-right: 5px;' />
+                                                                            <div>
+                                                                                <?php echo $dataAllAnnonce['remuneration']; ?>
+                                                                                <img src='/img/euro.png' style='width: 14px; height: 14px;margin-right: 5px;' />
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </a>
-                                                        <?php
+                                                                </a>
+                                                            <?php
+                                                        }
                                                     }
-                                                }
-                                            ?>                                               
+                                                ?>                                               
                                             </div>
                                         </div>
                     <?php
@@ -97,7 +155,7 @@
                             }
                              
                         }
-                    } else{ 
+                    } else { 
         ?>
                     <div class='alertError'>Vous n'avez pas encore crée votre entreprise ! Redirection...</div><br />
                     <head><meta http-equiv="refresh" content="2;URL=/editentreprise" /></head>
