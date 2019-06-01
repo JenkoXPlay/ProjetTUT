@@ -37,7 +37,7 @@
                             <?php
                                 if ($data['type_compte'] == "pro") {
                                     ?>
-                                        <a href="">Mes Annonces</a>
+                                        <a href="/gestionannonce" class="<?php if ($_SERVER['REQUEST_URI'] == "/gestionannonce") { echo "menuActive"; } ?>">Mes Annonces</a>
                                     <?php
                                 } else if ($data['type_compte'] == "etudiant") {
                                     ?>
@@ -64,6 +64,7 @@
                                 if ($data['type_compte'] == "pro") {
                                     ?>
                                         <a href="/editentreprise">Éditer mon entreprise</a>
+                                        <a href="/editannonce">Créer une annonce</a>
                                     <?php
                                 }
                             ?>

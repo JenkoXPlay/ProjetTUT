@@ -110,7 +110,43 @@
     cursor: pointer;
     transition: 0.3s;
 }
+.btnSup {
+    border: none;
+    background: transparent;
+    color: #d63031;
+    padding: 2px 10px;
+    border: 1px solid #d63031;
+    transition: 0.3s;
+}
+.btnSup:hover {
+    background: #d63031;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btnGestion {
+    border: none;
+    background: transparent;
+    color: #4b00ff;
+    padding: 2px 10px;    
+    border: 1px solid #4b00ff;
+    transition: 0.3s;
+}
+.btnGestion:hover{
+    background: #4b00ff;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
 /* BOUTON */
+
+/* MARGIN*/
+.margin_tb_20{
+    margin:20px 0;
+}
+
+/* MARGIN*/
 
 /* WIDTH */
 .min_width_300_px {
@@ -207,7 +243,9 @@
 .marginAuto {
     margin: 0 auto;
 }
-
+.margin_auto {
+    margin:auto;
+}
 .inputNone {
     display: none;
 }

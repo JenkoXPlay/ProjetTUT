@@ -183,7 +183,7 @@ body {
     width: 100px;
     height: 100px;
 }
-.content .informationProfil .panelExpPro, .panelFormation {
+.content .informationProfil .panelExpPro, .panelFormation, .panelModifAnnonce {
     width: 100%;
     border: 2px solid #4B00FF;
     border-radius: 4px;
@@ -208,7 +208,7 @@ body {
     margin-left: 10px;
     margin-right: 10px;
 }
-.content .informationProfil .panelExpPro .inputFlex {
+.content .informationProfil .panelExpPro .inputFlex, .content .contentPageAnnonce .pageAnnonce .panelModifAnnonce .inputFlex {
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -218,7 +218,7 @@ body {
     display: flex;
     justify-content: space-around;
 }
-.content .informationProfil .panelExpPro .inputFlex .itemFlex {
+.content .informationProfil .panelExpPro .inputFlex .itemFlex, .content .contentPageAnnonce .pageAnnonce .panelModifAnnonce .inputFlex .itemFlex {
     width: 50%;
 }
 .content .informationProfil .panelFormation .inputFlex .itemFlex {
@@ -327,13 +327,67 @@ body {
     margin-top:20px;
     margin-bottom:0px; 
 }
-.content .contentEntreprise .btPadding{
+.content .contentEntreprise .btnPadding{
     padding:10px 20px; 
     margin-left:auto; 
 }
 .content .contentEntreprise .right{
     text-align: right;
 }
+/* Gestion Annonce */
+.contentPageAnnonce .pageAnnonce .gestionAnnonceList {
+    display: flex;
+    align-content: center;
+    width: 100%;
+    padding: 10px;
+    color:white;
+}
+.contentPageAnnonce .gestionAnnonceList a {
+    color:white;
+}
+.contentPageAnnonce .annonceEntreprise{
+    background: #3a3944;
+    border-radius: 8px 0px 0px 8px;
+    padding: 10px;
+}
+.contentPageAnnonce .annonceEntreprise .info {
+    display: flex;
+    justify-content: space-around;
+}
+.contentPageAnnonce .annonceEntreprise .titre {
+    font-weight: 500;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.contentPageAnnonce .gestionAnnonceList .annonce {
+    width:30%;
+}
+.contentPageAnnonce .gestionAnnonceList .contentGestion {
+    width:70%;
+    background:#f0f0f0;
+    border-radius: 0px 8px 8px 0px;
+    display:flex;
+    align-items: center;
+}
+.contentPageAnnonce .gestionAnnonceList .contentGestion .gestionAnnonce {
+    width: 100%; 
+}
+.contentPageAnnonce .gestionAnnonceList .contentGestion .gestionAnnonce .form {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+} 
+.contentPageAnnonce .gestionAnnonceList .contentGestion .gestionAnnonce .form input {
+    margin: 5px 10px; 
+}
+
+/* Gestion Annonce */
+
+
 /* SEARCH BAR */
 .searchbar {
     width: 100%;
@@ -412,12 +466,16 @@ body {
     background: #fff;
     border-radius: 6px 0 0 6px;
     display: flex;
+    justify-content: center;
     align-content: center;
     padding: 5px;
+    position: relative; /* supprimer si bug afficher */
 }
 .annonceList .annonce .logo img {
-    width: 100%;
-    height: auto;
+    position: absolute; /* supprimer si bug afficher */
+    width: auto;
+    max-width: 100%;
+    height: 90%;
 }
 .annonceList .annonce .sujet {
     width: 63%;
@@ -469,9 +527,13 @@ body {
     background: #fff;
     border-radius: 4px;
     padding: 10px;
-    width: 65%;
+    width: 75%;
     border: 1px solid #E1E1E1;
     text-align: left;
+}
+.contentPageAnnonce .pageAnnonce .btnPadding{
+    padding:10px 20px; 
+    margin-top:20px;
 }
 .contentPageAnnonce .pageAnnonce .goBack {
     font-weight: 500;
@@ -485,6 +547,15 @@ body {
     margin-right: 15px;
     transition: 0.3s;
 }
+.contentPageAnnonce .pageAnnonce .flexNav {
+    display: flex;
+    justify-content: space-between;
+}
+.contentPageAnnonce .pageAnnonce .flexNav .goBack:hover i {
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
 .contentPageAnnonce .pageAnnonce .headerAnnonce {
     width: 100%;
     text-align: center;
@@ -524,7 +595,7 @@ body {
     text-align: left;
     margin-top: 20px;
 }
-.contentPageAnnonce .pageAnnonce .contentAnnonce .title {
+.contentPageAnnonce .pageAnnonce .contentAnnonce .title,.contentPageAnnonce .pageAnnonce .title {
     font-weight: 600;
     text-transform: uppercase;
     font-size: 1.2em;

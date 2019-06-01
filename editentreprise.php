@@ -80,7 +80,7 @@
                                     <br />    
                                     <br /> 
                                     <div class="right">
-                                        <input type="submit" name="submitEntreprise" class="btnPurple btpadding" value="Mettre à jour" /> 
+                                        <input type="submit" name="submitEntreprise" class="btnPurple btnPadding" value="Mettre à jour" /> 
                                     </div>
                                 </form>
                             </div>
@@ -137,7 +137,7 @@
                                 <br />    
                                 <br /> 
                                 <div class="right">
-                                    <input type="submit" name="submitEntreprise" class="btnPurple btpadding" value="Créer votre entreprise" /> 
+                                    <input type="submit" name="submitEntreprise" class="btnPurple btnPadding" value="Créer votre entreprise" /> 
                                 </div>
                             </form>
                         </div>
@@ -147,3 +147,4 @@
             }
         ?>
     </div>
+<?php include('footer.php'); ?>

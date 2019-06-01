@@ -67,8 +67,21 @@ $router->setRoutes('/contact', 'contact.php');
 $router->setRoutes('/conditions', 'cgu.php');
 $router->setRoutes('/recup_password', 'recup_password.php');
 $router->setRoutes('/repannonce/:id_annonce', 'repannonce.php');
+$router->setRoutes('/editannonce', 'createannonce.php'); // insertion annonce
+$router->setRoutes('/gestionannonce', 'gestionannonce.php'); // gestion annonce
+$router->setRoutes('/editannonce/:id_annonce', 'editannonce.php'); // edition d'une annonce
 $router->setRoutes('/maintenance', 'maintenance.php');
 $router->setRoutes('/erreur', 'erreur.php');
 $router->setOtherwise('page', 'erreur.php');
 
 $router->search();
+
+/*
+
+	if ($this->params['id_annonce']) {
+		page edition d'une annonce
+	} else {
+		page d'insertion d'annonce
+	}
+
+*/

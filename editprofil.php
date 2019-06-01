@@ -162,11 +162,13 @@
                 <br />
                 <?php
                     if (isset($_POST['delExpPro'])) {
-                        $idExpPro = security($_POST['idExpPro']);
-                        if ($idExpPro) {
+                        $idExpPro = security($_POST['idExpPro']); // je récupère le champ input text
+                        if ($idExpPro) { // je vérifie s'il est bien rempli et n'est pas vide
+                            // ici je fais une requête pour compter le nbr de ligne dans la table avec l'id de la donnée et l'id du mec connecté
+                            // puis je fetch le résultat
                             $verifexppro = $bdd->query("SELECT COUNT(*) AS countid FROM experiences WHERE id='$idExpPro' AND expDe='{$dataUser['id']}'");
                             $reqcount = $verifexppro->fetch();
-                            if ($reqcount['countid'] != 0) {
+                            if ($reqcount['countid'] != 0) { // si une donnée existe pas alors = 0 et donc on affiche l'erreur
                                 $req_del = deleteExpId($bdd, $idExpPro);
                                 echo "<div class='alertSuccess'>Expérience supprimée avec succès !</div><br />";
                             } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
@@ -314,8 +316,12 @@
                         if (isset($_POST['deleteComp'])) {
                             $idComp = security($_POST['idComp']);
                             if ($idComp) {
-                                $req  = deleteCompId($bdd, $idComp);
-                                echo "<div class='alertSuccess'>Compétence supprimée !</div><br />";
+                                $verifComp = $bdd->query("SELECT COUNT(*) AS countid FROM competences WHERE id='$idComp' AND competenceDe='{$dataUser['id']}'");
+                                $verifCompFetch = $verifComp->fetch();
+                                if ($verifCompFetch['countid'] != 0) {
+                                    $req  = deleteCompId($bdd, $idComp);
+                                    echo "<div class='alertSuccess'>Compétence supprimée !</div><br />";
+                                } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
                             } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
                         }
                     ?>
@@ -361,8 +367,12 @@
                             if (isset($_POST['deleteLoisir'])) {
                                 $idLoisir = security($_POST['idLoisir']);
                                 if ($idLoisir) {
-                                    $req  = deleteLoisirId($bdd, $idLoisir);
-                                    echo "<div class='alertSuccess'>Loisir supprimée !</div><br />";
+                                    $verifLoisir = $bdd->query("SELECT COUNT(*) AS countid FROM loisirs WHERE id='$idLoisir' AND loisirDe='{$dataUser['id']}'");
+                                    $verifLoisirFetch = $verifLoisir->fetch();
+                                    if ($verifLoisirFetch['countid'] != 0) {
+                                        $req  = deleteLoisirId($bdd, $idLoisir);
+                                        echo "<div class='alertSuccess'>Loisir supprimée !</div><br />";
+                                    } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
                                 } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
                             }
                         ?>

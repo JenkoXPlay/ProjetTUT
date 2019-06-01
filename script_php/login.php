@@ -19,7 +19,7 @@ if (isset($_POST['connexion'])) {
             //récupère le mdp
             //test si le mdp est valide
             if(!$user){
-                echo"<div class='alertError'>Ce mail n'existe pas</div>";
+                echo"<div class='alertError'>Ce mail n'existe pas</div><br />";
             } else {
                 $mdp = $user->password;
                 /*Vérifie le password hasher*/
@@ -28,11 +28,11 @@ if (isset($_POST['connexion'])) {
                 {
                     /*Création de la session*/
                     $_SESSION['email'] = $email;
-                    echo"<div class='alertSuccess'>Vous êtes connecté, redirection en cours...</div>";
+                    echo"<div class='alertSuccess'>Vous êtes connecté, redirection en cours...</div><br />";
                     ?><head> <meta http-equiv="refresh" content="2;/home" /></head> <?php 
-                } else echo "<div class='alertError'>Ce mail ou ce mot de passe n'existe pas</div>";
+                } else echo "<div class='alertError'>Ce mail ou ce mot de passe n'existe pas</div><br />";
             }
-        } else echo "<div class='alertError'>Veuillez entrer une adresse mail valide</div>"; 
-    } else echo "<div class='alertError'>Veuillez remplir tout les champs</div>";
+        } else echo "<div class='alertError'>Veuillez entrer une adresse mail valide</div><br />"; 
+    } else echo "<div class='alertError'>Veuillez remplir tout les champs</div><br />";
 }
 ?>
