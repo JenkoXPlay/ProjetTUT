@@ -72,6 +72,25 @@
                                                                         if ($idUser == $dataUser['id']) {
                                                                             $req_add_annonce = addRepAnnonce($bdd, $dataAnnonce['id'], $dataUser['id'], $dataAnnonce['entreprise']);
                                                                             echo "<div class='alertSuccess marginCenter width_50'>Votre candidature a été envoyée avec succès !</div><br />";
+
+                                                                            // envoi mail au responsable entreprise
+                                                                            include('./script_php/email.php');
+                                                                            // on récupère l'email du responsable
+                                                                            $responsable = $bdd->query("SELECT * FROM users WHERE id='{$dataEntreprise['responsable']}'");
+                                                                            while ($responsableData = $responsable->fetch()) {
+                                                                                $destinataire = $responsableData['email'];
+                                                                                $titre = "Nouvelle candidature !";
+                                                                                $msgHTML = "Bonjour ".$responsableData['prenom']." ".$responsableData['nom']."<br /><br />";
+                                                                                $msgHTML .= "Une de vos annonces possède une nouvelle candidature, allez voir c'est peut-être votre futur(e) employé(e) !<br /><br />";
+                                                                                $msgHTML .= "Cordialement, l'équipe Alt'itude.";
+                                                                                $mail = sendMail($destinataire, $titre, $msgHTML);
+                                                                                if($mail) {
+                                                                                    echo "<br /><div class='alertSuccess marginCenter width_50'>Le responsable va recevoir une notification !</div><br />";
+                                                                                } else {
+                                                                                    echo "<br /><div class='alertError marginCenter width_50'>Une erreur est survenue (email) !</div><br />";
+                                                                                }
+                                                                            }
+                                                                        
                                                                         } else echo "<div class='alertError marginCenter width_50'>Une erreur est survenue !</div><br />";
                                                                     } else echo "<div class='alertError marginCenter width_50'>Une erreur est survenue !</div><br />";
                                                                 }

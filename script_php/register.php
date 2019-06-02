@@ -17,23 +17,24 @@ if (isset($_POST['createUser'])) {
                         $password = generatePwd(8);
                         $passwordCrypt = password_hash($password, PASSWORD_DEFAULT);
                         addUser($bdd, $prenom, $nom, $email, $passwordCrypt, $typeCompte, $departement);
-                        $sujet = 'Confirmation Inscription Alt\'itude';
-                        $message = "Bonjour ".$prenom." ".$nom."<br /><br />";
-                        $message .= "Merci de votre inscription sur le site Alt'itude !<br /><br />";
-                        $message .= "Voici vos identifiants de connexion : <br />";
-                        $message .= "- <b>Email : </b>".$email."<br />";
-                        $message .= "- <b>Mot de passe : </b>".$password."<br /><br />";
-                        $message .= "Cordialement, l'équipe d'Alt'itude.";
+
+                        // parti mail
+                        include('./script_php/email.php');
                         $destinataire = $email;
-                        $headers = "From: \"expediteur moi\"<contact@altitude.maximelefebvre.fr>\n";
-                        $headers .= "Reply-To: contact@altitude.maximelefebvre.fr\n";
-                        $headers .= "Content-Type: text/html; charset=\"iso-8859-1\"";
-                        if(mail($destinataire, $sujet, $message, $headers)) {
+                        $titre = "Confirmation Inscription Alt'itude";
+                        $msgHTML = "Bonjour ".$prenom." ".$nom."<br /><br />";
+                        $msgHTML .= "Merci de votre inscription sur Alt'itude !<br /><br />";
+                        $msgHTML .= "Voici vos identifiants de connexion : <br /><br />";
+                        $msgHTML .= "- <b>Email : </b>".$email."<br />";
+                        $msgHTML .= "- <b>Mot de passe : </b>".$password."<br /><br />";
+                        $msgHTML .= "Cordialement, l'équipe Alt'itude.";
+                        $mail = sendMail($destinataire, $titre, $msgHTML);
+                        if($mail) {
                             echo "<br /><div class='alertSuccess'>L'email a été envoyé !</div><br />";
                         } else {
                             echo "<br /><div class='alertError'>Une erreur est survenue (email) !</div><br />";
                         }
-                        echo "<br /><div class='alertSuccess'>Votre compte a été créé, le mot de passe et vous a été envoyé par mail (Vérifiez vos spams au cas où) !</div><br />";
+                        echo "<br /><div class='alertSuccess'>Votre compte a été créé, le mot de passe vous a été envoyé par mail (Vérifiez vos spams au cas où) !</div><br />";
                     } else echo "<br /><div class='alertError'>Le département n'est pas correct !</div><br />";
                 } else echo "<br /><div class='alertError'>L'email est déjà existant !</div><br />";
             } else echo "<br /><div class='alertError'>Votre email n'est pas valide !</div><br />";

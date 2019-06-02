@@ -47,29 +47,28 @@
                                                         if ($reqVerifExistFetch['countid'] != 0) {
                                                             
                                                             $getCandidatMail = getIdUser($bdd, $idCandidat);
+                                                            include('./script_php/email.php');
                                                             while ($dataCandidatMail = $getCandidatMail->fetch()) {
                                                                 // envoie du mail
-                                                                $sujet = 'Candidature Alt\'itude';
-                                                                $message = "Bonjour ".$dataCandidatMail['prenom']." ".$dataCandidatMail['nom']."<br /><br />";
-                                                                $message .= "Nous avons le plaisir de vous annoncez que la candidature ci-dessous à été acceptée !<br /><br />";
-                                                                $message .= "<b>".$dataAnnonce['titre']."</b> chez <b>".$dataEntreprise['nom']."</b><br /><br />";
-                                                                $message .= "Vous serrez prochainement contacter par le responsable de l'annonce, si vous n'avez toujours de nouvelles n'hésitez à contacter le responsable directement.<br /><br />";
-                                                                $message .= "<i>Si vous n'avez toujours pas de nouvelles contacter nous !</i><br /><br />";
-                                                                $message .= "Bonne continuation,<br /><br />";
-                                                                $message .= "Cordialement, l'équipe Alt'itude";
                                                                 $destinataire = $dataCandidatMail['email'];
-                                                                $headers = "From: \"expediteur moi\"<contact@altitude.maximelefebvre.fr>\n";
-                                                                $headers .= "Reply-To: contact@altitude.maximelefebvre.fr\n";
-                                                                $headers .= "Content-Type: text/html; charset=\"iso-8859-1\"";
-                                                                if(mail($destinataire, $sujet, $message, $headers)) {
-                                                                    echo "<br /><div class='alertSuccess'>Un email a été envoyé au candidat !</div><br />";
+                                                                $titre = 'Candidature Alt\'itude';
+                                                                $msgHTML = "Bonjour ".$dataCandidatMail['prenom']." ".$dataCandidatMail['nom']."<br /><br />";
+                                                                $msgHTML .= "Nous avons le plaisir de vous annoncez que la candidature ci-dessous à été acceptée !<br /><br />";
+                                                                $msgHTML .= "<b>".$dataAnnonce['titre']."</b> chez <b>".$dataEntreprise['nom']."</b><br /><br />";
+                                                                $msgHTML .= "Vous serrez prochainement contacter par le responsable de l'annonce, si vous n'avez toujours de nouvelles n'hésitez à contacter le responsable directement.<br /><br />";
+                                                                $msgHTML .= "<i>Si vous n'avez toujours pas de nouvelles contacter nous !</i><br /><br />";
+                                                                $msgHTML .= "Bonne continuation,<br /><br />";
+                                                                $msgHTML .= "Cordialement, l'équipe Alt'itude";
+                                                                $mail = sendMail($destinataire, $titre, $msgHTML);
+                                                                if($mail) {
+                                                                    echo "<br /><div class='alertSuccess width_50 marginAuto'>Le candidat va recevoir une notification !</div><br />";
                                                                 } else {
-                                                                    echo "<br /><div class='alertError'>Une erreur est survenue (email) !</div><br />";
+                                                                    echo "<br /><div class='alertError width_50 marginAuto'>Une erreur est survenue (email) !</div><br />";
                                                                 }
 
                                                                 // update de l'état de la candidature
                                                                 $updateCandidature = $bdd->exec("UPDATE reponsesannonces SET reponse='accepte' WHERE candidat='$idCandidat' AND idAnnoncesEntreprises='$idAnnonce'");
-                                                                echo "<div class='alertSuccess'>La candidature a été acceptée !</div><br />";
+                                                                echo "<div class='alertSuccess width_50 marginAuto'>La candidature a été acceptée !</div><br />";
                                                             }
 
                                                         } else echo "<div class='alertError width_50 marginAuto'>Une erreur est survenue !</div><br />";
@@ -84,28 +83,27 @@
                                                         if ($reqVerifExistFetch['countid'] != 0) {
                                                             
                                                             $getCandidatMail = getIdUser($bdd, $idCandidat);
+                                                            include('./script_php/email.php');
                                                             while ($dataCandidatMail = $getCandidatMail->fetch()) {
                                                                 // envoie du mail
-                                                                $sujet = 'Candidature Alt\'itude';
-                                                                $message = "Bonjour ".$dataCandidatMail['prenom']." ".$dataCandidatMail['nom']."<br /><br />";
-                                                                $message .= "Nous sommes désolé de vous annoncez que la candidature ci-dessous à été refusée !<br /><br />";
-                                                                $message .= "<b>".$dataAnnonce['titre']."</b> chez <b>".$dataEntreprise['nom']."</b><br /><br />";
-                                                                $message .= "Nous espérons que vous aurez prochainement une réponse positive, <b>ne lâchez rien</b> !";
-                                                                $message .= "Bonne continuation,<br /><br />";
-                                                                $message .= "Cordialement, l'équipe Alt'itude";
                                                                 $destinataire = $dataCandidatMail['email'];
-                                                                $headers = "From: \"expediteur moi\"<contact@altitude.maximelefebvre.fr>\n";
-                                                                $headers .= "Reply-To: contact@altitude.maximelefebvre.fr\n";
-                                                                $headers .= "Content-Type: text/html; charset=\"iso-8859-1\"";
-                                                                if(mail($destinataire, $sujet, $message, $headers)) {
-                                                                    echo "<br /><div class='alertSuccess'>Un email a été envoyé au candidat !</div><br />";
+                                                                $titre = 'Candidature Alt\'itude';
+                                                                $msgHTML = "Bonjour ".$dataCandidatMail['prenom']." ".$dataCandidatMail['nom']."<br /><br />";
+                                                                $msgHTML .= "Nous sommes désolé de vous annoncez que la candidature ci-dessous à été refusée !<br /><br />";
+                                                                $msgHTML .= "<b>".$dataAnnonce['titre']."</b> chez <b>".$dataEntreprise['nom']."</b><br /><br />";
+                                                                $msgHTML .= "Nous espérons que vous aurez prochainement une réponse positive, <b>ne lâchez rien</b> !";
+                                                                $msgHTML .= "Bonne continuation,<br /><br />";
+                                                                $msgHTML .= "Cordialement, l'équipe Alt'itude";
+                                                                $mail = sendMail($destinataire, $titre, $msgHTML);
+                                                                if($mail) {
+                                                                    echo "<br /><div class='alertSuccess width_50 marginAuto'>Le candidat va recevoir une notification !</div><br />";
                                                                 } else {
-                                                                    echo "<br /><div class='alertError'>Une erreur est survenue (email) !</div><br />";
+                                                                    echo "<br /><div class='alertError width_50 marginAuto'>Une erreur est survenue (email) !</div><br />";
                                                                 }
 
                                                                 // update de l'état de la candidature
                                                                 $updateCandidature = $bdd->exec("UPDATE reponsesannonces SET reponse='refuse' WHERE candidat='$idCandidat' AND idAnnoncesEntreprises='$idAnnonce'");
-                                                                echo "<div class='alertSuccess'>La candidature a été refusée !</div><br />";
+                                                                echo "<div class='alertSuccess width_50 marginAuto'>La candidature a été refusée !</div><br />";
                                                             }
 
                                                         } else echo "<div class='alertError width_50 marginAuto'>Une erreur est survenue !</div><br />";

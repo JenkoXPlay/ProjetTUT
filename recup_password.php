@@ -32,18 +32,19 @@
                             $password = generatePwd(8);
                             $passwordCrypt = password_hash($password, PASSWORD_DEFAULT);
                             $requete = $bdd->exec("UPDATE users SET password='$passwordCrypt' WHERE email='$email'");
-                            $sujet = 'Nouveau mot de passe Inscription Alt\'itude';
-                            $message = "Bonjour<br /><br />";
-                            $message .= "Voici votre nouveau mot de passe : <b>".$password."</b><br /><br />";
-                            $message .= "Cordialement, l'équipe d'Alt'itude.";
+
+                            // envoie email
+                            include('./script_php/email.php');
                             $destinataire = $email;
-                            $headers = "From: \"expediteur moi\"<contact@altitude.maximelefebvre.fr>\n";
-                            $headers .= "Reply-To: contact@altitude.maximelefebvre.fr\n";
-                            $headers .= "Content-Type: text/html; charset=\"iso-8859-1\"";
-                            if(mail($destinataire, $sujet, $message, $headers)) {
-                                echo "<br /><div class='alertSuccess marginAuto width_50'>L'email a été envoyé, regardez vos smaps au cas où !</div><br />";
+                            $titre = "Nouveau mot de passe Inscription Alt'itude";
+                            $msgHTML = "Bonjour<br /><br />";
+                            $msgHTML .= "Voici votre nouveau mot de passe : <b>".$password."</b><br /><br />";
+                            $msgHTML .= "Cordialement, l'équipe Alt'itude.";
+                            $mail = sendMail($destinataire, $titre, $msgHTML);
+                            if($mail) {
+                                echo "<br /><div class='alertSuccess'>L'email a été envoyé (regardez vos spams au cas où) !</div><br />";
                             } else {
-                                echo "<br /><div class='alertError marginAuto width_50'>Une erreur est survenue (email) !</div><br />";
+                                echo "<br /><div class='alertError'>Une erreur est survenue (email) !</div><br />";
                             }
                         } else echo "<div class='alertError marginAuto width_50'>L'email n'est pas correct !</div><br />";
                     } else echo "<div class='alertError marginAuto width_50'>Veuillez saisir votre adresse mail !</div><br />";
