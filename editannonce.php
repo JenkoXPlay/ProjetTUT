@@ -88,13 +88,17 @@
                                                     </div>
                                                     <br />
                                                     <?php
-                                                        if (isset($_POST['deleteComp'])) {
-                                                            $idComp = security($_POST['idComp']);
-                                                            if ($idComp) {
-                                                                $req  = deleteCompAnnonceId($bdd, $idComp);
-                                                                echo "<div class='alertSuccess'>Compétence supprimée !</div><br />";
+                                                        if (isset($_POST['deleteCompAnnonce'])) {
+                                                            $idCompAnnonce = security($_POST['idCompAnnonce']);
+                                                            if ($idCompAnnonce) {
+                                                                $verifCompAnnonce = $bdd->query("SELECT COUNT(*) AS countid FROM competencesannonce WHERE id='$idCompAnnonce' AND annonce='{$dataAnnonce['id']}'");
+                                                                $verifCompAnnonceFetch = $verifCompAnnonce->fetch();
+                                                                if ($verifCompAnnonceFetch['countid'] != 0) {
+                                                                    $req  = deleteCompAnnonceId($bdd, $idCompAnnonce);
+                                                                    echo "<div class='alertSuccess'>Compétence supprimée !</div><br />";
                                                             } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
-                                                        }
+                                                        } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
+                                                    }
                                                     ?>
                                                     <div class="competences">
                                                         <?php
@@ -103,10 +107,10 @@
                                                             while ($dataComp = $req_info_comp->fetch()) {
                                                                 ?>
                                                                     
-                                                                        <input type="text" name="idComp" value="<?php echo $dataComp['id']; ?>" style="display:none;" />
+                                                                        <input type="text" name="idCompAnnonce" value="<?php echo $dataComp['id']; ?>" style="display:none;" />
                                                                         <span>
                                                                             <?php echo $dataComp['competence']." : ".$dataComp['level']; ?>
-                                                                            <input type="submit" name="deleteComp" class="btnCross" value="X" />
+                                                                            <input type="submit" name="deleteCompAnnonce" class="btnCross" value="X" />
                                                                         </span>
                                                                     
                                                                 <?php

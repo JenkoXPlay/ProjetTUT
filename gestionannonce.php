@@ -29,7 +29,21 @@
                                     <div class="pageAnnonce">
                                         <div class="title">Gestion des annonces</div>
                                         <hr />
-                                        <?php
+                                        <?php      
+                                            if (isset($_POST['supprimer'])) {
+                                                $idAnnonce = $_POST['idAnnonce'];    
+                                                if ($idAnnonce) {
+                                                    $verifAnnonce = $bdd->query("SELECT COUNT(*) AS countid FROM annoncesentreprises WHERE id='$idAnnonce' AND entreprise='{$dataEntreprise['id']}'");
+                                                    $verifAnnonceFetch = $verifAnnonce->fetch();
+                                                    if ($verifAnnonceFetch['countid'] != 0) {
+                                                        $deleteCompAnnonce = deleteAllCompAnnonce($bdd, $idAnnonce);
+                                                        $deleteRepAnnonce = deleteRepAnnonce($bdd, $idAnnonce);
+                                                        $deleteAnnonce = deleteAnnonceId($bdd, $idAnnonce);
+                                                        echo "<div class='alertSuccess'>Annonce supprimée ainsi que les données qui lui sont associées !</div><br />";
+                                                        ?><head><meta http-equiv="refresh" content="2;URL=/gestionannonce" ></head><?php
+                                                    } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
+                                                } else echo "<div class='alertError'>Une erreur est survenue !</div><br />";
+                                            }                           
                                             // si problème alignement regarder dans le css position sticky
                                             $reqEntrepriseId = getEntrepriseId($bdd, $dataEntreprise['id']);
                                             while ($dataEntrepriseId = $reqEntrepriseId->fetch()) {
@@ -54,36 +68,26 @@
                                                                 </div>
                                                             </a>
                                                         </div>
+                                                        <?php  
+                                                            if (isset($_POST['afficher'])) {
+                                                                ?><head><meta http-equiv="refresh" content="0;URL=/annonce/<?php echo $dataAllAnnonce['id']; ?>" /></head><?php
+                                                            }
+                                                            if (isset($_POST['modifier'])) {
+                                                                ?><head><meta http-equiv="refresh" content="0;URL=/editannonce/<?php echo $dataAllAnnonce['id']; ?>" /></head><?php
+                                                            }
+                                                            if (isset($_POST['candidature'])) {
+                                                                ?><head><meta http-equiv="refresh" content="0;URL=/repannonce/<?php echo $dataAllAnnonce['id']; ?>"></head><?php
+                                                            }
+                                                        ?>
                                                         <div class="contentGestion">
-                                                            <div class="gestionAnnonce">
-                                                                <?php
-                                                                    if (isset($_POST['afficher'])) {
-                                                                        ?><head><meta http-equiv="refresh" content="0;URL=/annonce/<?php echo $dataAllAnnonce['id']; ?>" /></head><?php
-                                                                    }
-                                                                    if (isset($_POST['modifier'])) {
-                                                                        ?><head><meta http-equiv="refresh" content="0;URL=/editannonce/<?php echo $dataAllAnnonce['id']; ?>" /></head><?php
-                                                                    }
-                                                                    if (isset($_POST['supprimer'])) {
-                                                                        $idCompAnnonce = $_POST['idCompAnnonce'];    
-                                                                        if ($idCompAnnonce) {
-                                                                            $deleteCompAnnonce = deleteAllCompAnnonce($bdd, $idCompAnnonce);
-                                                                            $deleteRepAnnonce = deleteRepAnnonce($bdd, $idCompAnnonce);
-                                                                            $deleteAnnonce = deleteAnnonceId($bdd, $idCompAnnonce);
-                                                                            echo "<div class='alertSuccess'>Annonce supprimée ainsi que les données qui lui sont associées !>/div><br />";
-                                                                            ?><head><meta http-equiv="refresh" content="0;URL=/gestionannonce" ></head><?php
-                                                                        }                                                                 
-                                                                    }
-                                                                    if (isset($_POST['candidature'])) {
-                                                                        ?><head><meta http-equiv="refresh" content="0;URL=/repannonce/<?php echo $dataAllAnnonce['id']; ?>"></head><?php
-                                                                    }
-                                                                ?>
+                                                            <div class="gestionAnnonce">                                                              
                                                                 <div class="form">
                                                                     <form class="margin_auto"  action=" " method="POST">
                                                                         <input name="afficher" class="btnGestion" type="submit" value="Aperçu"/>
                                                                         <input name="modifier" class="btnGestion" type="submit" value="Modifier"/>
                                                                     </form>
                                                                     <form class="margin_auto" action=" " method="POST">
-                                                                        <input type="text" name="idCompAnnonce" value="<?php echo $dataAllAnnonce['id']; ?>" readonly style="display:none;" />
+                                                                        <input type="text" name="idAnnonce" value="<?php echo $dataAllAnnonce['id']; ?>" readonly style="display:none;" />
                                                                         <input name="supprimer" class="btnSup" type="submit" value="Supprimer"/>
                                                                     </form>
                                                                     <form class="margin_auto" action=" " method="POST">  
