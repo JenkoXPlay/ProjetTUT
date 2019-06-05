@@ -207,6 +207,7 @@ body {
     padding: 2px 5px 2px 5px;
     margin-left: 10px;
     margin-right: 10px;
+    margin-top: 10px;
 }
 .content .informationProfil .panelExpPro .inputFlex, .content .contentPageAnnonce .pageAnnonce .panelModifAnnonce .inputFlex {
     width: 100%;
