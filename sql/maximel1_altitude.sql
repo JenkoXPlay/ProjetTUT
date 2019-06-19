@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.15.5
--- http://www.phpmyadmin.net
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
 --
--- Client :  localhost:3306
--- Généré le :  Ven 24 Mai 2019 à 09:41
--- Version du serveur :  5.5.49-log
--- Version de PHP :  7.0.9
+-- Hôte : localhost:3306
+-- Généré le :  mer. 19 juin 2019 à 20:57
+-- Version du serveur :  10.1.38-MariaDB-cll-lve
+-- Version de PHP :  7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `creaweb_tut`
+-- Base de données :  `maximel1_altitude`
 --
 
 -- --------------------------------------------------------
@@ -26,7 +28,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
+CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `pseudo` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -35,14 +37,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `avatar` text NOT NULL,
   `privilege` varchar(100) NOT NULL,
   `ban` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `admin`
---
-
-INSERT INTO `admin` (`id`, `pseudo`, `password`, `creation`, `last_connexion`, `avatar`, `privilege`, `ban`) VALUES
-(3, 'Maxime', '1234', '2019-01-17 00:00:00', '2019-01-11 00:00:00', 'zeazeaze', 'admin', 'non');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -50,7 +45,7 @@ INSERT INTO `admin` (`id`, `pseudo`, `password`, `creation`, `last_connexion`, `
 -- Structure de la table `administration`
 --
 
-CREATE TABLE IF NOT EXISTS `administration` (
+CREATE TABLE `administration` (
   `id` int(11) NOT NULL,
   `etat` tinyint(1) NOT NULL,
   `blockedBy` int(11) NOT NULL
@@ -62,30 +57,24 @@ CREATE TABLE IF NOT EXISTS `administration` (
 -- Structure de la table `annoncesentreprises`
 --
 
-CREATE TABLE IF NOT EXISTS `annoncesentreprises` (
+CREATE TABLE `annoncesentreprises` (
   `id` int(11) NOT NULL,
   `entreprise` int(11) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `typeAnnonce` varchar(150) NOT NULL,
   `remuneration` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `annoncesentreprises`
+-- Déchargement des données de la table `annoncesentreprises`
 --
 
 INSERT INTO `annoncesentreprises` (`id`, `entreprise`, `titre`, `description`, `typeAnnonce`, `remuneration`) VALUES
-(1, 5, 'Developpeur WEB', 'Vous êtes coeur d une equipe de dev et evoluer en tant que tel', 'Alternance', 1100),
-(2, 6, 'Developpeur WEB', 'Vous êtes au coeur d une equipe de dev et evoluer en tant que tel', 'Alternance', 1100),
-(3, 7, 'Developpeur WEB Front end', 'Vous êtes motivé et passioné par le web en général et en particulier le front, des connaissance en Back sont un plus', 'stage', 350),
-(4, 8, 'Designer', 'Vous êtes force de proposition et créatif.', 'stage', 0),
-(5, 9, 'Infirmière', 'dfldfdghffgff', 'Alternance', 1600),
-(6, 10, 'WEB designer', 'Vous maitrisez design et developpement', 'Alternance', 1300),
-(7, 12, 'Developpement web full stack', 'Recherche de style', 'stage', 0),
-(8, 6, 'Designer', 'dfdfgfhfhgf', 'stage', 0),
-(9, 7, 'Developpeur WEB', 'Vous êtes coeur d une equipe de dev et evoluer en tant que tel', 'Alternance', 1200),
-(10, 11, 'Infirmière', 'Vitalis Médical Nancy, agence de recrutement en intérim, vacation et CDI, spécialisée dans le Paramédical, Médical et social, recrute pour son client, un établissement sur Nancy, un Infirmier (H/F) DE pour travailler dans un service de dialyse.  Rattaché au Cadre de santé, vous serez en charge des missions suivantes : - Préparer les séances de dialyse et le matériel nécessaire, - Accueillir, installer et prendre en charge les patients, - Réaliser les séances de dialyse, - Assurer la qualité des soins, - Entretenir la relation avec les intervenants extérieurs, - Avoir un rôle éducatif avec les patients, - Gérer et suivre les dossiers, - Participer aux groupes de travail et au bon fonctionnement du service, - Gérer le matériel des salles, - Effectuer les commandes de pharmacie informatisées...Infirmier / Infirmière DE ayant l''expérience du travail en service de dialyse.  Le respect du secret professionnel, des règles de confidentialité, des droits et de la dignité du patient font partie de la pratique professionnelle quotidienne.   Vous êtes rigoureux(se), motivé(e) et consciencieux(se) alors n''hésitez pas à postuler directement sur l''annonce ou à nous envoyer votre CV à nancy@vitalis-medical.com  N''hésitez pas à partager et à nous contacter pour connaître l''ensemble des missions disponibles dans notre agence.', 'Alternance', 1300);
+(1, 4, 'Développeur Front-End', 'Nous recherchons un/une développeur/développeuse qui à soif d\'apprendre de nouvelles technologies.\r\n\r\nLe but de de ce stage est de réaliser un chatbot avec une intelligence artificielle.\r\nCe chatbot sera utilisé dans tout le centre afin d\'aider les collaborateurs s\'il ont des questions relatives à l\'entreprise.\r\n\r\nVous serez amené à travailler en équipe avec des professionnels du métier, ainsi que réaliser des réunions avec les différents services du centre.', 'stage', 456),
+(2, 4, 'Designer UX/UI', 'Avoir des développeurs / développeuses c\'est bien mais avec des designers c\'est mieux !\r\n\r\nC\'est pour cela que nous recherchons des Designers UX/UI afin de réaliser des maquettes sur le logiciel Adobe XD.\r\n\r\nDurant votre Alternance, vous serez amené à travailler en équipe avec le client et l\'équipe de dev pour la réalisation des maquettes.\r\n\r\nVous devrez dans un premier temps réaliser des petits idées sur le projet, puis une version plus stable puis pour finir un prototype qui sera utilisé par le client et l\'équipe de dev.', 'Alternance', 986),
+(5, 5, 'Référenceur Rédacteur (H/F)', 'Le stagiaire référenceur - rédacteur assurera la mise en place et le suivi des opérations de référencement de sites internet au sein du pôle référencement, et sera en charge de la rédaction de contenus pour les projets clients et les besoins internes. Au sein d\'une équipe, vous serez formé aux dernières techniques de référencement ainsi qu\'aux derniers outils de statistiques et de suivi.', 'stage', 300),
+(6, 5, 'Assistant Chef de projet (H/F)', 'Sous la direction du Chef de projet, vous aurez pour principales missions :\r\n\r\nWeb marketing\r\nRédaction de contenus\r\nCommunity management\r\nAnalyse d’audience\r\nVeille / Benchmarks\r\nContrôle qualité\r\nRéférencement naturel (SEO)\r\nRéférencement payant, mise en place et suivi de campagnes Adwords (SEA)', 'Alternance', 1100);
 
 -- --------------------------------------------------------
 
@@ -93,24 +82,27 @@ INSERT INTO `annoncesentreprises` (`id`, `entreprise`, `titre`, `description`, `
 -- Structure de la table `competences`
 --
 
-CREATE TABLE IF NOT EXISTS `competences` (
+CREATE TABLE `competences` (
   `id` int(11) NOT NULL,
   `competenceDe` int(11) NOT NULL,
   `domaine` varchar(255) NOT NULL,
   `competence` varchar(255) NOT NULL,
   `level` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `competences`
+-- Déchargement des données de la table `competences`
 --
 
 INSERT INTO `competences` (`id`, `competenceDe`, `domaine`, `competence`, `level`) VALUES
-(1, 11, 'Informatique', 'PHP', 'Intermédiaire'),
-(2, 13, 'Alcool', 'Buveur de bière', 'Expert'),
-(3, 13, 'Mécanique', 'Voiture', 'Expert'),
-(5, 13, 'mklmkm', 'ertyuio', 'Expert'),
-(4, 13, 'Test', 'mksdflmdks', 'Expert');
+(4, 1, 'Infographie', 'Photoshop', 'Intermédiaire'),
+(7, 1, 'Informatique', 'CSS / SCSS', 'Avancé'),
+(6, 1, 'Informatique', 'HTML', 'Avancé'),
+(8, 1, 'Informatique', 'Linux', 'Intermédiaire'),
+(5, 1, 'Informatique', 'PHP', 'Avancé'),
+(1, 3, 'Graphisme', 'Illustrator', 'Avancé'),
+(3, 3, 'Graphisme', 'indesign', 'Avancé'),
+(2, 3, 'Graphisme', 'Photoshop', 'Avancé');
 
 -- --------------------------------------------------------
 
@@ -118,44 +110,30 @@ INSERT INTO `competences` (`id`, `competenceDe`, `domaine`, `competence`, `level
 -- Structure de la table `competencesannonce`
 --
 
-CREATE TABLE IF NOT EXISTS `competencesannonce` (
+CREATE TABLE `competencesannonce` (
   `id` int(11) NOT NULL,
   `annonce` int(11) NOT NULL,
   `domaine` varchar(255) NOT NULL,
   `competence` varchar(255) NOT NULL,
   `level` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `competencesannonce`
+-- Déchargement des données de la table `competencesannonce`
 --
 
 INSERT INTO `competencesannonce` (`id`, `annonce`, `domaine`, `competence`, `level`) VALUES
-(1, 2, 'informatique', 'PHP', 'Expert'),
-(2, 2, 'informatique', 'HTML', 'Avancé'),
-(3, 2, 'informatique', 'CSS', 'Expert'),
-(4, 2, 'informatique', 'Javascript', 'Avancé'),
-(5, 2, 'informatique', 'adobe xd', 'Expert'),
-(6, 3, 'informatique', 'VueJS', 'Expert'),
-(7, 3, 'informatique', 'ReactJS', 'Expert'),
-(8, 3, 'informatique', 'Angular', 'Expert'),
-(9, 3, 'informatique', 'JS', 'Expert'),
-(10, 4, 'Web Design', 'Photoshop', 'Expert'),
-(11, 4, 'Web Design', 'InDesign', 'Expert'),
-(12, 4, 'Web Design', 'Illustrator', 'Expert'),
-(13, 4, 'Web Design', 'Adobe XD', 'Expert'),
-(14, 5, 'Médecine', 'Anesthésie', 'Expert'),
-(15, 5, 'Médecine', 'Urgences', 'Expert'),
-(16, 5, 'Médecine', 'Tromat', 'Expert'),
-(17, 6, 'Web Design', 'Photoshop', 'Expert'),
-(18, 6, 'Web Design', 'Figma', 'Expert'),
-(19, 6, 'Web Design', 'HTML', 'Expert'),
-(20, 6, 'Web Design', 'CSS', 'Expert'),
-(21, 6, 'Web Design', 'JS', 'Expert'),
-(22, 8, 'Web Design', 'Figma', 'Avancé'),
-(23, 8, 'Web Design', 'Adobe XD', 'Intermédiaire'),
-(24, 8, 'Web Design', 'Illustrator', 'Avancé'),
-(25, 9, 'Informatique', 'Wordpress', 'Avancé');
+(1, 1, 'Informatique', 'HTML', 'Débutant'),
+(2, 1, 'Informatique', 'CSS', 'Débutant'),
+(3, 1, 'Informatique', 'Angular', 'Débutant'),
+(4, 1, 'Informatique', 'NodeJS', 'Débutant'),
+(5, 1, 'Informatique', 'JavaScript', 'Débutant'),
+(6, 2, 'Infographie', 'Adobe XD', 'Intermédiaire'),
+(7, 2, 'Infographie', 'Photoshop', 'Intermédiaire'),
+(13, 5, 'Référencement', 'SEO', 'Avancé'),
+(14, 5, 'Référencement', 'SEA', 'Avancé'),
+(15, 6, 'Référencement', 'SEO', 'Avancé'),
+(16, 6, 'Référencement', 'SEA', 'Avancé');
 
 -- --------------------------------------------------------
 
@@ -163,24 +141,14 @@ INSERT INTO `competencesannonce` (`id`, `annonce`, `domaine`, `competence`, `lev
 -- Structure de la table `contact`
 --
 
-CREATE TABLE IF NOT EXISTS `contact` (
+CREATE TABLE `contact` (
   `id` int(11) NOT NULL,
   `nom_complet` varchar(255) NOT NULL,
   `email` text NOT NULL,
   `sujet` varchar(255) NOT NULL,
   `message` text NOT NULL,
   `date_ajout` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `contact`
---
-
-INSERT INTO `contact` (`id`, `nom_complet`, `email`, `sujet`, `message`, `date_ajout`) VALUES
-(1, 'Maxime Lefebvre', 'a@a.com', 'Bug(s) trouvé(s)', 'azezea', '2019-05-17 00:00:00'),
-(2, 'Maxime Lefebvre', 'a@a.com', 'Bug(s) trouvé(s)', 'azezea', '2019-05-17 09:01:02'),
-(3, 'zrezrzer', 'zerzer@erzerze.com', 'Bug(s) trouvé(s)', 'azezeaze l''état', '2019-05-17 09:01:23'),
-(4, 'Jean Jack', 'a@a.com', 'Proposer une amélioration', 'azeazeaze', '2019-05-17 09:05:25');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -188,24 +156,24 @@ INSERT INTO `contact` (`id`, `nom_complet`, `email`, `sujet`, `message`, `date_a
 -- Structure de la table `diplomes`
 --
 
-CREATE TABLE IF NOT EXISTS `diplomes` (
+CREATE TABLE `diplomes` (
   `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `nom_diplome` text NOT NULL,
   `annee_obtention` varchar(255) NOT NULL,
   `etablissement` text NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `diplomes`
+-- Déchargement des données de la table `diplomes`
 --
 
 INSERT INTO `diplomes` (`id`, `user`, `nom_diplome`, `annee_obtention`, `etablissement`, `description`) VALUES
-(1, 1, 'BAC STI2D', '2014', 'Malraux', ''),
-(2, 1, 'BAC STI2D', '2014', 'Malraux', ''),
-(3, 11, 'DUT Réseaux et Télécommunications', '2018', 'IUT de Béthune', 'Dans le domaine de l''informatique !'),
-(4, 13, 'BAC STI2D', '2015', 'A.Malraux Béthune', 'Un truc de branleur !');
+(2, 3, 'Licence', '2019', 'IUT de Lens', 'Licence professionnel et création des métier numérique.\r\n(LP CréaWeb)'),
+(3, 2, 'Bac S', '2015', 'Lycée Pablo Picasso', 'Bac Scientifique SVT option Physique-Chimie'),
+(4, 1, 'BAC STI2D', '2016', 'A.Malraux Béthune', 'Étude des systèmes numérique et développement web.'),
+(5, 1, 'DUT Réseaux et Télécommunications', '2018', 'IUT de Béthune', 'Étude des réseaux et de la télécommunication.');
 
 -- --------------------------------------------------------
 
@@ -213,7 +181,7 @@ INSERT INTO `diplomes` (`id`, `user`, `nom_diplome`, `annee_obtention`, `etablis
 -- Structure de la table `entreprises`
 --
 
-CREATE TABLE IF NOT EXISTS `entreprises` (
+CREATE TABLE `entreprises` (
   `id` int(11) NOT NULL,
   `responsable` int(11) NOT NULL,
   `nom` varchar(200) NOT NULL,
@@ -224,21 +192,16 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
   `siren` text NOT NULL,
   `departement` int(5) NOT NULL,
   `siteweb` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `entreprises`
+-- Déchargement des données de la table `entreprises`
 --
 
 INSERT INTO `entreprises` (`id`, `responsable`, `nom`, `description`, `logo`, `but`, `typeEntreprise`, `siren`, `departement`, `siteweb`) VALUES
-(5, 1, 'mlklklmkm', 'lmkmlkmk', 'avatar.jpg', 'kmklmkmlk', 'pme', 'lmkmkmlk', 59, 'http://www.google.fr'),
-(6, 4, 'IBM', 'Best Company', 'avatar.jpg', 'lkjlkjlkjl', 'ge', 'lsjkflsdjkfljlkdsf', 62, 'http://www.google.fr'),
-(7, 10, 'JOUVE', 'Imprimerie, Métiers du numérique', 'avatar.jpg', 'Mettre le numériques en avant', 'SII', '122545121', 62, 'http://www.google.fr'),
-(8, 5, 'MBS communication', 'dfdfdfd', 'avatar.jpg', 'dfdfd', 'SA', '789961', 59, 'http://www.google.fr'),
-(9, 13, 'Hopital de Lens', '', 'avatar.jpg', '', 'Hopital', '1248541', 62, 'http://www.google.fr'),
-(10, 15, 'Worldline', 'dfdgd', 'avatar.jpg', 'dfdfgf', 'SA', '89784534', 75, 'http://www.google.fr'),
-(12, 6, 'GG Style', 'avoir le style', 'avatar.jpg', 'toujours plus de style', 'SI', '4787891561', 93, 'http://www.google.fr'),
-(13, 11, 'azeazeazeaz', 'azeazeazez', 'avatar.jpg', 'aeazeazeaz', 'SSI', '123456789', 62, 'eazeaze');
+(3, 6, 'Kaio', 'Kaio est une agence web et multimédia basée à Roubaix, près de Lille dans le Nord-Pas-de-Calais.\r\nDepuis 2007, Kaio accompagne ses clients dans toutes leurs problématiques digitales et print. Nous concevons des solutions de communication interactive sur mesure à haut niveau technique.\r\n\r\nPlus de 150 clients nous font confiance, dont 40 enseignes de l\'immobilier.', 'avatar.jpg', 'Vous écouter, comprendre vos besoins mais aussi votre personnalité, vos envies, et vos contraintes.', 'SA', '259647892', 59, 'https://www.kaio.fr/'),
+(4, 5, 'IBM', 'IBM Client Innovation Center basé à Lille est le tout premier CIC en Europe, dans ce centre y sont développés des applications web comme mobile et nous y réalisons également de la maintenance sur les réseaux à distance.', '5a810edaab4c4faf485f0107dbde87979.png', 'Être plus facilement en relation avec les clients.', 'GE', '123456789', 62, 'https://france.ciceurope.com'),
+(5, 7, 'Kaio', 'Kaio est une agence web et multimédia basée à Roubaix, près de Lille dans le Nord-Pas-de-Calais.\r\nDepuis 2007, Kaio accompagne ses clients dans toutes leurs problématiques digitales et print. Nous concevons des solutions de communication interactive sur mesure à haut niveau technique.\r\n\r\nPlus de 150 clients nous font confiance, dont 40 enseignes de l\'immobilier.', 'avatar.jpg', 'Vous écouter, comprendre vos besoins mais aussi votre personnalité, vos envies, et vos contraintes.', 'SA', '456789123', 59, 'https://www.kaio.fr/');
 
 -- --------------------------------------------------------
 
@@ -246,7 +209,7 @@ INSERT INTO `entreprises` (`id`, `responsable`, `nom`, `description`, `logo`, `b
 -- Structure de la table `experiences`
 --
 
-CREATE TABLE IF NOT EXISTS `experiences` (
+CREATE TABLE `experiences` (
   `id` int(11) NOT NULL,
   `expDe` int(11) NOT NULL,
   `poste` varchar(255) NOT NULL,
@@ -256,15 +219,16 @@ CREATE TABLE IF NOT EXISTS `experiences` (
   `date_debut` varchar(20) NOT NULL,
   `date_fin` varchar(20) NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `experiences`
+-- Déchargement des données de la table `experiences`
 --
 
 INSERT INTO `experiences` (`id`, `expDe`, `poste`, `typeContrat`, `nomEntreprise`, `ville`, `date_debut`, `date_fin`, `description`) VALUES
-(1, 11, 'Développeur Front End', 'Contrat Pro', 'IBM Client Innovation Center', 'Lille', '2018-09-03', '2019-08-30', 'Apprenti développeur front-end dans l''équipe Watson'),
-(2, 13, 'Serveur', 'CDI', 'Leffe', 'Lille', '2019-05-11', '2019-05-31', 'Je servais des bières');
+(2, 3, 'Graphiste', 'Alternance', 'Office de Tourisme de Douai', 'Douai', '2019-01-21', '2019-08-31', 'Graphiste en contrat de professionnalisation.\r\nEn charge de la communication interne et externe et réalisation graphique.'),
+(3, 2, 'Intégrateur', 'Stage', 'Kaio', 'Roubaix', '2019-05-01', '2019-06-30', 'Intégration de site web'),
+(4, 1, 'Développeur Front End', 'Stage', 'IBM Client Innovation Center', 'Lille', '2018-04-02', '2018-06-29', 'Développeur un ChatBot avec une intelligence artificielle.');
 
 -- --------------------------------------------------------
 
@@ -272,18 +236,11 @@ INSERT INTO `experiences` (`id`, `expDe`, `poste`, `typeContrat`, `nomEntreprise
 -- Structure de la table `favoris`
 --
 
-CREATE TABLE IF NOT EXISTS `favoris` (
+CREATE TABLE `favoris` (
   `id` int(11) NOT NULL,
   `id_annonce` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `favoris`
---
-
-INSERT INTO `favoris` (`id`, `id_annonce`, `id_user`) VALUES
-(1, 2, 12);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -291,7 +248,7 @@ INSERT INTO `favoris` (`id`, `id_annonce`, `id_user`) VALUES
 -- Structure de la table `galerie_entreprises`
 --
 
-CREATE TABLE IF NOT EXISTS `galerie_entreprises` (
+CREATE TABLE `galerie_entreprises` (
   `id` int(11) NOT NULL,
   `idEntreprises` int(11) NOT NULL,
   `lienPhoto` text NOT NULL,
@@ -304,18 +261,24 @@ CREATE TABLE IF NOT EXISTS `galerie_entreprises` (
 -- Structure de la table `loisirs`
 --
 
-CREATE TABLE IF NOT EXISTS `loisirs` (
+CREATE TABLE `loisirs` (
   `id` int(11) NOT NULL,
   `loisirDe` int(11) NOT NULL,
   `nomLoisir` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `loisirs`
+-- Déchargement des données de la table `loisirs`
 --
 
 INSERT INTO `loisirs` (`id`, `loisirDe`, `nomLoisir`) VALUES
-(1, 13, 'Tunning');
+(8, 1, 'KickBoxing'),
+(7, 1, 'Musique'),
+(1, 2, 'Sport'),
+(6, 3, 'Dessins | Illustrations'),
+(5, 3, 'Films | Series'),
+(2, 3, 'Games'),
+(4, 3, 'Manga | Animé');
 
 -- --------------------------------------------------------
 
@@ -323,7 +286,7 @@ INSERT INTO `loisirs` (`id`, `loisirDe`, `nomLoisir`) VALUES
 -- Structure de la table `maintenance`
 --
 
-CREATE TABLE IF NOT EXISTS `maintenance` (
+CREATE TABLE `maintenance` (
   `id` int(11) NOT NULL,
   `etat` tinyint(1) NOT NULL,
   `maintenanceBy` int(11) NOT NULL,
@@ -336,21 +299,14 @@ CREATE TABLE IF NOT EXISTS `maintenance` (
 -- Structure de la table `messagerie`
 --
 
-CREATE TABLE IF NOT EXISTS `messagerie` (
+CREATE TABLE `messagerie` (
   `id` int(11) NOT NULL,
   `sender` int(11) NOT NULL,
   `destinataire` int(11) NOT NULL,
   `message` text NOT NULL,
   `etat_msg` tinyint(1) NOT NULL,
   `date_msg` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `messagerie`
---
-
-INSERT INTO `messagerie` (`id`, `sender`, `destinataire`, `message`, `etat_msg`, `date_msg`) VALUES
-(1, 1, 1, 'Test de message', 0, '2019-02-02 22:11:27');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -358,22 +314,22 @@ INSERT INTO `messagerie` (`id`, `sender`, `destinataire`, `message`, `etat_msg`,
 -- Structure de la table `reponsesannonces`
 --
 
-CREATE TABLE IF NOT EXISTS `reponsesannonces` (
+CREATE TABLE `reponsesannonces` (
   `id` int(11) NOT NULL,
   `idAnnoncesEntreprises` int(11) NOT NULL,
   `candidat` int(11) NOT NULL,
   `entreprise` int(11) NOT NULL,
   `datePostuler` datetime NOT NULL,
-  `notif` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `notif` tinyint(1) NOT NULL,
+  `reponse` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `reponsesannonces`
+-- Déchargement des données de la table `reponsesannonces`
 --
 
-INSERT INTO `reponsesannonces` (`id`, `idAnnoncesEntreprises`, `candidat`, `entreprise`, `datePostuler`, `notif`) VALUES
-(7, 6, 12, 10, '2019-05-09 14:20:59', 1),
-(8, 10, 12, 11, '2019-05-16 11:19:06', 0);
+INSERT INTO `reponsesannonces` (`id`, `idAnnoncesEntreprises`, `candidat`, `entreprise`, `datePostuler`, `notif`, `reponse`) VALUES
+(2, 6, 2, 5, '2019-06-11 13:10:16', 0, 'attente');
 
 -- --------------------------------------------------------
 
@@ -381,16 +337,16 @@ INSERT INTO `reponsesannonces` (`id`, `idAnnoncesEntreprises`, `candidat`, `entr
 -- Structure de la table `swagger`
 --
 
-CREATE TABLE IF NOT EXISTS `swagger` (
+CREATE TABLE `swagger` (
   `id` int(11) NOT NULL,
   `type` varchar(255) NOT NULL,
   `categorie` varchar(255) NOT NULL,
   `requete` text NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `swagger`
+-- Déchargement des données de la table `swagger`
 --
 
 INSERT INTO `swagger` (`id`, `type`, `categorie`, `requete`, `description`) VALUES
@@ -509,7 +465,7 @@ INSERT INTO `swagger` (`id`, `type`, `categorie`, `requete`, `description`) VALU
 -- Structure de la table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `prenom` varchar(100) NOT NULL,
   `nom` varchar(100) NOT NULL,
@@ -526,20 +482,25 @@ CREATE TABLE IF NOT EXISTS `users` (
   `admin` tinyint(1) NOT NULL,
   `premium` tinyint(1) NOT NULL,
   `avatar` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `prenom`, `nom`, `email`, `password`, `type_compte`, `departement`, `description`, `telephone`, `date_creation`, `date_last_connexion`, `avert`, `raison_ban`, `admin`, `premium`, `avatar`) VALUES
-(11, 'Maxime', 'Lefebvre', 'admin@admin.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'pro', 62, 'Voici ma nouvelle description !', 0, '2019-03-08 09:33:23', '2019-03-08 09:33:23', '0', '', 0, 0, '11d0a67e9bde85d858daec17657babb32e.jpg'),
-(12, 'Maxime', 'Lefebvre', 'etu@etu.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'etudiant', 62, 'Mon incroyable description !', 0, '2019-05-04 12:30:42', '2019-05-04 12:30:42', '0', '', 0, 0, '1208dbb84770743d4afa22b7935676d55b.jpg'),
-(13, 'Jacki', 'Tunning', 'user@user.com', '$2y$10$q.jWqCw3PoAYI0LTXSEYpeCCbcYD9HJf.8IO5c.SOJxYOMpmwoJ36', 'etudiant', 62, 'J''adore la bière et le tunning', 0, '2019-05-09 11:51:05', '2019-05-09 11:51:05', '0', '', 0, 0, '1338e11a95c89bb0671c92d17e48330404.jpg'),
-(14, 'Maxime', 'Lefebvre', 'maxime.radiohaide@gmail.com', '$2y$10$4l7R9ctCSB5j/.uSkVTYNO7tXPa8BykEntW9LP399aaCOpKC3SN0a', 'etudiant', 62, '', 0, '2019-05-24 08:21:18', '2019-05-24 08:21:18', '0', '', 0, 0, 'avatar.jpg');
+(1, 'Maxime', 'Lefebvre', 'maximelefebvre1505@gmail.com', '$2y$10$WMkG.p44qcKoFvO9uyCR8O23R42gfm5WQijq.WxpijIEcN/q0VK5O', 'etudiant', 62, 'Salut, je suis l\'un des fondateurs d\'Alt\'itude.\r\n\r\nJ\'ai 21 ans, et je suis en Licence Pro CreaWeb.\r\nLe développement web me passionne ainsi que la musique.', 0, '2019-06-05 09:26:42', '2019-06-05 09:26:42', '0', '', 0, 0, '12ba370f92d113dcd84a25cd0808587b7.jpg'),
+(2, 'albert', 'Pinot', 'albert.pinot@outlook.fr', '$2y$10$erg0RDaT7v5xhPFdmI/H3OF1BB5X0p5zJkURpM6POD6zn6S/3erFW', 'etudiant', 62, '', 658507215, '2019-06-05 09:28:55', '2019-06-05 09:28:55', '0', '', 0, 0, 'avatar.jpg'),
+(3, 'Julien', 'Colmont', 'juliencolmont59@gmail.com', '$2y$10$HGDGWogR4wVm11yCKIwBkuU38msthNvfktk7rgA8ub26X5qSeqLbC', 'etudiant', 57, 'Je m\'appel Julien Colmont, Je suis graphiste et j\'aime réaliser des illustrations dans mes projets.', 0, '2019-06-05 09:32:08', '2019-06-05 09:32:08', '0', '', 0, 0, 'avatar.jpg'),
+(4, 'Bastien', 'Moiroux', 'bastienmoiroux@gmail.com', '$2y$10$91ui.UMcxlJs744BpOeXpO1S99Q5B7didMBrGir2XdlpI/HEdj9pe', 'etudiant', 59, 'Je suis le plus beau des ux designers', 786264396, '2019-06-05 09:36:35', '2019-06-05 09:36:35', '0', '', 0, 0, '4ec5e085306f86cf93ab9dc2163d6de01.jpg'),
+(5, 'John', 'Doe', 'maxime.radiohaide@gmail.com', '$2y$10$NWx49L8PaYt2/SAUZf3gHO48cu9nfdwtZWtFTMY2Uu4GvQMBWuiDW', 'pro', 62, '', 0, '2019-06-06 09:01:17', '2019-06-06 09:01:17', '0', '', 0, 0, 'avatar.jpg'),
+(7, 'Vincent', 'Delplace', 'albert.pinot1806@gmail.com', '$2y$10$KywRuFG6BPT1CNGgZ1ZbF.zen69wkCY0IlaVDnkcy3UUGl7.2Ni1m', 'pro', 59, '', 0, '2019-06-06 13:13:30', '2019-06-06 13:13:30', '0', '', 0, 0, 'avatar.jpg'),
+(8, 'Maxime', 'Marais', 'maxime@kaio.fr', '$2y$10$NdPC50Swj0EgwlIAjW1ZDeoCsIKHiAhoi3.p7F2UTntMdsY9bMc9O', 'pro', 59, '', 0, '2019-06-17 10:27:44', '2019-06-17 10:27:44', '0', '', 0, 0, 'avatar.jpg'),
+(9, 'Jacques', 'Remy', 'albert_pinot@ens.univ-artois.fr', '$2y$10$cQKpKX8tn5Tf.nI3Jh8i5.ila1kL/sbSIlrSe4l9Ra/td8WrVH71K', 'etudiant', 62, '', 0, '2019-06-17 11:26:56', '2019-06-17 11:26:56', '0', '', 0, 0, 'avatar.jpg'),
+(10, 'Robin', 'Biencourt', 'robin.biencourt@gmail.com', '$2y$10$MnMF1.0g73XOowCXdI1s2ONjdD9I1wb8AiAA1Poiq4kbwa/llAY9C', 'etudiant', 62, '', 0, '2019-06-17 17:14:11', '2019-06-17 17:14:11', '0', '', 0, 0, 'avatar.jpg');
 
 --
--- Index pour les tables exportées
+-- Index pour les tables déchargées
 --
 
 --
@@ -673,94 +634,112 @@ ALTER TABLE `users`
   ADD KEY `prenom` (`prenom`,`nom`,`email`,`type_compte`,`departement`,`telephone`,`date_creation`,`date_last_connexion`,`avert`,`admin`,`premium`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
 -- AUTO_INCREMENT pour la table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT pour la table `administration`
 --
 ALTER TABLE `administration`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT pour la table `annoncesentreprises`
 --
 ALTER TABLE `annoncesentreprises`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT pour la table `competences`
 --
 ALTER TABLE `competences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT pour la table `competencesannonce`
 --
 ALTER TABLE `competencesannonce`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT pour la table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT pour la table `diplomes`
 --
 ALTER TABLE `diplomes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT pour la table `entreprises`
 --
 ALTER TABLE `entreprises`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT pour la table `experiences`
 --
 ALTER TABLE `experiences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT pour la table `favoris`
 --
 ALTER TABLE `favoris`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT pour la table `galerie_entreprises`
 --
 ALTER TABLE `galerie_entreprises`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT pour la table `loisirs`
 --
 ALTER TABLE `loisirs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT pour la table `maintenance`
 --
 ALTER TABLE `maintenance`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT pour la table `messagerie`
 --
 ALTER TABLE `messagerie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT pour la table `reponsesannonces`
 --
 ALTER TABLE `reponsesannonces`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT pour la table `swagger`
 --
 ALTER TABLE `swagger`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=109;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

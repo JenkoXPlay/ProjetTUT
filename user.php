@@ -36,7 +36,7 @@
                                     <span>
                                         <?php
                                             if ($dataUser['description'] != "") {
-                                                echo $dataUser['description'];
+                                                echo nl2br($dataUser['description']);
                                             } else echo "Pas encore de description !";
                                         ?>
                                     </span>

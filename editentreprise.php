@@ -103,7 +103,7 @@
                             <div class="textLogo">Logo</div>
                             
                             <div class="contentAvatar">
-                                    <img src="/avatar/<?php echo $dataEntreprise['logo']; ?>" class="width_20" />
+                                    <img src="/avatar/avatar.jpg" class="width_20" />
                             </div>
                             
                             <form action="" method="post">

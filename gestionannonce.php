@@ -70,13 +70,16 @@
                                                         </div>
                                                         <?php  
                                                             if (isset($_POST['afficher'])) {
-                                                                ?><head><meta http-equiv="refresh" content="0;URL=/annonce/<?php echo $dataAllAnnonce['id']; ?>" /></head><?php
+                                                                $idAnnonce = $_POST['idAnnonce'];
+                                                                ?><head><meta http-equiv="refresh" content="0;URL=/annonce/<?php echo $idAnnonce; ?>" /></head><?php
                                                             }
                                                             if (isset($_POST['modifier'])) {
-                                                                ?><head><meta http-equiv="refresh" content="0;URL=/editannonce/<?php echo $dataAllAnnonce['id']; ?>" /></head><?php
+                                                                $idAnnonce = $_POST['idAnnonce'];
+                                                                ?><head><meta http-equiv="refresh" content="0;URL=/editannonce/<?php echo $idAnnonce; ?>" /></head><?php
                                                             }
                                                             if (isset($_POST['candidature'])) {
-                                                                ?><head><meta http-equiv="refresh" content="0;URL=/repannonce/<?php echo $dataAllAnnonce['id']; ?>"></head><?php
+                                                                $idAnnonce = $_POST['idAnnonce'];
+                                                                ?><head><meta http-equiv="refresh" content="0;URL=/repannonce/<?php echo $idAnnonce; ?>"></head><?php
                                                             }
                                                         ?>
                                                         <div class="contentGestion">

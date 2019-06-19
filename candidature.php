@@ -56,9 +56,17 @@
                                                     </td>
                                                     <td>
                                                         <?php
-                                                            if ($dataAnnonceRep['notif'] == 0) {
-                                                                echo "En attente";
-                                                            } else echo "<span class='txtGreen'>Étudiée</span>"
+                                                            // système quand on mettre en place les notifs ajax
+                                                            // if ($dataAnnonceRep['notif'] == 0) {
+                                                            //     echo "En attente";
+                                                            // } else echo "<span class='txtGreen'>Étudiée</span>";
+                                                            if ($dataAnnonceRep['reponse'] == 'attente') {
+                                                                echo "En Attente";
+                                                            } else if ($dataAnnonceRep['reponse'] == 'accepte') {
+                                                                echo "<span class='txtGreen'>Accepté(e)</span>";
+                                                            } else if ($dataAnnonceRep['reponse'] == 'refuse') {
+                                                                echo "<span class='txtRed'>Refusé(e)</span>";
+                                                            } else echo "Erreur";
                                                         ?>
                                                     </td>
                                                     <td>
