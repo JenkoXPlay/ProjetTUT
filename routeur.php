@@ -52,11 +52,6 @@ $router = new Router();
 
 $router->setRoutes('/Altitude/', 'index.php');
 $router->setRoutes('/home', 'index.php');
-
-// routage admin
-$router->setRoutes('/admin', './admin/index.php');
-$router->setRoutes('/admin/home', './admin/admin.php');
-
 $router->setRoutes('/logout', 'logout.php');
 $router->setRoutes('/login', 'login.php');
 $router->setRoutes('/editprofile', 'editprofil.php');
