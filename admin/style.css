@@ -61,12 +61,20 @@ body {
 /* formulaire */
 
 /* tailles */
+.width_20 {
+	width: 20%;
+}
+
 .width_40 {
 	width: 40%;
 }
 
 .width_50 {
 	width: 50%;
+}
+
+.width_80 {
+	width: 80%;
 }
 /* tailles */
 
@@ -113,8 +121,48 @@ body {
 }
 /* UTILES */
 
+/* BOX */
+.boxBlue {
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	border-radius: 4px;
+	padding: 20px 0 20px 0;
+	font-size: 1.4em;
+	background: #74b9ff;
+	color: #fff;
+}
+.boxRed {
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	border-radius: 4px;
+	padding: 20px 0 20px 0;
+	font-size: 1.4em;
+	background: #ff7675;
+	color: #fff;
+}
+.boxViolet {
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	border-radius: 4px;
+	padding: 20px 0 20px 0;
+	font-size: 1.4em;
+	background: #a29bfe;
+	color: #fff;
+}
+/* BOX */
+
+/* FLEX ELEMENTS */
+.flexContentBetween {
+	display: flex;
+	justify-content: space-between;
+}
+/* FLEX ELEMENTS */
+
 #menu {
-	background: #34495e;
+	background: #2d3436;
 	float: left;
 	width: 20%;
 	height: 100%;
@@ -131,15 +179,30 @@ body {
 	padding-bottom: 7px;
 	font-size: 18px;
 	margin-bottom: 10px;
+	transition: 0.3s;
 }
 #menu a:hover {
-	background: #007fff;
+	background: #fff;
 	width: 100%;
+	color: #2d3436;
+	font-weight: bold;
+	transition: 0.3s;
+	box-shadow: 0 0 10px #000;
+}
+#menu .activate {
+	background: #fff;
+	width: 100%;
+	color: #2d3436;
+	font-weight: bold;
+	transition: 0.3s;
+	box-shadow: 0 0 10px #000;
 }
 
 #contenu {
 	float: right;
-	width:80%;
+	width: 75%;
 	padding-left: 10px;
 	padding-top: 10px;
+	padding-top: 10px;
+	padding: 10px;
 }

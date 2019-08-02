@@ -66,4 +66,12 @@
         return $req;
     }
 
+    // compter les annonces
+    function countAnnonces($bdd) {
+        $req = $bdd->prepare("SELECT COUNT(*) AS countid FROM annoncesentreprises");
+        $req->execute();
+        $reqFetch = $req->fetch();
+        return $reqFetch['countid'];
+    }
+
 ?>

@@ -80,4 +80,24 @@
         return $req;
     }
 
+    // compteurs totals utilisateurs
+    function countUsers($bdd, $type) {
+        if ($type == "all") { // si tous les utilisateurs
+            $req = $bdd->prepare("SELECT COUNT(*) AS countid FROM users");
+        } else if ($type == "etudiant") { // si etudiant
+            $req = $bdd->prepare("SELECT COUNT(*) AS countid FROM users WHERE type_compte='etudiant'");
+        } else if ($type == "pro") { // si pro
+            $req = $bdd->prepare("SELECT COUNT(*) AS countid FROM users WHERE type_compte='pro'");
+        }
+        $req->execute();
+        $reqFetch = $req->fetch();
+        return $reqFetch['countid'];
+    }
+
+
+    /*
+        $req_count = $bdd->query("SELECT COUNT(*) AS countid FROM reponsesannonces WHERE candidat='{$dataUser['id']}'");
+        $req_count_fetch = $req_count->fetch();
+        if ($req_count_fetch['countid'] == 0) {
+    */
 ?>

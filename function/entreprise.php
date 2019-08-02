@@ -88,4 +88,12 @@
         return $req;
     }
 
+    // compte le nombre d'entreprise
+    function countEntreprises($bdd) {
+        $req = $bdd->prepare("SELECT COUNT(*) AS countid FROM entreprises");
+        $req->execute();
+        $reqFetch = $req->fetch();
+        return $reqFetch['countid'];
+    }
+
 ?>

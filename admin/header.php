@@ -21,7 +21,7 @@
 	<div id="menu">
 		<img src="../img/logo_white.svg" width="70%" />
 		<br /><br />
-		<a href="admin.php">Acceuil</a>
+		<a href="admin.php" <?php if($_SERVER['REQUEST_URI'] == "/admin/admin.php"){ echo "class='activate'"; } ?>>Acceuil</a>
 		<a href="logout.php">Deconnexion</a>
 		<a href="config.php">Configuration</a>
 		<a href="membre.php">Les membres</a>
