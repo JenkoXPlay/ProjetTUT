@@ -1,68 +1,97 @@
-<?php include('header.php'); ?>
+<?php 
+	include('header.php');
+	include('../script_php/security.php');
 
-	<?php
-	session_start();
-	if(isset($_SESSION['username'])){
-	?>
+	// inclusion des fichiers swagger
+	include('../function/user.php');
+	include('../function/annoncesentreprises.php');
+	include('../function/entreprise.php');
 
-			<div id="contenu">
+	$reqAdmin = getAdminPseudo($bdd, $_SESSION['administrator']);
+	while ($dataAdmin = $reqAdmin->fetch()) {
 
-				<?php
-				$requete = $connect->query("SELECT * FROM admin WHERE username='{$_SESSION['username']}'");
-				while($data = $requete->fetch()){
-					if($data['rang'] == "Fondateur"){
-					?>
-						
-						<h3>Maintenance</h3>
-						<?php
-						$req_mtn = $connect->query("SELECT * FROM maintenance WHERE id='1'");
-						while($data_mtn = $req_mtn->fetch()){
-						?>
-							<b>État actuel :</b> <?php if($data_mtn['etat'] == "On"){ echo "<font color='#ff0000'>On</font>"; }else if($data_mtn['etat'] == "Off"){ echo "<font color='#27ae60'>Off</font>"; } ?><br /><br />
-						<?php
-						}
-						$req_mtn->closeCursor();
-						?>
-						<?php
-						include('../script_php/security.php');
-						if(isset($_POST['sub_mtn'])){
-							$etat = security($_POST['etat']);
-							$message = security($_POST['message']);
-							$date_fin = security($_POST['date_fin']);
-							if($message){
-								if($etat != "État maintenance"){
-									$query_mtn = $connect->exec("UPDATE maintenance SET etat='$etat', message='$message', date_fin='$date_fin' WHERE id='1'");
-									echo "<div class='success_admin'>L'état de la maintenance a été mis à jour !</div><br />";
-								}else echo "<div class='erreur_admin'>Veuillez choisir un état !</div><br />";
-							}else echo "<div class='erreur_admin'>Veuillez mettre un message de maintenance !</div><br />";
-						}
-						?>
-						<form method="post" action="" autocomplete="off">
-							<select name="etat" class="select">
-								<option selected>État maintenance</option>
-								<option>On</option>
-								<option>Off</option>
-							</select><br /><br />
-							<input type="text" name="message" class="form" placeholder="Message de maintenance" /><br /><br />
-							<b>AAA/MM/JJ HH:MM:SS</b><br />
-							<input type="text" name="date_fin" class="form" placeholder="Date de fin" /><br /><br >
-							<input type="submit" name="sub_mtn" class="btn_mtn" value="Mettre à jour" />
-						</form>
+		if ($dataAdmin['privilege'] != "admin") {
+			header('Location:admin.php');
+		}
+?>
 
-					<?php
-					}else{
-					?>
-						<h3>Vous n'avez pas accès à cette page !</h3>
-					<?php
+	<div id="contenu">
+
+		<div class="flexContentBetween marginAuto width_80">
+			<div class="boxBlue width_20">
+				Maintenance<br />
+				on off
+			</div>
+			<div class="boxRed width_20">
+				Connexion<br />
+				on off
+			</div>
+			<div class="boxViolet width_20">
+				Inscription<br />
+				on off
+			</div>
+		</div>
+
+		<br /><br />
+
+		<h3>Configuration du domaine !</h3><br />
+
+		<br /><br />
+
+		<div class="flexContentBetween">
+
+			<?php
+				$reqMaintenance = $bdd->query("SELECT * FROM maintenance WHERE id='1'");
+				while ($dataMaintenance = $reqMaintenance->fetch()) {
+
+					$reqMaintenanceBy = $bdd->query("SELECT * FROM admin WHERE id='{$dataMaintenance['maintenanceBy']}'");
+					while ($dataMaintenanceBy = $reqMaintenanceBy->fetch()) {
+						$maintenanceBy = $dataMaintenanceBy['pseudo'];
 					}
-				}
-				$requete->closeCursor();
-				?>
+			?>
+				<div class="width_40 txtCenter">
+					<h3>Maintenance du site</h3>
+					<b>Maintenance : <?php if ($dataMaintenance['etat']){ echo "<span class='txtRed'>on</span>"; } else { echo "<span class='txtGreen'>off</span>"; } ?></b><br />
+					<b>Effectué par : </b><?php echo $maintenanceBy; ?>
 
+					<br /><br />
+
+					<?php
+						if (isset($_POST['maj_Maintenance'])) {
+							$etat = security($_POST['etatMaintenance']);
+							$etat_dispo = array('0', '1');
+							if ($etat) {
+								if (in_array($etat, $etat_dispo)) {
+									// problème à résoudre la value 0 n'est pas détectée
+								} else echo "<div class='alertError width_80 marginAuto'>Une erreur est survenue !</div><br />";
+							} else echo "<div class='alertError width_80 marginAuto'>Une erreur est survenue !</div><br />";
+						}
+					?>
+					<form action="" method="post" autocomplete="off">
+						<select name="etatMaintenance" class="inputBorder width_80">
+							<option value="null">État de la maintenance</option>
+							<option value="0">Désactivée</option>
+							<option value="1">Activée</option>
+						</select>
+						<br /><br />
+						<input type="submit" name="maj_Maintenance" class="btnBlue width_80" value="Mettre à jour" />
+					</form>
+				</div>
+			<?php
+				}
+			?>
+
+			<div class="width_40 txtCenter">
+				<h3>Gestion connexion / inscription</h3>
+				
 			</div>
 
-	<?php
-	}else include('redirection_index.php');
-	?>
+		</div>
+
+	</div>
+
+<?php
+	}
+?>
 
 <?php include('footer.php'); ?>

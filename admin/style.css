@@ -64,6 +64,23 @@ body {
 	color: #fff;
 	transition: 0.3s;
 }
+
+.btnRed {
+	background: transparent;
+	border-radius: 4px;
+	border: 2px solid #d63031;
+	padding: 10px;
+	color: #d63031;
+	font-weight: bold;
+	transition: 0.3s;
+	text-transform: uppercase;
+}
+.btnRed:hover {
+	cursor: pointer;
+	background: #d63031;
+	color: #fff;
+	transition: 0.3s;
+}
 /* formulaire */
 
 /* tailles */
@@ -170,6 +187,30 @@ body {
 	justify-content: space-between;
 }
 /* FLEX ELEMENTS */
+
+/* TEXTE */
+.centered {
+    text-align: center;
+}
+.txtLeft {
+    text-align: left;
+}
+.txtRight {
+    text-align: right;
+}
+.txtGreen {
+    color: #00e1a0;
+}
+.txtPurple {
+    color: #4b00ff;
+}
+.txtGrey {
+    color: #3B4351;
+}
+.txtRed {
+    color: #d63031;
+}
+/* TEXTE */
 
 #menu {
 	background: #2d3436;

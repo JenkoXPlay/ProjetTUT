@@ -1,20 +1,22 @@
 <?php
 
     // Ajouter un nouvel admin à la BDD
-    function addAdmin($bdd, $pseudo, $password, $privilege){
+    function addAdmin($bdd, $pseudo, $email, $password, $privilege){
         $req = $bdd->prepare("INSERT INTO admin 
                                         (id,
                                         pseudo,
+                                        email,
                                         password,
                                         creation,
                                         last_connexion,
                                         avatar,
                                         privilege,
                                         ban)
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $req->execute([
             '',
             $pseudo,
+            $email,
             $password,
             date("Y-m-d H:i:s"),
             date("Y-m-d H:i:s"),
@@ -55,6 +57,14 @@
         $req = $bdd->prepare("SELECT * FROM admin WHERE pseudo='$pseudo'");
         $req->execute();
         return $req;
+    }
+
+    // si un compte admin exists
+    function getAdminExist($bdd, $id) {
+        $req = $bdd->prepare("SELECT COUNT(*) AS countid FROM admin WHERE id='$id'");
+        $req->execute();
+        $reqFetch = $req->fetch();
+        return $reqFetch['countid'];
     }
 
 ?>

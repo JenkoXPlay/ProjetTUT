@@ -42,7 +42,8 @@
 							if ($validPassword) {
 								/*Création de la session*/
 								$_SESSION['administrator'] = $pseudo;
-								$reqMajConnection = $bdd->exec("UPDATE admin SET last_connexion='NOW()' WHERE pseudo='$pseudo'");
+								$currentDate = date('Y-m-d h:i:s', time());
+								$reqMajConnection = $bdd->exec("UPDATE admin SET last_connexion='$currentDate' WHERE pseudo='$pseudo'");
 								echo"<div class='alertSuccess width_50 marginAuto'>Accès autorisé, redirection en cours...</div><br />";
 								?><head> <meta http-equiv="refresh" content="2;admin.php" /></head> <?php 
 							} else echo "<div class='alertError width_50 marginAuto'>Accès refusé, mot de passe incorrect !</div><br />";
